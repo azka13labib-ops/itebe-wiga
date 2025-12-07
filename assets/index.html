@@ -1,0 +1,5034 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ITB Widyagama Lumajang</title>
+
+    <!-- Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================
+       VARIABEL & RESET
+    ========================= */
+        :root {
+            --wg38_page-bg: #f8fafc;
+            --wg38_text: #0b1b2e;
+            --wg38_muted: #475569;
+            --wg38_border: #e2e8f0;
+
+            --wg38_aud-bg: #073a63;
+            --wg38_aud-text: rgba(255, 255, 255, 0.92);
+
+            --wg38_nav-bg: #ffffff;
+            --wg38_nav-text: #0b1b2e;
+
+            /* Aksen kuning */
+            --wg38_accent-yellow: #ffbf0f;
+            --wg38_accent-yellow-2: #f5b700;
+            --wg38_accent-yellow-3: #d89a00;
+
+            /* Tema biru/navy */
+            --wg38_accent-navy: #073a63;
+            --wg38_accent-blue: #0b63b5;
+            --wg38_accent-light-blue: #eaf4ff;
+
+            --wg38_card: #ffffff;
+            --wg38_shadow: 0 18px 50px rgba(15, 23, 42, 0.16);
+            --wg38_radius: 12px;
+            --wg38_container: 1200px;
+
+            --wg38_bp-aud-mobile: 680px;
+            --wg38_bp-nav-mobile: 980px;
+
+            /* Tambahan */
+            --wg38_bg-page: #f8fafc;
+            --wg38_bg-card: #ffffff;
+            --wg38_text-main: #0b1b2e;
+            --wg38_text-muted: #4b5568;
+
+            --wg38_primary: #073a63;
+            --wg38_primary-light: #0b63b5;
+            --wg38_primary-dark: #052b48;
+            --wg38_primary-soft: #eaf4ff;
+
+            --wg38_accent: #ffbf0f;
+            --wg38_accent-light: #fff3d4;
+            --wg38_accent-dark: #d89a00;
+
+            --wg38_border-soft: rgba(226, 232, 240, .95);
+
+            --wg38_radius-lg: 18px;
+            --wg38_radius-md: 12px;
+            --wg38_radius-sm: 8px;
+
+            --wg38_shadow-sm: 0 4px 12px rgba(2, 6, 23, .05);
+            --wg38_shadow-md: 0 10px 30px rgba(2, 6, 23, .08);
+            --wg38_shadow-lg: 0 18px 44px rgba(2, 6, 23, .12);
+
+            --wg38_transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+            /* Alias biar section lain tetap memakai palet yang sama */
+            --wg38_navy: var(--wg38_primary);
+            --wg38_blue: var(--wg38_primary-light);
+            --wg38_primary_blue: var(--wg38_primary);
+            --wg38_primary_dark: var(--wg38_primary-dark);
+            --wg38_bg: var(--wg38_page-bg);
+            --wg38_bg_light: var(--wg38_primary-soft);
+            --wg38_white: #ffffff;
+            --wg38_text_muted: var(--wg38_text-muted);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 132px;
+        }
+
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: var(--wg38_bg-page);
+            color: var(--wg38_text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .wg38_container {
+            width: min(var(--wg38_container), calc(100% - 32px));
+            margin-inline: auto;
+        }
+
+        .wg38_site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            animation: wg38_slideDown 0.3s ease;
+            background: transparent;
+        }
+
+        @keyframes wg38_slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+       AUDIENCE BAR & NAVIGASI
+    ========================= */
+        .wg38_audience-bar {
+            background: linear-gradient(120deg, var(--wg38_primary), var(--wg38_primary-light));
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            position: relative;
+            z-index: 1200;
+            padding: 4px 0;
+            box-shadow: 0 6px 18px rgba(7, 58, 99, 0.12);
+        }
+
+        .wg38_audience-inner {
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .wg38_aud-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wg38_social {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-right: 10px;
+            border-right: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .wg38_social a {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.88);
+            transition: all 0.2s ease;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .wg38_social a:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            transform: translateY(-1px) scale(1.06);
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+        }
+
+        /* Desktop Audience Navigation */
+        .wg38_aud-nav {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            overflow: visible;
+            gap: 2px;
+        }
+
+        .wg38_aud-item {
+            position: relative;
+        }
+
+        .wg38_aud-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--wg38_aud-text);
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .wg38_aud-toggle:hover,
+        .wg38_aud-item.wg38_open>.wg38_aud-toggle {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+        }
+
+        .wg38_caret {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        .wg38_aud-item.wg38_open .wg38_caret {
+            transform: rotate(180deg);
+        }
+
+        .wg38_aud-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 320px;
+            max-width: 440px;
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid var(--wg38_border);
+            background: var(--wg38_card);
+            box-shadow: var(--wg38_shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: all 0.2s ease;
+            z-index: 5500;
+        }
+
+        .wg38_aud-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 18px;
+            width: 14px;
+            height: 14px;
+            background: var(--wg38_card);
+            border-left: 1px solid var(--wg38_border);
+            border-top: 1px solid var(--wg38_border);
+            transform: rotate(45deg);
+        }
+
+        .wg38_aud-link {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #111827;
+            line-height: 1.4;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .wg38_aud-link:hover {
+            background: var(--wg38_primary-soft);
+            transform: translateX(4px);
+            border-left-color: var(--wg38_accent-yellow);
+        }
+
+        .wg38_aud-item.wg38_open>.wg38_aud-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+            animation: wg38_fadeInUp 0.2s ease;
+        }
+
+        @keyframes wg38_fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Navbar */
+        .wg38_navbar {
+            color: var(--wg38_nav-text);
+            z-index: 1100;
+            position: relative;
+            backdrop-filter: blur(10px);
+            background: var(--wg38_nav-bg);
+            border-bottom: 1px solid var(--wg38_border);
+            box-shadow: 0 10px 30px rgba(7, 58, 99, 0.08);
+        }
+
+        .wg38_nav-inner {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .wg38_brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 280px;
+            transition: transform 0.2s ease;
+        }
+
+        .wg38_brand:hover {
+            transform: translateY(-1px);
+        }
+
+        .wg38_logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: contain;
+            background: #ffffff;
+            border: 1px solid rgba(11, 58, 102, 0.18);
+            box-shadow: 0 4px 12px rgba(11, 58, 102, 0.15);
+            padding: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .wg38_brand:hover .wg38_logo-img {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .wg38_brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            line-height: 1.1;
+        }
+
+        .wg38_brand-small {
+            font-size: 11.5px;
+            letter-spacing: 0.1px;
+            color: #0b1b2e;
+            text-transform: none;
+            font-weight: 800;
+        }
+
+        .wg38_brand-main {
+            font-size: 14px;
+            letter-spacing: 0.4px;
+            color: var(--wg38_accent-yellow);
+            text-transform: uppercase;
+            font-weight: 900;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Desktop Main Navigation */
+        .wg38_nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .wg38_nav-link,
+        .wg38_dd-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            color: rgba(11, 27, 46, 0.92);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            position: relative;
+            font-weight: 700;
+            font-size: 13.5px;
+        }
+
+        .wg38_nav-link:hover,
+        .wg38_dd-toggle:hover,
+        .wg38_has-dropdown.wg38_open>.wg38_dd-toggle {
+            background: rgba(11, 58, 102, 0.08);
+            border-color: rgba(11, 58, 102, 0.12);
+            color: var(--wg38_accent-navy);
+        }
+
+        .wg38_nav-link::after,
+        .wg38_dd-toggle::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--wg38_accent-yellow);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .wg38_nav-link:hover::after,
+        .wg38_dd-toggle:hover::after,
+        .wg38_has-dropdown.wg38_open>.wg38_dd-toggle::after {
+            width: 70%;
+        }
+
+        .wg38_has-dropdown {
+            position: relative;
+        }
+
+        .wg38_dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            min-width: 300px;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid var(--wg38_border);
+            background: var(--wg38_card);
+            box-shadow: var(--wg38_shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: all 0.2s ease;
+            z-index: 5600;
+        }
+
+        .wg38_dropdown::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 20px;
+            width: 14px;
+            height: 14px;
+            background: var(--wg38_card);
+            border-left: 1px solid var(--wg38_border);
+            border-top: 1px solid var(--wg38_border);
+            transform: rotate(45deg);
+        }
+
+        .wg38_menu-item {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            color: #111827;
+            transition: all 0.2s ease;
+            margin-bottom: 4px;
+            border-left: 3px solid transparent;
+        }
+
+        .wg38_menu-item:hover {
+            background: var(--wg38_primary-soft);
+            transform: translateX(4px);
+            color: var(--wg38_accent-navy);
+            border-left-color: var(--wg38_accent-yellow);
+        }
+
+        .wg38_menu-title {
+            padding: 10px 12px 6px;
+            font-weight: 900;
+            font-size: 12.5px;
+            color: var(--wg38_accent-navy);
+            opacity: .95;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .wg38_has-dropdown.wg38_open>.wg38_dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+            animation: wg38_fadeInUp 0.2s ease;
+        }
+
+        /* Submenu (Desktop) */
+        .wg38_submenu-wrap {
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .wg38_sub-toggle {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            background: transparent;
+            cursor: pointer;
+            text-align: left;
+            color: #111827;
+            transition: all 0.2s ease;
+        }
+
+        .wg38_sub-toggle:hover,
+        .wg38_submenu-wrap.wg38_open>.wg38_sub-toggle {
+            background: var(--wg38_primary-soft);
+        }
+
+        .wg38_sub-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--wg38_accent-navy);
+        }
+
+        .wg38_sub-hint {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .wg38_caret-right {
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+        }
+
+        .wg38_submenu-wrap.wg38_open .wg38_caret-right {
+            transform: rotate(90deg);
+        }
+
+        .wg38_submenu {
+            position: absolute;
+            top: 0;
+            left: calc(100% + 10px);
+            min-width: 260px;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid var(--wg38_border);
+            background: var(--wg38_card);
+            box-shadow: var(--wg38_shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: all 0.2s ease;
+            z-index: 5650;
+        }
+
+        .wg38_submenu::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: -8px;
+            width: 14px;
+            height: 14px;
+            background: var(--wg38_card);
+            border-left: 1px solid var(--wg38_border);
+            border-top: 1px solid var(--wg38_border);
+            transform: rotate(-45deg);
+        }
+
+        .wg38_submenu-wrap.wg38_open>.wg38_submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+            animation: wg38_fadeInUp 0.2s ease;
+        }
+
+        .wg38_menu-divider {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.08);
+            margin: 8px 12px;
+        }
+
+        /* CTA Buttons (kosong sesuai permintaan user) */
+        .wg38_nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 220px;
+            justify-content: flex-end;
+        }
+
+        /* Mobile Buttons */
+        .wg38_aud-actions,
+        .wg38_nav-actions {
+            display: none;
+            align-items: center;
+        }
+
+        .wg38_icon-btn {
+            width: 38px;
+            height: 34px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 10px;
+            border: 1px solid var(--wg38_border);
+            background: #ffffff;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .wg38_icon-btn:hover {
+            background: #f8fafc;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .wg38_icon {
+            width: 18px;
+            height: 18px;
+            color: #334155;
+        }
+
+        /* =========================
+       HERO SECTION
+    ========================= */
+        .wg38_utama {
+            width: min(var(--wg38_container), calc(100% - 32px));
+            margin: 0 auto;
+            padding: 80px 0 100px;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 30px;
+            align-items: center;
+            position: relative;
+            z-index: 0;
+            isolation: isolate;
+        }
+
+        .wg38_utama::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            z-index: -1;
+            background: linear-gradient(135deg,
+                    #073a63 0%,
+                    #0b63b5 55%,
+                    #0a4b86 100%);
+            background-size: 400% 400%;
+            animation: wg38_gradientBG 15s ease infinite;
+        }
+
+        @keyframes wg38_gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .wg38_utama::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            bottom: -1px;
+            height: 40px;
+            z-index: -1;
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0.8) 30%,
+                    rgba(255, 255, 255, 1) 100%);
+        }
+
+        .wg38_kiri {
+            animation: wg38_slideInLeft 0.8s ease;
+        }
+
+        @keyframes wg38_slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .wg38_kiri h1 {
+            line-height: 1.1;
+            letter-spacing: 0.2px;
+            color: #ffffff;
+            font-size: clamp(26px, 2.8vw, 38px);
+            font-weight: 900;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .wg38_kiri h1+h1 {
+            margin-top: 6px;
+            color: var(--wg38_accent-yellow);
+        }
+
+        .wg38_kiri p {
+            margin: 20px 0 0;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.65;
+            max-width: 58ch;
+            font-size: 15px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .wg38_cta-row {
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            animation: wg38_fadeInUp 0.6s ease 0.3s both;
+        }
+
+        .wg38_hero-stats {
+            margin-top: 26px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            max-width: 440px;
+        }
+
+        .wg38_hero-stat {
+            text-align: center;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .wg38_hero-stat-number {
+            color: var(--wg38_accent-yellow);
+            font-weight: 900;
+            font-size: 28px;
+            letter-spacing: 0.3px;
+        }
+
+        .wg38_hero-stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.1px;
+            font-weight: 700;
+        }
+
+        .wg38_btn-utama {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: var(--wg38_accent-yellow);
+            color: #0b1b2e;
+            border: 2px solid transparent;
+            font-weight: 900;
+            transition: all 0.2s ease;
+            font-size: 15px;
+            box-shadow: 0 6px 14px rgba(255, 191, 15, 0.28);
+        }
+
+        .wg38_btn-utama:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(245, 183, 0, 0.38);
+            background: var(--wg38_accent-yellow-2);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .wg38_btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 2px solid #cfe6ff;
+            font-weight: 900;
+            transition: all 0.2s ease;
+            font-size: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .wg38_btn-outline:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.16);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.18);
+            border-color: #cfe6ff;
+        }
+
+        .wg38_btn-utama:focus-visible,
+        .wg38_btn-outline:focus-visible,
+        .wg38_icon-btn:focus-visible {
+            outline: 3px solid rgba(255, 191, 15, 0.35);
+            outline-offset: 2px;
+        }
+
+        /* Slider (Hero kanan) */
+        .wg38_slider {
+            position: relative;
+            border-radius: 20px;
+            width: 100%;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 20, 45, 0.3);
+            backdrop-filter: blur(10px);
+            animation: wg38_slideInRight 0.8s ease;
+        }
+
+        @keyframes wg38_slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .wg38_slides {
+            position: relative;
+            height: 340px;
+            overflow: hidden;
+        }
+
+        .wg38_slides::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(7, 58, 99, 0.16);
+            pointer-events: none;
+        }
+
+        .wg38_slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.02);
+            transition: opacity 0.35s ease, transform 0.45s ease;
+        }
+
+        .wg38_slide.wg38_is-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .wg38_slider .wg38_nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(15, 23, 42, 0.4);
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .wg38_slider .wg38_nav:hover {
+            background: rgba(15, 23, 42, 0.6);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .wg38_slider .wg38_prev {
+            left: 16px;
+        }
+
+        .wg38_slider .wg38_next {
+            right: 16px;
+        }
+
+        /* Diganti dari dot bulat -> pill kecil */
+        .wg38_dots {
+            position: absolute;
+            left: 50%;
+            bottom: 16px;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+        }
+
+        .wg38_dot {
+            width: 14px;
+            height: 8px;
+            border-radius: 999px;
+            border: 0;
+            background: rgba(255, 255, 255, 0.55);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .wg38_dot.wg38_is-active {
+            width: 28px;
+            background: #ffffff;
+            transform: scale(1.03);
+        }
+
+        .wg38_dot:hover:not(.wg38_is-active) {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.03);
+        }
+
+        /* =========================
+       MINI NAVIGATION
+    ========================= */
+        .wg38_mini-nav {
+            position: sticky;
+            top: 112px;
+            z-index: 900;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .wg38_mini-nav .wg38_wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px clamp(16px, 4vw, 48px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .wg38_brand-mini {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 900;
+            letter-spacing: -.2px;
+            color: var(--wg38_primary);
+            user-select: none;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        /* Bukan dot, tapi bar kecil */
+        .wg38_brand-badge {
+            width: 18px;
+            height: 10px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--wg38_accent), var(--wg38_primary-light));
+            box-shadow: 0 0 0 4px rgba(255, 191, 15, .18);
+        }
+
+        .wg38_mini-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .wg38_mini-links a {
+            text-decoration: none;
+            color: var(--wg38_text-muted);
+            font-weight: 800;
+            font-size: 13px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(226, 232, 240, .9);
+            background: rgba(255, 255, 255, .7);
+            transition: var(--wg38_transition);
+        }
+
+        .wg38_mini-links a:hover {
+            color: var(--wg38_primary);
+            border-color: rgba(11, 58, 102, .18);
+            transform: translateY(-2px);
+            box-shadow: var(--wg38_shadow-sm);
+            background: var(--wg38_primary-soft);
+        }
+
+        .wg38_mini-links a.wg38_active {
+            background: var(--wg38_primary);
+            color: white;
+            border-color: var(--wg38_primary);
+        }
+
+        /* =========================
+       BERITA TERBARU (wg38_beritaaa)
+    ========================= */
+        .wg38_beritaaa {
+            padding: 56px 0;
+            overflow-x: hidden;
+        }
+
+        .wg38_beritaaa__container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        .wg38_beritaaa__head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .wg38_beritaaa__kicker {
+            margin: 0 0 6px;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 950;
+            letter-spacing: .2px;
+            color: var(--wg38_navy);
+            font-size: 13px;
+        }
+
+        .wg38_beritaaa__title {
+            margin: 0;
+            font-size: clamp(22px, 3.2vw, 38px);
+            line-height: 1.12;
+            letter-spacing: -.5px;
+        }
+
+        .wg38_beritaaa__desc {
+            margin: 8px 0 0;
+            max-width: 70ch;
+            color: var(--wg38_muted);
+            font-size: 14px;
+        }
+
+        .wg38_beritaaa__side {
+            text-align: right;
+            max-width: 360px;
+        }
+
+        .wg38_beritaaa__sideTitle {
+            font-weight: 950;
+            color: var(--wg38_navy);
+        }
+
+        .wg38_beritaaa__sideDesc {
+            margin-top: 6px;
+            color: var(--wg38_muted);
+            font-size: 13px;
+        }
+
+        .wg38_beritaaa__ticker {
+            margin-top: 14px;
+            border: 1px solid rgba(226, 232, 240, .95);
+            background: rgba(255, 255, 255, .78);
+            border-radius: 16px;
+            padding: 10px 12px;
+            overflow: hidden;
+            box-shadow: 0 14px 34px rgba(15, 23, 42, .06);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 100%;
+            min-width: 0;
+        }
+
+        .wg38_beritaaa__live {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(11, 58, 102, .10), rgba(11, 99, 181, .10));
+            border: 1px solid rgba(11, 58, 102, .18);
+            font-weight: 950;
+            color: var(--wg38_navy);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .wg38_beritaaa__marquee {
+            position: relative;
+            flex: 1 1 auto;
+            overflow: hidden;
+            min-width: 0;
+            mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+        }
+
+        .wg38_beritaaa__marqueeTrack {
+            display: flex;
+            gap: 22px;
+            width: max-content;
+            flex-shrink: 0;
+            animation: wg38_marquee 24s linear infinite;
+            will-change: transform;
+        }
+
+        .wg38_beritaaa__marquee:hover .wg38_beritaaa__marqueeTrack {
+            animation-play-state: paused;
+        }
+
+        @keyframes wg38_marquee {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .wg38_beritaaa__tag {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 900;
+            color: var(--wg38_text);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .wg38_beritaaa__grid {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        @media (min-width: 900px) {
+            .wg38_beritaaa__grid {
+                grid-template-columns: 1.2fr .8fr;
+                gap: 16px;
+                align-items: start;
+            }
+        }
+
+        .wg38_beritaaa__spotlight {
+            background: rgba(255, 255, 255, .86);
+            border: 1px solid rgba(226, 232, 240, .95);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: var(--wg38_shadow);
+            position: relative;
+            transform: translateZ(0);
+        }
+
+        .wg38_beritaaa__spotlight::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, rgba(11, 58, 102, .20), rgba(255, 191, 15, .18), rgba(11, 99, 181, .14));
+            opacity: .35;
+            pointer-events: none;
+            mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+            -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+            padding: 1px;
+            border-radius: 22px;
+        }
+
+        .wg38_beritaaa__spotMedia {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, rgba(11, 58, 102, .28), rgba(11, 99, 181, .18));
+        }
+
+        .wg38_beritaaa__spotMedia img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(1.08) contrast(1.02);
+        }
+
+        .wg38_beritaaa__chip {
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            display: inline-flex;
+            align-items: center;
+            padding: 9px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .92);
+            border: 1px solid rgba(226, 232, 240, .95);
+            font-weight: 950;
+            font-size: 12px;
+            color: var(--wg38_navy);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, .10);
+        }
+
+        .wg38_beritaaa__chip b {
+            background: linear-gradient(135deg, var(--wg38_navy), var(--wg38_blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .wg38_beritaaa__spotBody {
+            padding: 16px 16px 18px;
+        }
+
+        .wg38_beritaaa__meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            color: var(--wg38_muted);
+            font-size: 12.5px;
+            margin-bottom: 10px;
+        }
+
+        .wg38_beritaaa__meta .wg38_pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(226, 232, 240, .95);
+            background: rgba(255, 255, 255, .85);
+            font-weight: 950;
+            color: var(--wg38_navy);
+        }
+
+        .wg38_beritaaa__spotTitle {
+            margin: 0 0 10px;
+            font-size: 20px;
+            line-height: 1.2;
+            letter-spacing: -.25px;
+        }
+
+        .wg38_beritaaa__spotDesc {
+            margin: 0 0 12px;
+            color: var(--wg38_muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .wg38_beritaaa__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 950;
+            font-size: 13px;
+            text-decoration: none;
+            color: var(--wg38_navy);
+        }
+
+        .wg38_beritaaa__cta span {
+            width: 30px;
+            height: 30px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(255, 191, 15, .35), rgba(11, 99, 181, .14));
+            border: 1px solid rgba(226, 232, 240, .95);
+        }
+
+        .wg38_beritaaa__cta:hover {
+            text-decoration: underline;
+        }
+
+        .wg38_beritaaa__cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .wg38_beritaaa__card {
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .86);
+            border: 1px solid rgba(226, 232, 240, .95);
+            box-shadow: 0 14px 34px rgba(15, 23, 42, .06);
+            transition: transform .18s ease, box-shadow .18s ease;
+            min-width: 0;
+        }
+
+        .wg38_beritaaa__card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 52px rgba(15, 23, 42, .10);
+        }
+
+        .wg38_beritaaa__thumb {
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(135deg, rgba(11, 58, 102, .24), rgba(255, 191, 15, .18));
+        }
+
+        .wg38_beritaaa__thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .wg38_beritaaa__cardTop {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-bottom: 6px;
+            color: var(--wg38_muted);
+            font-size: 12px;
+            flex-wrap: wrap;
+        }
+
+        .wg38_beritaaa__cardTitle {
+            display: block;
+            text-decoration: none;
+            font-weight: 950;
+            line-height: 1.25;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .wg38_beritaaa__cardTitle:hover {
+            text-decoration: underline;
+        }
+
+        .wg38_beritaaa__cardDesc {
+            margin: 0;
+            color: var(--wg38_muted);
+            font-size: 12.8px;
+            line-height: 1.55;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* =========================
+       PORTAL SECTION
+    ========================= */
+        .wg38_portal-section {
+            width: 100%;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f6f9ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wg38_portal-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wg38_primary-light), var(--wg38_accent-yellow));
+            opacity: 0.8;
+        }
+
+        .wg38_portal-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 48px);
+        }
+
+        .wg38_portal-header {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .wg38_portal-header::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+            width: 86px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wg38_primary), var(--wg38_primary-light));
+            border-radius: 2px;
+            opacity: .95;
+        }
+
+        .wg38_portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #eaf4ff;
+            border: 1px solid #cfe6ff;
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 900;
+            color: #073a63;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 8px rgba(11, 58, 102, .08);
+        }
+
+        .wg38_portal-title {
+            font-size: clamp(30px, 4.4vw, 38px);
+            font-weight: 950;
+            line-height: 1.12;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, var(--wg38_primary), var(--wg38_primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .wg38_portal-subtitle {
+            font-size: 16px;
+            color: var(--wg38_text-muted);
+            max-width: 680px;
+        }
+
+        .wg38_search-container {
+            margin-top: 24px;
+            max-width: 720px;
+        }
+
+        .wg38_search-wrapper {
+            position: relative;
+        }
+
+        .wg38_search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--wg38_text-muted);
+            z-index: 2;
+            opacity: .9;
+        }
+
+        .wg38_search-input {
+            width: 100%;
+            padding: 16px 20px 16px 56px;
+            font-size: 16px;
+            border: 2px solid rgba(226, 232, 240, 1);
+            border-radius: var(--wg38_radius-md);
+            background: var(--wg38_bg-card);
+            color: var(--wg38_text-main);
+            transition: all var(--wg38_transition);
+            box-shadow: var(--wg38_shadow-sm);
+        }
+
+        .wg38_search-input:focus {
+            outline: none;
+            border-color: var(--wg38_primary-light);
+            box-shadow: 0 0 0 4px rgba(30, 108, 184, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .wg38_search-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--wg38_text-muted);
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .wg38_recent-section {
+            margin-top: 24px;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: rgba(226, 236, 247, .7);
+            border-radius: var(--wg38_radius-md);
+            border: 1px solid rgba(226, 232, 240, .95);
+            backdrop-filter: blur(10px);
+        }
+
+        .wg38_recent-title {
+            font-size: 15px;
+            font-weight: 900;
+            margin-bottom: 14px;
+            color: var(--wg38_primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wg38_recent-title::before {
+            content: "";
+            width: 18px;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--wg38_primary), var(--wg38_accent));
+            opacity: .9;
+        }
+
+        .wg38_recent-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .wg38_recent-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            background: var(--wg38_bg-card);
+            border: 1px solid rgba(226, 232, 240, .95);
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 900;
+            color: var(--wg38_primary);
+            text-decoration: none;
+            transition: all var(--wg38_transition);
+            cursor: pointer;
+            box-shadow: var(--wg38_shadow-sm);
+        }
+
+        .wg38_recent-chip:hover {
+            background: var(--wg38_primary-light);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--wg38_shadow-md);
+            border-color: var(--wg38_primary-light);
+        }
+
+        .wg38_portals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .wg38_portals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .wg38_portals-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        .wg38_portal-card {
+            background: var(--wg38_bg-card);
+            border-radius: var(--wg38_radius-lg);
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--wg38_transition);
+            border: 1px solid rgba(226, 232, 240, .95);
+            box-shadow: var(--wg38_shadow-sm);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wg38_portal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wg38_primary), var(--wg38_primary-light));
+            opacity: 0;
+            transition: opacity var(--wg38_transition);
+        }
+
+        .wg38_portal-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--wg38_shadow-lg);
+            border-color: rgba(30, 108, 184, .30);
+        }
+
+        .wg38_portal-card:hover::before {
+            opacity: 1;
+        }
+
+        .wg38_portal-card:focus-visible {
+            outline: 3px solid rgba(30, 108, 184, .45);
+            outline-offset: 2px;
+        }
+
+        .wg38_card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            gap: 12px;
+        }
+
+        .wg38_card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            background: rgba(226, 236, 247, .85);
+            color: var(--wg38_primary);
+            flex-shrink: 0;
+            transition: all var(--wg38_transition);
+            font-weight: 900;
+        }
+
+        .wg38_portal-card:hover .wg38_card-icon {
+            transform: scale(1.08) rotate(5deg);
+            background: var(--wg38_primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(30, 108, 184, .3);
+        }
+
+        .wg38_card-title {
+            font-size: 20px;
+            font-weight: 950;
+            margin-bottom: 12px;
+            color: var(--wg38_text-main);
+            line-height: 1.25;
+        }
+
+        .wg38_card-description {
+            font-size: 15px;
+            color: var(--wg38_text-muted);
+            margin-bottom: 20px;
+            flex: 1;
+            line-height: 1.55;
+        }
+
+        .wg38_card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .wg38_card-url {
+            font-size: 13px;
+            color: var(--wg38_primary-light);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 62%;
+            opacity: .95;
+        }
+
+        .wg38_card-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: linear-gradient(135deg, var(--wg38_primary), var(--wg38_primary-dark));
+            color: white;
+            border-radius: var(--wg38_radius-sm);
+            font-size: 14px;
+            font-weight: 900;
+            text-decoration: none;
+            transition: all var(--wg38_transition);
+            white-space: nowrap;
+            box-shadow: 0 10px 20px rgba(11, 58, 102, .2);
+        }
+
+        .wg38_portal-card:hover .wg38_card-action {
+            background: linear-gradient(135deg, var(--wg38_primary-light), var(--wg38_primary));
+            gap: 10px;
+            transform: translateY(-1px);
+        }
+
+        .wg38_card-action::after {
+            content: '→';
+            font-weight: 900;
+            transition: transform var(--wg38_transition);
+        }
+
+        .wg38_portal-card:hover .wg38_card-action::after {
+            transform: translateX(4px);
+        }
+
+        .wg38_empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 48px 24px;
+            background: var(--wg38_bg-card);
+            border-radius: var(--wg38_radius-lg);
+            border: 2px dashed rgba(226, 232, 240, 1);
+        }
+
+        .wg38_empty-icon {
+            font-size: 44px;
+            margin-bottom: 16px;
+            opacity: .5;
+            font-weight: 900;
+            color: var(--wg38_text-muted);
+        }
+
+        .wg38_empty-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--wg38_text-muted);
+            margin-bottom: 12px;
+        }
+
+        .wg38_empty-text {
+            color: var(--wg38_text-muted);
+            margin-bottom: 24px;
+            max-width: 440px;
+            margin-inline: auto;
+            font-size: 15px;
+        }
+
+        .wg38_reset-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--wg38_primary), var(--wg38_primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--wg38_radius-md);
+            font-size: 15px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all var(--wg38_transition);
+            box-shadow: 0 10px 20px rgba(11, 58, 102, .2);
+        }
+
+        .wg38_reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--wg38_shadow-lg);
+            gap: 12px;
+        }
+
+        .wg38_highlight {
+            background: rgba(255, 191, 15, 0.35);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 900;
+        }
+
+        /* =========================
+       EVENT SECTION
+    ========================= */
+        .wg38_event-section {
+            width: 100%;
+            padding: 60px 0 72px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wg38_event-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, var(--wg38_primary-light));
+            opacity: 0.8;
+        }
+
+        .wg38_event-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 48px);
+        }
+
+        .wg38_event-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .wg38_event-title-wrap {
+            min-width: 280px;
+            flex: 1;
+        }
+
+        .wg38_event-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: #065f46;
+            background: linear-gradient(to right, rgba(220, 252, 231, .9), rgba(187, 247, 208, .85));
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(16, 185, 129, .16);
+            box-shadow: 0 2px 8px rgba(16, 185, 129, .1);
+        }
+
+        .wg38_event-title {
+            font-size: 32px;
+            font-weight: 950;
+            line-height: 1.15;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--wg38_primary), rgba(16, 185, 129, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -.4px;
+        }
+
+        .wg38_event-subtitle {
+            color: var(--wg38_text-muted);
+            font-size: 16px;
+            max-width: 680px;
+        }
+
+        .wg38_event-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            border: 1px solid rgba(226, 232, 240, .95);
+            background: rgba(255, 255, 255, .75);
+            color: var(--wg38_primary);
+            font-weight: 900;
+            text-decoration: none;
+            transition: var(--wg38_transition);
+            box-shadow: var(--wg38_shadow-sm);
+            white-space: nowrap;
+            backdrop-filter: blur(10px);
+        }
+
+        .wg38_event-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--wg38_shadow-md);
+            border-color: rgba(11, 58, 102, .18);
+            background: var(--wg38_primary-soft);
+        }
+
+        .wg38_event-layout {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 24px;
+            align-items: start;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 992px) {
+            .wg38_event-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .wg38_ev-slider {
+            background: rgba(255, 255, 255, .9);
+            border: 1px solid rgba(226, 232, 240, .95);
+            border-radius: var(--wg38_radius-lg);
+            overflow: hidden;
+            box-shadow: var(--wg38_shadow-md);
+            backdrop-filter: blur(10px);
+        }
+
+        .wg38_ev-stage {
+            position: relative;
+            height: 300px;
+            background: #0b1220;
+        }
+
+        .wg38_ev-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity .7s ease;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .wg38_ev-slide.wg38_active {
+            opacity: 1;
+        }
+
+        .wg38_ev-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: .98;
+        }
+
+        .wg38_ev-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(2, 6, 23, .9), rgba(2, 6, 23, 0) 55%);
+        }
+
+        .wg38_ev-caption {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        .wg38_ev-name {
+            font-weight: 950;
+            font-size: 20px;
+            margin-bottom: 8px;
+            line-height: 1.25;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .wg38_ev-date {
+            font-size: 15px;
+            opacity: .95;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .wg38_ev-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 16px 20px;
+            border-top: 1px solid rgba(226, 232, 240, .95);
+            background: rgba(255, 255, 255, .95);
+            backdrop-filter: blur(10px);
+        }
+
+        /* indicator bukan dot: bar kecil */
+        .wg38_ev-dots {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .wg38_ev-dot {
+            width: 18px;
+            height: 8px;
+            border-radius: 999px;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: var(--wg38_transition);
+        }
+
+        .wg38_ev-dot.wg38_active {
+            width: 34px;
+            background: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, .18);
+        }
+
+        .wg38_ev-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .wg38_ev-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            border: 1px solid rgba(226, 232, 240, .95);
+            background: white;
+            color: var(--wg38_primary);
+            font-weight: 900;
+            cursor: pointer;
+            transition: var(--wg38_transition);
+            box-shadow: var(--wg38_shadow-sm);
+            display: grid;
+            place-items: center;
+        }
+
+        .wg38_ev-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--wg38_primary-light), var(--wg38_primary));
+            color: white;
+            border-color: rgba(30, 108, 184, .22);
+            box-shadow: var(--wg38_shadow-md);
+        }
+
+        .wg38_ev-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .wg38_ev-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(255, 255, 255, .9);
+            border-radius: var(--wg38_radius-md);
+            border: 1px solid rgba(226, 232, 240, .95);
+            text-decoration: none;
+            color: inherit;
+            transition: var(--wg38_transition);
+            box-shadow: var(--wg38_shadow-sm);
+            backdrop-filter: blur(10px);
+        }
+
+        .wg38_ev-item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(30, 108, 184, .22);
+            box-shadow: var(--wg38_shadow-md);
+            background: white;
+        }
+
+        .wg38_ev-item-title {
+            font-weight: 900;
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: var(--wg38_text-main);
+        }
+
+        .wg38_ev-item-detail {
+            font-size: 14px;
+            color: var(--wg38_text-muted);
+        }
+
+        .wg38_ev-tag {
+            font-size: 13px;
+            font-weight: 900;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(224, 242, 254, .95);
+            color: #1d4ed8;
+            white-space: nowrap;
+            border: 1px solid rgba(191, 219, 254, .85);
+        }
+
+        /* =========================
+       FAKULTAS SECTION
+    ========================= */
+        .wg38_faculty-section {
+            width: 100%;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            position: relative;
+        }
+
+        .wg38_faculty-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wg38_accent-yellow), var(--wg38_primary));
+            opacity: 0.8;
+        }
+
+        .wg38_faculty-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 48px);
+        }
+
+        .wg38_faculty-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .wg38_faculty-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 191, 15, .1);
+            border: 1px solid rgba(255, 191, 15, .2);
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 900;
+            color: #92400e;
+            margin-bottom: 12px;
+        }
+
+        .wg38_faculty-title {
+            font-size: 32px;
+            font-weight: 950;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, var(--wg38_primary), var(--wg38_accent-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .wg38_faculty-subtitle {
+            color: var(--wg38_text-muted);
+            font-size: 16px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .wg38_faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .wg38_faculty-card {
+            background: var(--wg38_bg-card);
+            border-radius: var(--wg38_radius-lg);
+            padding: 28px 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--wg38_transition);
+            border: 1px solid rgba(226, 232, 240, .95);
+            box-shadow: var(--wg38_shadow-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wg38_faculty-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wg38_primary), var(--wg38_primary-light));
+            opacity: 0;
+            transition: opacity var(--wg38_transition);
+        }
+
+        .wg38_faculty-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--wg38_shadow-lg);
+        }
+
+        .wg38_faculty-card:hover::before {
+            opacity: 1;
+        }
+
+        .wg38_faculty-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            background: var(--wg38_primary-soft);
+            color: var(--wg38_primary);
+            margin-bottom: 20px;
+            transition: all var(--wg38_transition);
+            font-weight: 900;
+        }
+
+        .wg38_faculty-card:hover .wg38_faculty-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--wg38_primary);
+            color: white;
+        }
+
+        .wg38_faculty-name {
+            font-size: 20px;
+            font-weight: 950;
+            margin-bottom: 12px;
+            color: var(--wg38_text-main);
+        }
+
+        .wg38_faculty-description {
+            font-size: 15px;
+            color: var(--wg38_text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .wg38_faculty-programs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .wg38_program-tag {
+            padding: 6px 12px;
+            background: rgba(226, 236, 247, .85);
+            color: var(--wg38_primary);
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 800;
+            border: 1px solid rgba(30, 108, 184, .1);
+        }
+
+        .wg38_faculty-link {
+            font-size: 14px;
+            color: var(--wg38_primary);
+            text-decoration: none;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--wg38_transition);
+        }
+
+        .wg38_faculty-link:hover {
+            color: var(--wg38_primary-dark);
+            gap: 10px;
+        }
+
+        .wg38_faculty-link::after {
+            content: '→';
+            font-size: 16px;
+            font-weight: 900;
+            transition: transform var(--wg38_transition);
+        }
+
+        .wg38_faculty-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* =========================
+       NEWS SECTION (Informasi)
+    ========================= */
+        .wg38_news-section {
+            width: 100%;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wg38_news-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wg38_primary), var(--wg38_accent-yellow));
+            opacity: 0.8;
+        }
+
+        .wg38_news-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 48px);
+            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .wg38_news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(226, 232, 240, .8);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .wg38_news-title-wrap {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        /* Hapus dot indikator hijau (diganti garis) */
+        .wg38_news-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--wg38_primary);
+            background: linear-gradient(to right, var(--wg38_primary-soft), #e8f2fb);
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(11, 58, 102, .1);
+            box-shadow: 0 2px 8px rgba(11, 58, 102, .1);
+            position: relative;
+        }
+
+        .wg38_news-chip::before {
+            content: "";
+            width: 16px;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--wg38_primary), var(--wg38_accent));
+            opacity: .9;
+        }
+
+        .wg38_news-title {
+            font-size: 32px;
+            font-weight: 950;
+            margin-bottom: 8px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--wg38_primary), var(--wg38_primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .wg38_news-subtitle {
+            font-size: 16px;
+            color: var(--wg38_text-muted);
+            max-width: 640px;
+        }
+
+        .wg38_news-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            background: rgba(248, 250, 252, .95);
+            border: 1px solid rgba(226, 232, 240, .95);
+            padding: 6px;
+            border-radius: var(--wg38_radius-md);
+            box-shadow: 0 6px 12px rgba(2, 6, 23, .05);
+        }
+
+        .wg38_news-filter-btn {
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 10px 16px;
+            background: transparent;
+            border: none;
+            color: var(--wg38_text-muted);
+            cursor: pointer;
+            transition: var(--wg38_transition);
+            white-space: nowrap;
+        }
+
+        .wg38_news-filter-btn:hover {
+            color: var(--wg38_primary);
+            background: rgba(11, 58, 102, .08);
+            transform: translateY(-1px);
+        }
+
+        .wg38_news-filter-btn.wg38_is-active {
+            background: var(--wg38_accent-light);
+            color: #92400e;
+            font-weight: 900;
+            box-shadow: 0 2px 8px rgba(255, 191, 15, .25);
+            transform: translateY(-1px);
+        }
+
+        .wg38_news-layout {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+            width: 100%;
+            min-height: 480px;
+        }
+
+        .wg38_news-headline {
+            flex: 1.25;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            background: var(--wg38_bg-card);
+            border-radius: var(--wg38_radius-lg);
+            overflow: hidden;
+            box-shadow: var(--wg38_shadow-md);
+            border: 1px solid rgba(226, 232, 240, .9);
+            transition: transform var(--wg38_transition), box-shadow var(--wg38_transition);
+            height: 100%;
+        }
+
+        .wg38_news-headline:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--wg38_shadow-lg);
+        }
+
+        .wg38_news-headline.wg38_is-hidden {
+            display: none;
+        }
+
+        .wg38_news-headline-img-wrap {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 240px;
+            background: #0b1220;
+            flex-shrink: 0;
+        }
+
+        .wg38_news-headline-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--wg38_transition);
+        }
+
+        .wg38_news-headline:hover .wg38_news-headline-img {
+            transform: scale(1.05);
+        }
+
+        .wg38_news-headline-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(15, 23, 42, .9);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-weight: 900;
+            letter-spacing: .02em;
+            border: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .wg38_news-headline-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .wg38_news-headline-tag {
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: .05em;
+            color: var(--wg38_primary);
+            background: var(--wg38_primary-soft);
+            padding: 6px 12px;
+            border-radius: 999px;
+            width: fit-content;
+            border: 1px solid rgba(11, 58, 102, .1);
+        }
+
+        .wg38_news-headline-title {
+            font-size: 22px;
+            font-weight: 950;
+            color: var(--wg38_text-main);
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .wg38_news-headline-meta {
+            font-size: 14px;
+            color: var(--wg38_text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .wg38_news-headline-excerpt {
+            font-size: 15px;
+            color: var(--wg38_text-muted);
+            line-height: 1.6;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .wg38_news-headline-link {
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 950;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            align-self: flex-start;
+            background: linear-gradient(135deg, var(--wg38_primary), var(--wg38_primary-dark));
+            padding: 12px 20px;
+            border-radius: var(--wg38_radius-md);
+            box-shadow: 0 8px 20px rgba(11, 58, 102, .2);
+            transition: var(--wg38_transition);
+            min-width: 160px;
+            margin-top: auto;
+        }
+
+        .wg38_news-headline-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(11, 58, 102, .3);
+            gap: 12px;
+        }
+
+        .wg38_news-headline-link::after {
+            content: "→";
+            font-size: 18px;
+            font-weight: 900;
+            transition: transform var(--wg38_transition);
+        }
+
+        .wg38_news-headline-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        .wg38_news-list {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .wg38_news-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .wg38_news-list::-webkit-scrollbar-track {
+            background: rgba(226, 232, 240, .5);
+            border-radius: 10px;
+        }
+
+        .wg38_news-list::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, .6);
+            border-radius: 10px;
+            transition: background 0.2s;
+        }
+
+        .wg38_news-list::-webkit-scrollbar-thumb:hover {
+            background: rgba(148, 163, 184, .8);
+        }
+
+        .wg38_news-item {
+            display: flex;
+            gap: 14px;
+            padding: 16px;
+            background: var(--wg38_bg-card);
+            border-radius: var(--wg38_radius-md);
+            box-shadow: var(--wg38_shadow-sm);
+            border: 1px solid rgba(226, 232, 240, .95);
+            transition: transform var(--wg38_transition), box-shadow var(--wg38_transition);
+            min-width: 0;
+            flex-shrink: 0;
+            animation: wg38_newsFadeIn 0.3s ease forwards;
+        }
+
+        .wg38_news-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--wg38_shadow-md);
+        }
+
+        .wg38_news-item[data-category="pengumuman"] {
+            border-left: 4px solid #3b82f6;
+        }
+
+        .wg38_news-item[data-category="informasi"] {
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .wg38_news-item-media {
+            flex: 0 0 90px;
+            width: 90px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f1f5f9;
+            border: 1px solid rgba(226, 232, 240, .9);
+            height: 90px;
+        }
+
+        .wg38_news-item-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform var(--wg38_transition);
+        }
+
+        .wg38_news-item:hover .wg38_news-item-thumb {
+            transform: scale(1.08);
+        }
+
+        .wg38_news-item-content {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            flex: 1;
+            gap: 8px;
+        }
+
+        .wg38_news-item-tag {
+            font-size: 12px;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 999px;
+            display: inline-block;
+            align-self: flex-start;
+            letter-spacing: .02em;
+        }
+
+        .wg38_tag--pengumuman {
+            background: linear-gradient(to right, #dbeafe, #bfdbfe);
+            color: #1d4ed8;
+            border: 1px solid rgba(59, 130, 246, .2);
+        }
+
+        .wg38_tag--informasi {
+            background: linear-gradient(to right, #e0f2fe, #bae6fd);
+            color: #0f172a;
+            border: 1px solid rgba(14, 116, 144, .25);
+        }
+
+        .wg38_news-item-title {
+            font-size: 16px;
+            font-weight: 950;
+            color: var(--wg38_text-main);
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .wg38_news-item-meta {
+            font-size: 13px;
+            color: var(--wg38_text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .wg38_news-item-excerpt {
+            font-size: 14px;
+            color: var(--wg38_text-muted);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .wg38_news-item-link {
+            font-size: 14px;
+            color: var(--wg38_primary);
+            text-decoration: none;
+            font-weight: 950;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+            transition: var(--wg38_transition);
+            align-self: flex-start;
+        }
+
+        .wg38_news-item-link:hover {
+            color: var(--wg38_primary-dark);
+            gap: 8px;
+        }
+
+        .wg38_news-item-link::after {
+            content: "→";
+            font-size: 16px;
+            font-weight: 900;
+            transition: transform var(--wg38_transition);
+        }
+
+        .wg38_news-item-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* =========================
+       FOOTER
+    ========================= */
+        .wg38_footer {
+            width: 100%;
+            background: var(--wg38_primary-dark);
+            color: white;
+            padding: 60px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wg38_footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wg38_accent-yellow), var(--wg38_primary-light));
+            opacity: 0.8;
+        }
+
+        .wg38_footer-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 48px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .wg38_footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .wg38_footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .wg38_footer-title {
+            font-size: 18px;
+            font-weight: 950;
+            margin-bottom: 8px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .wg38_footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--wg38_accent-yellow);
+            border-radius: 2px;
+        }
+
+        .wg38_footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .wg38_footer-logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            object-fit: contain;
+            background: white;
+            padding: 6px;
+        }
+
+        .wg38_footer-logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .wg38_footer-logo-small {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 700;
+        }
+
+        .wg38_footer-logo-main {
+            font-size: 14px;
+            color: white;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .wg38_footer-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .wg38_footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .wg38_footer-social a {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.2s ease;
+        }
+
+        .wg38_footer-social a:hover {
+            background: var(--wg38_accent-yellow);
+            color: var(--wg38_primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .wg38_footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .wg38_footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .wg38_footer-link:hover {
+            color: var(--wg38_accent-yellow);
+            transform: translateX(4px);
+        }
+
+        .wg38_footer-link::before {
+            content: '→';
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .wg38_footer-link:hover::before {
+            opacity: 1;
+        }
+
+        .wg38_footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .wg38_footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .wg38_footer-ic {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 auto;
+            color: var(--wg38_accent-yellow);
+            margin-top: 2px;
+        }
+
+        .wg38_footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .wg38_copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .wg38_footer-legal {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .wg38_footer-legal a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .wg38_footer-legal a:hover {
+            color: var(--wg38_accent-yellow);
+        }
+
+        /* =========================
+       MOBILE PANELS & OVERLAY
+    ========================= */
+        .wg38_overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.45);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.16s ease;
+            z-index: 6000;
+            backdrop-filter: blur(5px);
+        }
+
+        .wg38_overlay[data-open='true'] {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .wg38_aud-panel,
+        .wg38_nav-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: min(360px, 92vw);
+            height: 100vh;
+            background: #ffffff;
+            border-left: 1px solid var(--wg38_border);
+            box-shadow: var(--wg38_shadow);
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+            z-index: 6500;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wg38_aud-panel {
+            width: min(380px, calc(100vw - 24px));
+            top: 56px;
+            right: 12px;
+            height: calc(100vh - 72px);
+            border-radius: 14px;
+        }
+
+        .wg38_aud-panel[data-open='true'],
+        .wg38_nav-panel[data-open='true'] {
+            transform: translateX(0);
+        }
+
+        .wg38_panel-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 16px;
+            border-bottom: 1px solid var(--wg38_border);
+            background: #ffffff;
+        }
+
+        .wg38_panel-title {
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 0.2px;
+            color: #0f172a;
+            text-transform: uppercase;
+        }
+
+        .wg38_panel-body {
+            padding: 16px;
+            overflow: auto;
+            flex: 1;
+        }
+
+        .wg38_m-list,
+        .wg38_nav-mobile-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .wg38_m-group,
+        .wg38_nav-mobile-item {
+            border: 1px solid var(--wg38_border);
+            border-radius: 12px;
+            background: #ffffff;
+            overflow: hidden;
+            box-shadow: var(--wg38_shadow-sm);
+        }
+
+        .wg38_m-group-btn,
+        .wg38_nav-mobile-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 16px;
+            border: 0;
+            background: #ffffff;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 900;
+            color: #0f172a;
+            transition: background-color 0.2s ease;
+        }
+
+        .wg38_m-group-btn:hover,
+        .wg38_nav-mobile-btn:hover,
+        .wg38_m-group-btn[aria-expanded='true'],
+        .wg38_nav-mobile-btn[aria-expanded='true'] {
+            background: #f8fafc;
+        }
+
+        .wg38_m-sub,
+        .wg38_nav-mobile-sub {
+            border-top: 1px solid var(--wg38_border);
+            padding: 8px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .wg38_m-group-btn[aria-expanded='true']+.wg38_m-sub,
+        .wg38_nav-mobile-btn[aria-expanded='true']+.wg38_nav-mobile-sub {
+            max-height: 520px;
+            padding: 8px;
+        }
+
+        .wg38_m-sub a,
+        .wg38_nav-mobile-sub>a {
+            display: block;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #111827;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .wg38_m-sub a:hover,
+        .wg38_nav-mobile-sub>a:hover {
+            background: #f1f5f9;
+            transform: translateX(4px);
+            border-left-color: var(--wg38_accent-yellow);
+        }
+
+        .wg38_nav-mobile-sub-box {
+            border: 1px solid var(--wg38_border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 6px;
+        }
+
+        .wg38_nav-mobile-subbtn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px;
+            border: 0;
+            background: #ffffff;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 800;
+            color: #111827;
+            transition: background-color 0.2s ease;
+        }
+
+        .wg38_nav-mobile-subbtn:hover,
+        .wg38_nav-mobile-subbtn[aria-expanded='true'] {
+            background: #f8fafc;
+        }
+
+        .wg38_nav-mobile-sub2 {
+            border-top: 1px dashed rgba(15, 23, 42, 0.12);
+            padding: 8px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .wg38_nav-mobile-subbtn[aria-expanded='true']+.wg38_nav-mobile-sub2 {
+            max-height: 340px;
+            padding: 8px;
+        }
+
+        .wg38_nav-mobile-sub2 a {
+            display: block;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            color: #111827;
+            transition: all 0.2s ease;
+        }
+
+        .wg38_nav-mobile-sub2 a:hover {
+            background: #f1f5f9;
+            transform: translateX(4px);
+        }
+
+        /* =========================
+       UTILITY
+    ========================= */
+        .wg38_is-hidden {
+            display: none !important;
+        }
+
+        @keyframes wg38_newsFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+       RESPONSIVE
+    ========================= */
+        @media (max-width: 680px) {
+            .wg38_aud-nav {
+                display: none;
+            }
+
+            .wg38_aud-actions {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .wg38_nav-links {
+                display: none;
+            }
+
+            .wg38_nav-cta {
+                display: none;
+            }
+
+            .wg38_nav-actions {
+                display: flex;
+            }
+
+            .wg38_brand {
+                min-width: 0;
+            }
+
+            .wg38_utama {
+                grid-template-columns: 1fr;
+                padding: 40px 0 60px;
+                gap: 30px;
+            }
+
+            .wg38_slides {
+                height: 280px;
+            }
+
+            .wg38_kiri {
+                text-align: center;
+            }
+
+            .wg38_cta-row {
+                justify-content: center;
+            }
+
+            .wg38_hero-stats {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .wg38_mini-nav {
+                top: 106px;
+            }
+
+            .wg38_mini-nav .wg38_wrap {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .wg38_mini-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .wg38_news-layout {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .wg38_news-list {
+                max-height: none;
+                overflow-y: visible;
+                padding-right: 0;
+            }
+
+            .wg38_news-headline {
+                margin-bottom: 24px;
+            }
+
+            .wg38_event-layout {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .wg38_faculty-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .wg38_portal-section,
+            .wg38_event-section,
+            .wg38_faculty-section,
+            .wg38_news-section {
+                padding: 40px 0;
+            }
+
+            .wg38_portal-title,
+            .wg38_event-title,
+            .wg38_faculty-title,
+            .wg38_news-title {
+                font-size: 28px;
+            }
+
+            .wg38_news-headline-img-wrap {
+                height: 200px;
+            }
+
+            .wg38_news-filters {
+                width: 100%;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding: 6px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .wg38_news-filters::-webkit-scrollbar {
+                display: none;
+            }
+
+            .wg38_footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wg38_utama {
+                padding: 30px 0 40px;
+            }
+
+            .wg38_kiri h1 {
+                font-size: 24px;
+            }
+
+            .wg38_cta-row {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .wg38_btn-utama,
+            .wg38_btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .wg38_news-item {
+                flex-direction: column;
+            }
+
+            .wg38_news-item-media {
+                width: 100%;
+                height: 140px;
+                flex: 0 0 auto;
+            }
+
+            .wg38_footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .wg38_footer-legal {
+                justify-content: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+                scroll-behavior: auto !important;
+            }
+
+            .wg38_beritaaa__marqueeTrack {
+                animation: none !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="wg38_site-header">
+        <!-- Audience Bar -->
+        <div class="wg38_audience-bar">
+            <div class="wg38_container wg38_audience-inner">
+                <div class="wg38_aud-left">
+                    <div class="wg38_social">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M13 22v-8h3l1-4h-4V7c0-1.1.3-2 2-2h2V1h-3c-3.3 0-5 2-5 5v4H8v4h3v8h2z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.8 4.6 12 4.6 12 4.6s-5.8 0-7.5.5A3 3 0 0 0 2.4 7.2a31 31 0 0 0 0 9.6 3 3 0 0 0 2.1 2.1c1.7.5 7.5.5 7.5.5s5.8 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Desktop Audience Navigation -->
+                <ul class="wg38_aud-nav" id="wg38_audienceNav">
+                    <li class="wg38_aud-item wg38_has-dropdown">
+                        <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+                            Kuesioner Mahasiswa
+                            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="wg38_aud-dropdown">
+                            <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran ITB
+                                Widyagama
+                                Lumajang</a>
+                            <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Fakultas
+                                Ekonomi dan
+                                Bisnis</a>
+                            <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi.
+                                Akuntansi</a>
+                            <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi.
+                                Informatika</a>
+                            <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi.
+                                Manajemen</a>
+                            <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi.
+                                Magister
+                                Manajemen</a>
+                            <a href="#" class="wg38_aud-link">Kuesioner Kepuasan Layanan Akademik</a>
+                            <a href="#" class="wg38_aud-link">Kuesioner Kepuasan Terhadap Dosen</a>
+                            <a href="#" class="wg38_aud-link">Kuesioner Kepuasan Layanan Kegiatan Kemahasiswaan</a>
+                        </div>
+                    </li>
+
+                    <li class="wg38_aud-item wg38_has-dropdown">
+                        <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+                            Penerimaan Mahasiswa
+                            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="wg38_aud-dropdown">
+                            <a href="#" class="wg38_aud-link">Pendaftaran Mahasiswa Baru</a>
+                            <a href="#" class="wg38_aud-link">Pengumuman Hasil Seleksi</a>
+                            <a href="#" class="wg38_aud-link">Rekognisi Pembelajaran Lampau</a>
+                        </div>
+                    </li>
+
+                    <li class="wg38_aud-item wg38_has-dropdown">
+                        <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+                            Mahasiswa
+                            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="wg38_aud-dropdown">
+                            <a href="#" class="wg38_aud-link">Layanan Mahasiswa</a>
+                            <a href="#" class="wg38_aud-link">Kuliah Kerja Nyata</a>
+                            <a href="#" class="wg38_aud-link">Unit Kegiatan Mahasiswa</a>
+                            <a href="#" class="wg38_aud-link">Prestasi Mahasiswa</a>
+                            <a href="#" class="wg38_aud-link">Daftar Beasiswa</a>
+                            <a href="#" class="wg38_aud-link">Program Kreatifitas Mahasiswa</a>
+                        </div>
+                    </li>
+
+                    <li class="wg38_aud-item wg38_has-dropdown">
+                        <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+                            Alumni
+                            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="wg38_aud-dropdown">
+                            <a href="#" class="wg38_aud-link">Tracer Study</a>
+                            <a href="#" class="wg38_aud-link">Tracer Pengguna</a>
+                            <a href="#" class="wg38_aud-link">Laporan Tracer Study</a>
+                        </div>
+                    </li>
+
+                    <li class="wg38_aud-item wg38_has-dropdown">
+                        <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+                            Career Center
+                            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="wg38_aud-dropdown">
+                            <a href="#" class="wg38_aud-link">Informasi Pusat Karir</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Mobile: 3 dots -->
+                <div class="wg38_aud-actions">
+                    <button id="wg38_audHamburger" class="wg38_icon-btn" type="button"
+                        aria-label="Menu layanan pengguna" aria-expanded="false">
+                        <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 6.5h.01M12 12h.01M12 17.5h.01" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navbar -->
+        <div class="wg38_navbar">
+            <div class="wg38_container wg38_nav-inner">
+                <a href="index.html" class="wg38_brand" aria-label="ITB Widyagama Lumajang">
+                    <img class="wg38_logo-img" src="Untitled.png" alt="Logo ITB Widyagama Lumajang" />
+                    <span class="wg38_brand-text">
+                        <span class="wg38_brand-small">Institut Teknologi dan Bisnis</span>
+                        <strong class="wg38_brand-main">Widyagama Lumajang</strong>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="wg38_nav-links" id="wg38_desktopNav">
+                    <li class="wg38_has-dropdown">
+                        <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+                            Tentang Wiga
+                            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="wg38_dropdown">
+                            <div class="wg38_submenu-wrap">
+                                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                                    <span>
+                                        <span class="wg38_sub-title">Profil</span>
+                                        <span class="wg38_sub-hint">Informasi dasar kampus</span>
+                                    </span>
+                                    <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <div class="wg38_submenu">
+                                    <a href="sejarah.html" class="wg38_menu-item">Sejarah</a>
+                                    <a href="ident.html" class="wg38_menu-item">Identitas</a>
+                                    <a href="visimisi..html" class="wg38_menu-item">Visi Misi</a>
+                                    <a href="#" class="wg38_menu-item">Sarana Prasarana</a>
+                                    <a href="#" class="wg38_menu-item">Perencanaan Strategi</a>
+                                    <a href="#" class="wg38_menu-item">Akreditasi</a>
+                                </div>
+                            </div>
+
+                            <div class="wg38_submenu-wrap">
+                                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                                    <span>
+                                        <span class="wg38_sub-title">Struktur</span>
+                                        <span class="wg38_sub-hint">Organisasi dan kepemimpinan</span>
+                                    </span>
+                                    <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <div class="wg38_submenu">
+                                    <a href="#" class="wg38_menu-item">Struktur Organisasi</a>
+                                    <a href="#" class="wg38_menu-item">Senat Akademik</a>
+                                    <a href="#" class="wg38_menu-item">Pimpinan</a>
+                                    <a href="#" class="wg38_menu-item">Tenaga Kependidikan</a>
+                                </div>
+                            </div>
+
+                            <div class="wg38_menu-divider"></div>
+                            <a href="#" class="wg38_menu-item">Lembaga Mitra</a>
+                            <a href="#" class="wg38_menu-item">Prestasi & Penghargaan</a>
+                        </div>
+                    </li>
+
+                    <li class="wg38_has-dropdown">
+                        <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+                            Fakultas
+                            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="wg38_dropdown">
+                            <div class="wg38_submenu-wrap">
+                                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                                    <span>
+                                        <span class="wg38_sub-title">Fakultas Teknik Dan Informatika</span>
+                                        <span class="wg38_sub-hint">Program studi Teknik</span>
+                                    </span>
+                                    <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <div class="wg38_submenu">
+                                    <a href="campus.html" class="wg38_menu-item">S1 Informatika</a>
+                                </div>
+                            </div>
+
+                            <div class="wg38_submenu-wrap">
+                                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                                    <span>
+                                        <span class="wg38_sub-title">Fakultas Ekonomi Dan Bisnis</span>
+                                        <span class="wg38_sub-hint">Program studi ekonomi & bisnis</span>
+                                    </span>
+                                    <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <div class="wg38_submenu">
+                                    <a href="#" class="wg38_menu-item">S1 Akuntansi</a>
+                                    <a href="#" class="wg38_menu-item">S1 Manajemen</a>
+                                    <a href="#" class="wg38_menu-item">Magister Manajemen</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="wg38_has-dropdown">
+                        <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+                            Lembaga & UPT
+                            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="wg38_dropdown">
+                            <div class="wg38_menu-title">Lembaga</div>
+                            <a href="#" class="wg38_menu-item">Lembaga Penelitian & Pengabdian Kepada Masyarakat</a>
+                            <a href="#" class="wg38_menu-item">Lembaga Penjaminan Mutu dan Pengawasan Internal</a>
+                            <a href="#" class="wg38_menu-item">Lembaga Pusat Unggulan IPTEK PT</a>
+                            <div class="wg38_menu-divider"></div>
+                            <div class="wg38_menu-title">Unit Pelaksana Teknis</div>
+                            <a href="#" class="wg38_menu-item">UPT Perpustakaan</a>
+                            <a href="#" class="wg38_menu-item">UPT Laboratorium</a>
+                            <a href="#" class="wg38_menu-item">UPT Teknologi Informasi</a>
+                        </div>
+                    </li>
+
+                    <li class="wg38_has-dropdown">
+                        <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+                            Kerjasama
+                            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="wg38_dropdown">
+                            <div class="wg38_menu-title">Kerjasama Institusi</div>
+                            <a href="#" class="wg38_menu-item">Dalam Negeri</a>
+                            <a href="#" class="wg38_menu-item">Luar Negeri</a>
+                            <div class="wg38_menu-divider"></div>
+                            <a href="#" class="wg38_menu-item">MoU & Dokumen Kerjasama</a>
+                            <a href="#" class="wg38_menu-item">Program/Proyek Kolaborasi</a>
+                        </div>
+                    </li>
+
+                    <!-- PEDOMAN TANPA DROPDOWN -->
+                    <li>
+                        <a href="#" class="wg38_nav-link">Pedoman</a>
+                    </li>
+                </ul>
+
+                <!-- Desktop CTA - kosong -->
+                <div class="wg38_nav-cta"></div>
+
+                <!-- Mobile Hamburger -->
+                <div class="wg38_nav-actions">
+                    <button id="wg38_navHamburger" class="wg38_icon-btn" type="button" aria-label="Menu utama"
+                        aria-expanded="false">
+                        <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 7h16M4 12h16M4 17h16" stroke-width="2.2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overlay -->
+    <div id="wg38_overlay" class="wg38_overlay" data-open="false"></div>
+
+    <!-- Audience Panel Mobile -->
+    <aside id="wg38_audPanel" class="wg38_aud-panel" data-open="false" aria-modal="true" aria-label="Layanan Pengguna"
+        role="dialog">
+        <div class="wg38_panel-head">
+            <div class="wg38_panel-title">Layanan Pengguna</div>
+            <button id="wg38_audClose" class="wg38_icon-btn" type="button" aria-label="Tutup menu audience">
+                <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" stroke-width="2.2" stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
+        <div class="wg38_panel-body">
+            <ul class="wg38_m-list">
+                <li class="wg38_m-group">
+                    <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+                        <span>Kuesioner Mahasiswa</span>
+                        <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="wg38_m-sub">
+                        <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran ITB Widyagama Lumajang</a>
+                        <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Fakultas Ekonomi dan Bisnis</a>
+                        <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Akuntansi</a>
+                        <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Informatika</a>
+                        <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Manajemen</a>
+                        <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Magister Manajemen</a>
+                        <a href="#">Kuesioner Kepuasan Layanan Akademik</a>
+                        <a href="#">Kuesioner Kepuasan Terhadap Dosen</a>
+                        <a href="#">Kuesioner Kepuasan Layanan Kegiatan Kemahasiswaan</a>
+                    </div>
+                </li>
+
+                <li class="wg38_m-group">
+                    <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+                        <span>Penerimaan Mahasiswa</span>
+                        <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="wg38_m-sub">
+                        <a href="#">Pendaftaran Mahasiswa Baru</a>
+                        <a href="#">Pengumuman Hasil Seleksi</a>
+                        <a href="#">Rekognisi Pembelajaran Lampau</a>
+                    </div>
+                </li>
+
+                <li class="wg38_m-group">
+                    <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+                        <span>Mahasiswa</span>
+                        <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="wg38_m-sub">
+                        <a href="#">Layanan Mahasiswa</a>
+                        <a href="#">Kuliah Kerja Nyata</a>
+                        <a href="#">Unit Kegiatan Mahasiswa</a>
+                        <a href="#">Prestasi Mahasiswa</a>
+                        <a href="#">Daftar Beasiswa</a>
+                        <a href="#">Program Kreatifitas Mahasiswa</a>
+                    </div>
+                </li>
+
+                <li class="wg38_m-group">
+                    <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+                        <span>Alumni</span>
+                        <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="wg38_m-sub">
+                        <a href="#">Tracer Study</a>
+                        <a href="#">Tracer Pengguna</a>
+                        <a href="#">Laporan Tracer Study</a>
+                    </div>
+                </li>
+
+                <li class="wg38_m-group">
+                    <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+                        <span>Career Center</span>
+                        <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="wg38_m-sub">
+                        <a href="#">Informasi Pusat Karir</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Navbar Panel Mobile -->
+    <aside id="wg38_navPanel" class="wg38_nav-panel" data-open="false" aria-modal="true" aria-label="Menu Utama"
+        role="dialog">
+        <div class="wg38_panel-head">
+            <div class="wg38_panel-title">Menu</div>
+            <button id="wg38_navClose" class="wg38_icon-btn" type="button" aria-label="Tutup menu utama">
+                <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" stroke-width="2.2" stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
+        <div class="wg38_panel-body">
+            <ul class="wg38_nav-mobile-list">
+                <li class="wg38_nav-mobile-item">
+                    <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+                        <span>Tentang Wiga</span>
+                        <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="wg38_nav-mobile-sub">
+                        <div class="wg38_nav-mobile-sub-box">
+                            <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                                <span>Profil</span>
+                                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <div class="wg38_nav-mobile-sub2">
+                                <a href="sejarah.html">Sejarah</a>
+                                <a href="ident.html">Identitas</a>
+                                <a href="visimisi..html">Visi Misi</a>
+                                <a href="#">Sarana Prasarana</a>
+                                <a href="#">Perencanaan Strategi</a>
+                                <a href="#">Akreditasi</a>
+                            </div>
+                        </div>
+
+                        <div class="wg38_nav-mobile-sub-box">
+                            <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                                <span>Struktur</span>
+                                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <div class="wg38_nav-mobile-sub2">
+                                <a href="#">Struktur Organisasi</a>
+                                <a href="#">Senat Akademik</a>
+                                <a href="#">Pimpinan</a>
+                                <a href="#">Tenaga Kependidikan</a>
+                            </div>
+                        </div>
+
+                        <a href="#">Lembaga Mitra</a>
+                        <a href="#">Prestasi & Penghargaan</a>
+                    </div>
+                </li>
+
+                <li class="wg38_nav-mobile-item">
+                    <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+                        <span>Fakultas</span>
+                        <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="wg38_nav-mobile-sub">
+                        <div class="wg38_nav-mobile-sub-box">
+                            <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                                <span>Fakultas Teknologi Dan Informatika</span>
+                                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <div class="wg38_nav-mobile-sub2">
+                                <a href="campus.html">S1 Informatika</a>
+                            </div>
+                        </div>
+
+                        <div class="wg38_nav-mobile-sub-box">
+                            <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                                <span>Fakultas Ekonomi Dan Bisnis</span>
+                                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <div class="wg38_nav-mobile-sub2">
+                                <a href="#">S1 Akuntansi</a>
+                                <a href="#">S1 Manajemen</a>
+                                <a href="#">Magister Manajemen</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="wg38_nav-mobile-item">
+                    <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+                        <span>Lembaga & UPT</span>
+                        <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="wg38_nav-mobile-sub">
+                        <div style="font-weight:900;color:var(--wg38_accent-navy);padding:12px 12px 8px;">Lembaga</div>
+                        <a href="#">Lembaga Penelitian & Pengabdian Kepada Masyarakat</a>
+                        <a href="#">Lembaga Penjaminan Mutu dan Pengawasan Internal</a>
+                        <a href="#">Lembaga Pusat Unggulan IPTEK PT</a>
+
+                        <div style="font-weight:900;color:var(--wg38_accent-navy);padding:12px 12px 8px;">UPT</div>
+                        <a href="#">UPT Perpustakaan</a>
+                        <a href="#">UPT Laboratorium</a>
+                        <a href="#">UPT Teknologi Informasi</a>
+                    </div>
+                </li>
+
+                <li class="wg38_nav-mobile-item">
+                    <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+                        <span>Kerjasama</span>
+                        <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="wg38_nav-mobile-sub">
+                        <div style="font-weight:900;color:var(--wg38_accent-navy);padding:12px 12px 8px;">Kerjasama
+                            Institusi</div>
+                        <a href="#">Dalam Negeri</a>
+                        <a href="#">Luar Negeri</a>
+                        <a href="#">MoU & Dokumen Kerjasama</a>
+                        <a href="#">Program/Proyek Kolaborasi</a>
+                    </div>
+                </li>
+
+                <!-- Pedoman tanpa dropdown -->
+                <li class="wg38_nav-mobile-item">
+                    <a href="#" class="wg38_nav-mobile-btn"
+                        style="display:flex; justify-content:space-between; align-items:center; width:100%; padding:16px; border:0; background:transparent; cursor:pointer; text-align:left; font-weight:900; color:#0f172a;">
+                        <span>Pedoman</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- HERO -->
+    <main class="wg38_utama" id="wg38_home">
+        <div class="wg38_kiri">
+            <h1>Institut Teknologi Dan Bisnis</h1>
+            <h1>Widyagama Lumajang</h1>
+            <p>
+                Mencetak lulusan unggul di bidang teknologi dan bisnis dengan karakter kuat,
+                inovatif, dan siap bersaing di era digital
+            </p>
+            <div class="wg38_cta-row">
+                <a class="wg38_btn-utama" href="campus.html">Pendaftaran</a>
+                <a class="wg38_btn-outline" href="ident.html">Lihat Profil</a>
+            </div>
+            <div class="wg38_hero-stats">
+                <div class="wg38_hero-stat">
+                    <div class="wg38_hero-stat-number">5</div>
+                    <div class="wg38_hero-stat-label">Program Studi</div>
+                </div>
+                <div class="wg38_hero-stat">
+                    <div class="wg38_hero-stat-number">50+</div>
+                    <div class="wg38_hero-stat-label">Dosen Ahli</div>
+                </div>
+                <div class="wg38_hero-stat">
+                    <div class="wg38_hero-stat-number">98%</div>
+                    <div class="wg38_hero-stat-label">Tingkat Kelulusan</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wg38_kanan">
+            <div class="wg38_slider" id="wg38_campusSlider" aria-label="Slider foto kampus">
+                <div class="wg38_slides" aria-live="polite">
+                    <img class="wg38_slide wg38_is-active"
+                        src="https://images.unsplash.com/photo-1562774053-701939374585?w=1200&h=800&fit=crop"
+                        alt="Gedung kampus tampak depan" />
+                    <img class="wg38_slide"
+                        src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&h=800&fit=crop"
+                        alt="Area lobi atau fasilitas kampus" />
+                    <img class="wg38_slide"
+                        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=800&fit=crop"
+                        alt="Suasana kegiatan mahasiswa di kampus" />
+                </div>
+                <button class="wg38_nav wg38_prev" type="button" aria-label="Sebelumnya">‹</button>
+                <button class="wg38_nav wg38_next" type="button" aria-label="Berikutnya">›</button>
+                <div class="wg38_dots" role="tablist" aria-label="Navigasi slide">
+                    <button class="wg38_dot wg38_is-active" type="button" aria-label="Slide 1" data-slide="0"></button>
+                    <button class="wg38_dot" type="button" aria-label="Slide 2" data-slide="1"></button>
+                    <button class="wg38_dot" type="button" aria-label="Slide 3" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- BERITA TERBARU (wg38_beritaaa) -->
+    <section class="wg38_beritaaa" id="wg38_berita-terbaru">
+        <div class="wg38_beritaaa__container">
+            <header class="wg38_beritaaa__head">
+                <div>
+                    <p class="wg38_beritaaa__kicker">Update Kampus</p>
+                    <h2 class="wg38_beritaaa__title">Berita Terbaru ITB WIGA</h2>
+                    <p class="wg38_beritaaa__desc">Fokus satu hal: berita. Tanpa kategori, langsung rapi dan enak
+                        dipindai.</p>
+
+                    <div class="wg38_beritaaa__ticker" aria-label="Sorotan berita berjalan">
+                        <span class="wg38_beritaaa__live">LIVE</span>
+                        <div class="wg38_beritaaa__marquee">
+                            <div class="wg38_beritaaa__marqueeTrack" id="wg38_beritaaaMarquee"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wg38_beritaaa__side">
+                    <div class="wg38_beritaaa__sideTitle">Headline + daftar ringkas</div>
+                    <div class="wg38_beritaaa__sideDesc">Cocok untuk homepage: 1 berita utama yang jelas, sisanya cepat
+                        dibaca.
+                    </div>
+                </div>
+            </header>
+
+            <div class="wg38_beritaaa__grid">
+                <article class="wg38_beritaaa__spotlight" id="wg38_beritaaaSpotlight"></article>
+                <div class="wg38_beritaaa__cards" id="wg38_beritaaaCards"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAL -->
+    <section id="wg38_portal" class="wg38_portal-section">
+        <div class="wg38_portal-container">
+            <div class="wg38_portal-header">
+                <div class="wg38_portal-badge" id="wg38_serviceCount">0 layanan tersedia</div>
+                <h2 class="wg38_portal-title">Portal Sistem ITB WIGA</h2>
+                <p class="wg38_portal-subtitle">Akses cepat ke seluruh layanan digital kampus dalam satu tempat.</p>
+
+                <div class="wg38_search-container">
+                    <div class="wg38_search-wrapper">
+                        <div class="wg38_search-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
+                        </div>
+                        <input type="search" class="wg38_search-input" id="wg38_searchInput"
+                            placeholder="Cari portal (nama atau deskripsi)..." aria-label="Cari portal sistem">
+                    </div>
+                    <div class="wg38_search-stats">
+                        <div id="wg38_resultCount">Menampilkan 0 dari 0 portal</div>
+                        <div style="opacity:.85">Tip: tekan <b>/</b> untuk fokus cari</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wg38_recent-section" id="wg38_recentSection">
+                <h3 class="wg38_recent-title">Baru saja diakses</h3>
+                <div class="wg38_recent-chips" id="wg38_recentChips"></div>
+            </div>
+
+            <div class="wg38_portals-grid" id="wg38_portalsGrid" aria-label="Grid portal sistem"></div>
+        </div>
+    </section>
+
+    <!-- EVENT -->
+    <section id="wg38_event" class="wg38_event-section">
+        <div class="wg38_event-container">
+            <div class="wg38_event-header">
+                <div class="wg38_event-title-wrap">
+                    <div class="wg38_event-chip">Agenda Kampus</div>
+                    <h2 class="wg38_event-title">Event & Agenda</h2>
+                    <p class="wg38_event-subtitle">Kegiatan terkini dan agenda mendatang.</p>
+                </div>
+                <a class="wg38_event-cta" href="#">Lihat Kalender Event →</a>
+            </div>
+
+            <div class="wg38_event-layout">
+                <div class="wg38_ev-slider" aria-label="Slider event">
+                    <div class="wg38_ev-stage">
+                        <div class="wg38_ev-slide wg38_active" data-index="0">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=80"
+                                alt="Seminar Teknologi">
+                            <div class="wg38_ev-overlay" aria-hidden="true"></div>
+                            <div class="wg38_ev-caption">
+                                <div class="wg38_ev-name">Seminar Nasional: Teknologi Masa Depan</div>
+                                <div class="wg38_ev-date">Jumat, 15 Des 2025 • 09.00 WIB • Aula Utama</div>
+                            </div>
+                        </div>
+
+                        <div class="wg38_ev-slide" data-index="1">
+                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1400&q=80"
+                                alt="Workshop UI UX">
+                            <div class="wg38_ev-overlay" aria-hidden="true"></div>
+                            <div class="wg38_ev-caption">
+                                <div class="wg38_ev-name">Workshop: UI/UX Design untuk Pemula</div>
+                                <div class="wg38_ev-date">Senin, 18 Des 2025 • 13.00 WIB • Lab Komputer 3</div>
+                            </div>
+                        </div>
+
+                        <div class="wg38_ev-slide" data-index="2">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80"
+                                alt="Pameran Karya">
+                            <div class="wg38_ev-overlay" aria-hidden="true"></div>
+                            <div class="wg38_ev-caption">
+                                <div class="wg38_ev-name">Pameran Karya Mahasiswa ITB WIGA</div>
+                                <div class="wg38_ev-date">Rabu, 20 Des 2025 • 10.00–16.00 WIB • Gedung Serba Guna</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wg38_ev-controls">
+                        <div class="wg38_ev-dots" aria-label="Indicator slide">
+                            <span class="wg38_ev-dot wg38_active" data-slide="0" role="button" aria-label="Slide 1"
+                                tabindex="0"></span>
+                            <span class="wg38_ev-dot" data-slide="1" role="button" aria-label="Slide 2"
+                                tabindex="0"></span>
+                            <span class="wg38_ev-dot" data-slide="2" role="button" aria-label="Slide 3"
+                                tabindex="0"></span>
+                        </div>
+
+                        <div class="wg38_ev-nav">
+                            <button class="wg38_ev-btn" id="wg38_evPrev" type="button"
+                                aria-label="Slide sebelumnya">‹</button>
+                            <button class="wg38_ev-btn" id="wg38_evNext" type="button"
+                                aria-label="Slide selanjutnya">›</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wg38_ev-list" aria-label="Daftar event ringkas">
+                    <a href="#" class="wg38_ev-item">
+                        <div>
+                            <div class="wg38_ev-item-title">Kuliah Umum: Transformasi Digital</div>
+                            <div class="wg38_ev-item-detail">12 Des • Ruang Multimedia • 09.00 WIB</div>
+                        </div>
+                        <span class="wg38_ev-tag">Terbuka</span>
+                    </a>
+
+                    <a href="#" class="wg38_ev-item">
+                        <div>
+                            <div class="wg38_ev-item-title">Open Booth PMB & Konsultasi</div>
+                            <div class="wg38_ev-item-detail">15 Des • Lobby Kampus • 10.00 WIB</div>
+                        </div>
+                        <span class="wg38_ev-tag">PMB</span>
+                    </a>
+
+                    <a href="#" class="wg38_ev-item">
+                        <div>
+                            <div class="wg38_ev-item-title">Lomba Inovasi Mahasiswa</div>
+                            <div class="wg38_ev-item-detail">18 Des • Aula Kampus • 13.00 WIB</div>
+                        </div>
+                        <span class="wg38_ev-tag">Internal</span>
+                    </a>
+
+                    <a href="#" class="wg38_ev-item">
+                        <div>
+                            <div class="wg38_ev-item-title">Meetup Alumni: Karier & Portofolio</div>
+                            <div class="wg38_ev-item-detail">21 Des • Ruang Sidang • 15.30 WIB</div>
+                        </div>
+                        <span class="wg38_ev-tag">Alumni</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAKULTAS -->
+    <section id="wg38_fakultas" class="wg38_faculty-section">
+        <div class="wg38_faculty-container">
+            <div class="wg38_faculty-header">
+                <div class="wg38_faculty-chip">Akademik</div>
+                <h2 class="wg38_faculty-title">Fakultas & Program Studi</h2>
+                <p class="wg38_faculty-subtitle">Ringkasan fakultas dan program studi utama untuk memudahkan calon
+                    mahasiswa.
+                </p>
+            </div>
+
+            <div class="wg38_faculty-grid">
+                <a href="campus.html" class="wg38_faculty-card">
+                    <div class="wg38_faculty-icon">FTI</div>
+                    <div class="wg38_faculty-name">Fakultas Teknik & Informatika</div>
+                    <div class="wg38_faculty-description">Fokus pada kompetensi teknologi, software, dan problem-solving
+                        berbasis
+                        proyek.</div>
+                    <div class="wg38_faculty-programs">
+                        <span class="wg38_program-tag">S1 Informatika</span>
+                    </div>
+                    <div class="wg38_faculty-link">Lihat detail</div>
+                </a>
+
+                <a href="#" class="wg38_faculty-card">
+                    <div class="wg38_faculty-icon">FEB</div>
+                    <div class="wg38_faculty-name">Fakultas Ekonomi & Bisnis</div>
+                    <div class="wg38_faculty-description">Menguatkan kemampuan manajemen, akuntansi, dan strategi bisnis
+                        modern.
+                    </div>
+                    <div class="wg38_faculty-programs">
+                        <span class="wg38_program-tag">S1 Akuntansi</span>
+                        <span class="wg38_program-tag">S1 Manajemen</span>
+                        <span class="wg38_program-tag">S2 Magister</span>
+                    </div>
+                    <div class="wg38_faculty-link">Lihat detail</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFORMASI / PENGUMUMAN -->
+    <section id="wg38_informasi" class="wg38_news-section">
+        <div class="wg38_news-container">
+            <div class="wg38_news-header">
+                <div class="wg38_news-title-wrap">
+                    <div class="wg38_news-chip">Update Kampus</div>
+                    <h2 class="wg38_news-title">Pengumuman & Informasi Akademik</h2>
+                    <p class="wg38_news-subtitle">Sorotan pengumuman resmi, jadwal akademik, dan panduan terbaru.</p>
+                </div>
+
+                <div class="wg38_news-filters" aria-label="Filter kategori berita">
+                    <button type="button" class="wg38_news-filter-btn wg38_is-active" data-filter="all">Semua</button>
+                    <button type="button" class="wg38_news-filter-btn" data-filter="pengumuman">Pengumuman</button>
+                    <button type="button" class="wg38_news-filter-btn" data-filter="informasi">Informasi
+                        Akademik</button>
+                </div>
+            </div>
+
+            <div class="wg38_news-layout">
+                <article class="wg38_news-headline" data-category="pengumuman,informasi">
+                    <div class="wg38_news-headline-img-wrap">
+                        <img src="https://picsum.photos/900/500?random=21" alt="Pengumuman Matrikulasi"
+                            class="wg38_news-headline-img">
+                        <div class="wg38_news-headline-badge">Pengumuman</div>
+                    </div>
+                    <div class="wg38_news-headline-body">
+                        <span class="wg38_news-headline-tag">Informasi Akademik</span>
+                        <h3 class="wg38_news-headline-title">Jadwal Matrikulasi Program Studi Magister Manajemen</h3>
+                        <p class="wg38_news-headline-meta"><span>By Devi</span><span>22 September
+                                2025</span><span>Akademik</span>
+                        </p>
+                        <p class="wg38_news-headline-excerpt">
+                            Jadwal lengkap matrikulasi untuk mahasiswa baru, termasuk orientasi awal dan materi
+                            pengenalan program.
+                        </p>
+                        <a href="#" class="wg38_news-headline-link">Baca Selengkapnya</a>
+                    </div>
+                </article>
+
+                <div class="wg38_news-list" aria-label="Daftar berita">
+                    <article class="wg38_news-item" data-category="pengumuman">
+                        <div class="wg38_news-item-media">
+                            <img class="wg38_news-item-thumb" src="https://picsum.photos/200/200?random=11"
+                                alt="Pengumuman Bantuan Pendidikan">
+                        </div>
+                        <div class="wg38_news-item-content">
+                            <span class="wg38_news-item-tag wg38_tag--pengumuman">Pengumuman</span>
+                            <h3 class="wg38_news-item-title">Pengumuman Penerima Bantuan Pendidikan dan KIP TA 2023/2024
+                            </h3>
+                            <p class="wg38_news-item-meta">By Devi • 4 Desember 2023</p>
+                            <p class="wg38_news-item-excerpt">Daftar penerima bantuan pendidikan dan KIP untuk tahun
+                                ajaran 2023/2024.
+                            </p>
+                            <a href="#" class="wg38_news-item-link">Lihat Pengumuman</a>
+                        </div>
+                    </article>
+
+                    <article class="wg38_news-item" data-category="pengumuman">
+                        <div class="wg38_news-item-media">
+                            <img class="wg38_news-item-thumb" src="https://picsum.photos/200/200?random=22"
+                                alt="Pengumuman Lulus Seleksi">
+                        </div>
+                        <div class="wg38_news-item-content">
+                            <span class="wg38_news-item-tag wg38_tag--pengumuman">Pengumuman</span>
+                            <h3 class="wg38_news-item-title">Pengumuman Lulus Seleksi Penerimaan Calon Mahasiswa Baru TA
+                                2023/2024
+                            </h3>
+                            <p class="wg38_news-item-meta">By Devi • 1 November 2023</p>
+                            <p class="wg38_news-item-excerpt">Nama-nama calon mahasiswa baru yang dinyatakan lulus
+                                seleksi.</p>
+                            <a href="#" class="wg38_news-item-link">Lihat Pengumuman</a>
+                        </div>
+                    </article>
+
+                    <article class="wg38_news-item" data-category="informasi">
+                        <div class="wg38_news-item-media">
+                            <img class="wg38_news-item-thumb" src="https://picsum.photos/200/200?random=24"
+                                alt="Jadwal Perkuliahan">
+                        </div>
+                        <div class="wg38_news-item-content">
+                            <span class="wg38_news-item-tag wg38_tag--informasi">Informasi Akademik</span>
+                            <h3 class="wg38_news-item-title">Jadwal Perkuliahan Semester Ganjil TA 2025/2026</h3>
+                            <p class="wg38_news-item-meta">By Devi • 10 September 2025</p>
+                            <p class="wg38_news-item-excerpt">Pembaharuan jadwal perkuliahan, ruangan, dan informasi
+                                teknis per
+                                semester.
+                            </p>
+                            <a href="#" class="wg38_news-item-link">Lihat Detail</a>
+                        </div>
+                    </article>
+
+                    <article class="wg38_news-item" data-category="informasi">
+                        <div class="wg38_news-item-media">
+                            <img class="wg38_news-item-thumb" src="https://picsum.photos/200/200?random=26"
+                                alt="Panduan Akademik">
+                        </div>
+                        <div class="wg38_news-item-content">
+                            <span class="wg38_news-item-tag wg38_tag--informasi">Informasi Akademik</span>
+                            <h3 class="wg38_news-item-title">Panduan Registrasi Ulang dan KRS Mahasiswa</h3>
+                            <p class="wg38_news-item-meta">By Admin • 2 Agustus 2025</p>
+                            <p class="wg38_news-item-excerpt">Langkah singkat registrasi, KRS, dan aturan akademik yang
+                                paling sering
+                                ditanya.</p>
+                            <a href="#" class="wg38_news-item-link">Baca Panduan</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="wg38_footer" id="wg38_footer">
+        <div class="wg38_footer-container">
+            <div class="wg38_footer-grid">
+                <div class="wg38_footer-col">
+                    <div class="wg38_footer-logo">
+                        <img class="wg38_footer-logo-img" src="Untitled.png" alt="Logo ITB WIGA" />
+                        <div class="wg38_footer-logo-text">
+                            <div class="wg38_footer-logo-small">Institut Teknologi dan Bisnis</div>
+                            <div class="wg38_footer-logo-main">Widyagama Lumajang</div>
+                        </div>
+                    </div>
+                    <p class="wg38_footer-description">
+                        Kampus berbasis teknologi dan bisnis yang fokus pada kompetensi praktis, karakter, dan kesiapan
+                        karier di
+                        era digital.
+                    </p>
+                    <div class="wg38_footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M13 22v-8h3l1-4h-4V7c0-1.1.3-2 2-2h2V1h-3c-3.3 0-5 2-5 5v4H8v4h3v8h2z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.8 4.6 12 4.6 12 4.6s-5.8 0-7.5.5A3 3 0 0 0 2.4 7.2a31 31 0 0 0 0 9.6 3 3 0 0 0 2.1 2.1c1.7.5 7.5.5 7.5.5s5.8 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="wg38_footer-col">
+                    <div class="wg38_footer-title">Tautan Cepat</div>
+                    <div class="wg38_footer-links">
+                        <a href="#wg38_berita-terbaru" class="wg38_footer-link">Berita Terbaru</a>
+                        <a href="#wg38_portal" class="wg38_footer-link">Portal Sistem</a>
+                        <a href="#wg38_event" class="wg38_footer-link">Event & Agenda</a>
+                        <a href="#wg38_fakultas" class="wg38_footer-link">Fakultas</a>
+                        <a href="#wg38_informasi" class="wg38_footer-link">Pengumuman</a>
+                    </div>
+                </div>
+
+                <div class="wg38_footer-col">
+                    <div class="wg38_footer-title">Kontak</div>
+                    <div class="wg38_footer-contact">
+                        <div class="wg38_footer-contact-item">
+                            <svg class="wg38_footer-ic" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11z" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <span>Lumajang, Jawa Timur</span>
+                        </div>
+                        <div class="wg38_footer-contact-item">
+                            <svg class="wg38_footer-ic" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 4h16v16H4z" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M4 7l8 6 8-6" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <span>info@itbwiga.ac.id</span>
+                        </div>
+                        <div class="wg38_footer-contact-item">
+                            <svg class="wg38_footer-ic" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M22 16.5v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.5 4.2 2 2 0 0 1 4.5 2h3a2 2 0 0 1 2 1.7c.1.8.3 1.6.6 2.4a2 2 0 0 1-.5 2.1L8.5 9.3a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.4.6A2 2 0 0 1 22 16.5z"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span>+62 000-0000-0000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wg38_footer-bottom">
+                <div class="wg38_copyright">© <span id="wg38_yearNow"></span> ITB Widyagama Lumajang. All rights
+                    reserved.</div>
+                <div class="wg38_footer-legal">
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* =========================
+           HELPERS
+        ========================= */
+        const wg38_$ = (sel, root = document) => root.querySelector(sel);
+        const wg38_$$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+        function wg38_lockScroll(on) {
+            document.body.style.overflow = on ? 'hidden' : '';
+        }
+
+        function wg38_closeAll(rootSel, openClass = 'wg38_open', exceptEl = null) {
+            wg38_$$(rootSel).forEach(el => {
+                if (exceptEl && el === exceptEl) return;
+                el.classList.remove(openClass);
+                const btn = el.querySelector('button[aria-expanded]');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        /* =========================
+           DESKTOP: AUDIENCE DROPDOWN
+        ========================= */
+        function wg38_setupAudienceDesktop() {
+            const items = wg38_$$('#wg38_audienceNav .wg38_aud-item.wg38_has-dropdown');
+            items.forEach(item => {
+                const btn = wg38_$('.wg38_aud-toggle', item);
+                if (!btn) return;
+
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const isOpen = item.classList.contains('wg38_open');
+
+                    items.forEach(i => {
+                        i.classList.remove('wg38_open');
+                        const b = wg38_$('.wg38_aud-toggle', i);
+                        if (b) b.setAttribute('aria-expanded', 'false');
+                    });
+
+                    if (!isOpen) {
+                        item.classList.add('wg38_open');
+                        btn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            document.addEventListener('click', () => {
+                items.forEach(i => {
+                    i.classList.remove('wg38_open');
+                    const b = wg38_$('.wg38_aud-toggle', i);
+                    if (b) b.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        /* =========================
+           DESKTOP: MAIN NAV DROPDOWN + SUBMENU
+        ========================= */
+        function wg38_setupMainNavDesktop() {
+            const dd = wg38_$$('#wg38_desktopNav .wg38_has-dropdown');
+            dd.forEach(li => {
+                const toggle = wg38_$('.wg38_dd-toggle', li);
+                if (!toggle) return;
+
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const isOpen = li.classList.contains('wg38_open');
+                    dd.forEach(x => {
+                        x.classList.remove('wg38_open');
+                        const t = wg38_$('.wg38_dd-toggle', x);
+                        if (t) t.setAttribute('aria-expanded', 'false');
+                        // tutup submenu level 2
+                        wg38_$$('.wg38_submenu-wrap', x).forEach(sw => {
+                            sw.classList.remove('wg38_open');
+                            const sb = wg38_$('.wg38_sub-toggle', sw);
+                            if (sb) sb.setAttribute('aria-expanded', 'false');
+                        });
+                    });
+
+                    if (!isOpen) {
+                        li.classList.add('wg38_open');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+                });
+
+                // submenu inside dropdown
+                wg38_$$('.wg38_submenu-wrap', li).forEach(sw => {
+                    const sb = wg38_$('.wg38_sub-toggle', sw);
+                    if (!sb) return;
+
+                    sb.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const open = sw.classList.contains('wg38_open');
+
+                        // close siblings
+                        wg38_$$('.wg38_submenu-wrap', li).forEach(sib => {
+                            sib.classList.remove('wg38_open');
+                            const b = wg38_$('.wg38_sub-toggle', sib);
+                            if (b) b.setAttribute('aria-expanded', 'false');
+                        });
+
+                        if (!open) {
+                            sw.classList.add('wg38_open');
+                            sb.setAttribute('aria-expanded', 'true');
+                        }
+                    });
+                });
+            });
+
+            document.addEventListener('click', () => {
+                dd.forEach(li => {
+                    li.classList.remove('wg38_open');
+                    const t = wg38_$('.wg38_dd-toggle', li);
+                    if (t) t.setAttribute('aria-expanded', 'false');
+                    wg38_$$('.wg38_submenu-wrap', li).forEach(sw => {
+                        sw.classList.remove('wg38_open');
+                        const sb = wg38_$('.wg38_sub-toggle', sw);
+                        if (sb) sb.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            });
+        }
+
+        /* =========================
+           MOBILE PANELS
+        ========================= */
+        function wg38_setupMobilePanels() {
+            const overlay = wg38_$('#wg38_overlay');
+
+            const audBtn = wg38_$('#wg38_audHamburger');
+            const audPanel = wg38_$('#wg38_audPanel');
+            const audClose = wg38_$('#wg38_audClose');
+
+            const navBtn = wg38_$('#wg38_navHamburger');
+            const navPanel = wg38_$('#wg38_navPanel');
+            const navClose = wg38_$('#wg38_navClose');
+
+            function wg38_openPanel(panel, btn) {
+                overlay.setAttribute('data-open', 'true');
+                panel.setAttribute('data-open', 'true');
+                btn && btn.setAttribute('aria-expanded', 'true');
+                wg38_lockScroll(true);
+            }
+
+            function wg38_closePanels() {
+                overlay.setAttribute('data-open', 'false');
+                audPanel.setAttribute('data-open', 'false');
+                navPanel.setAttribute('data-open', 'false');
+                audBtn && audBtn.setAttribute('aria-expanded', 'false');
+                navBtn && navBtn.setAttribute('aria-expanded', 'false');
+                wg38_lockScroll(false);
+            }
+
+            audBtn && audBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                wg38_openPanel(audPanel, audBtn);
+            });
+
+            navBtn && navBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                wg38_openPanel(navPanel, navBtn);
+            });
+
+            audClose && audClose.addEventListener('click', wg38_closePanels);
+            navClose && navClose.addEventListener('click', wg38_closePanels);
+            overlay && overlay.addEventListener('click', wg38_closePanels);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') wg38_closePanels();
+            });
+
+            // accordions in panels
+            wg38_$$('.wg38_m-group-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                });
+            });
+
+            wg38_$$('.wg38_nav-mobile-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                });
+            });
+
+            wg38_$$('.wg38_nav-mobile-subbtn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                });
+            });
+        }
+
+        /* =========================
+           HERO SLIDER
+        ========================= */
+        function wg38_setupHeroSlider() {
+            const root = wg38_$('#wg38_campusSlider');
+            if (!root) return;
+
+            const slides = wg38_$$('.wg38_slide', root);
+            const dots = wg38_$$('.wg38_dot', root);
+            const prev = wg38_$('.wg38_prev', root);
+            const next = wg38_$('.wg38_next', root);
+
+            let index = 0;
+            let timer = null;
+
+            function show(i) {
+                index = (i + slides.length) % slides.length;
+                slides.forEach((s, si) => s.classList.toggle('wg38_is-active', si === index));
+                dots.forEach((d, di) => d.classList.toggle('wg38_is-active', di === index));
+            }
+
+            function start() {
+                stop();
+                timer = setInterval(() => show(index + 1), 4500);
+            }
+
+            function stop() {
+                if (timer) clearInterval(timer);
+                timer = null;
+            }
+
+            prev && prev.addEventListener('click', () => { show(index - 1); start(); });
+            next && next.addEventListener('click', () => { show(index + 1); start(); });
+
+            dots.forEach(d => {
+                d.addEventListener('click', () => {
+                    const i = Number(d.dataset.slide || 0);
+                    show(i);
+                    start();
+                });
+            });
+
+            root.addEventListener('mouseenter', stop);
+            root.addEventListener('mouseleave', start);
+
+            show(0);
+            start();
+        }
+
+        /* =========================
+           BERITAAA RENDER
+        ========================= */
+        function wg38_setupBeritaTerbaru() {
+            const marquee = wg38_$('#wg38_beritaaaMarquee');
+            const spotlight = wg38_$('#wg38_beritaaaSpotlight');
+            const cards = wg38_$('#wg38_beritaaaCards');
+            if (!marquee || !spotlight || !cards) return;
+
+            const berita = [
+                {
+                    title: "ITB WIGA Buka Pendaftaran Gelombang Baru",
+                    date: "7 Desember 2025",
+                    author: "Humas",
+                    read: "3 menit",
+                    img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80",
+                    desc: "Informasi gelombang pendaftaran terbaru, jalur masuk, dan timeline administrasi.",
+                    tag: "Penerimaan"
+                },
+                {
+                    title: "Pelatihan Portofolio untuk Mahasiswa Tingkat Akhir",
+                    date: "5 Desember 2025",
+                    author: "Kemahasiswaan",
+                    read: "4 menit",
+                    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80",
+                    desc: "Kegiatan pembekalan portofolio dan simulasi interview untuk persiapan karier.",
+                    tag: "Karier"
+                },
+                {
+                    title: "Kolaborasi Kampus dengan Mitra Industri Lokal",
+                    date: "1 Desember 2025",
+                    author: "Kerjasama",
+                    read: "5 menit",
+                    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80",
+                    desc: "Kerjasama untuk magang, proyek nyata, dan penguatan kurikulum berbasis industri.",
+                    tag: "Kerjasama"
+                },
+                {
+                    title: "Update Sarana: Peremajaan Lab Komputer",
+                    date: "27 November 2025",
+                    author: "UPT TI",
+                    read: "3 menit",
+                    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80",
+                    desc: "Penambahan perangkat dan peningkatan kenyamanan lab untuk kegiatan praktikum.",
+                    tag: "Fasilitas"
+                }
+            ];
+
+            // marquee items (double for loop effect)
+            const marqueeItems = berita.map(b => `<span class="wg38_beritaaa__tag">${wg38_escapeHtml(b.title)}</span>`).join("");
+            marquee.innerHTML = marqueeItems + marqueeItems;
+
+            // spotlight = berita[0]
+            const head = berita[0];
+            spotlight.innerHTML = `
+        <div class="wg38_beritaaa__spotMedia">
+          <img src="${head.img}" alt="${wg38_escapeAttr(head.title)}">
+          <div class="wg38_beritaaa__chip"><b>Headline</b></div>
+        </div>
+        <div class="wg38_beritaaa__spotBody">
+          <div class="wg38_beritaaa__meta">
+            <span class="wg38_pill">${wg38_escapeHtml(head.tag)}</span>
+            <span>${wg38_escapeHtml(head.date)}</span>
+          </div>
+          <h3 class="wg38_beritaaa__spotTitle">${wg38_escapeHtml(head.title)}</h3>
+          <p class="wg38_beritaaa__spotDesc">${wg38_escapeHtml(head.desc)}</p>
+          <a class="wg38_beritaaa__cta" href="#">
+            <span aria-hidden="true">→</span>
+            <strong>Baca selengkapnya</strong>
+          </a>
+        </div>
+      `;
+
+            // cards = berita[1..]
+            cards.innerHTML = berita.slice(1).map((b) => `
+        <div class="wg38_beritaaa__card">
+          <div class="wg38_beritaaa__thumb">
+            <img src="${b.img}" alt="${wg38_escapeAttr(b.title)}">
+          </div>
+          <div>
+            <div class="wg38_beritaaa__cardTop">
+              <span class="wg38_pill" style="padding:5px 10px;border-radius:999px;border:1px solid rgba(226,232,240,.95);background:rgba(255,255,255,.85);font-weight:950;color:var(--wg38_navy);">${wg38_escapeHtml(b.tag)}</span>
+              <span>${wg38_escapeHtml(b.date)}</span>
+            </div>
+            <a href="#" class="wg38_beritaaa__cardTitle">${wg38_escapeHtml(b.title)}</a>
+            <p class="wg38_beritaaa__cardDesc">${wg38_escapeHtml(b.desc)}</p>
+          </div>
+        </div>
+      `).join("");
+        }
+
+        /* =========================
+           PORTAL SEARCH + RECENT
+        ========================= */
+        function wg38_setupPortal() {
+            const grid = wg38_$('#wg38_portalsGrid');
+            const search = wg38_$('#wg38_searchInput');
+            const resultCount = wg38_$('#wg38_resultCount');
+            const badge = wg38_$('#wg38_serviceCount');
+            const recentWrap = wg38_$('#wg38_recentChips');
+            const recentSection = wg38_$('#wg38_recentSection');
+            if (!grid || !search || !resultCount || !badge || !recentWrap || !recentSection) return;
+
+            const portals = [
+                { title: "SIAKAD", desc: "Akses KRS, KHS, jadwal kuliah, dan administrasi akademik.", url: "siakad.itbwiga.ac.id", icon: "SA" },
+                { title: "PMB Online", desc: "Pendaftaran mahasiswa baru, info gelombang, dan status seleksi.", url: "pmb.itbwiga.ac.id", icon: "PB" },
+                { title: "E-Learning", desc: "Materi kuliah, tugas, dan kelas daring.", url: "elearning.itbwiga.ac.id", icon: "EL" },
+                { title: "Perpustakaan", desc: "Katalog buku, repository, dan layanan referensi.", url: "library.itbwiga.ac.id", icon: "LP" },
+                { title: "Tracer Study", desc: "Pendataan alumni dan evaluasi capaian lulusan.", url: "tracer.itbwiga.ac.id", icon: "TS" },
+                { title: "Career Center", desc: "Lowongan kerja, magang, dan pelatihan karier.", url: "career.itbwiga.ac.id", icon: "CC" },
+                { title: "Pengaduan", desc: "Layanan pengaduan dan tindak lanjut cepat.", url: "aduan.itbwiga.ac.id", icon: "AD" },
+                { title: "Beasiswa", desc: "Info beasiswa dan pendaftaran bantuan pendidikan.", url: "beasiswa.itbwiga.ac.id", icon: "BS" },
+                { title: "Kerjasama", desc: "Dokumen MoU, mitra, dan program kolaborasi.", url: "kerjasama.itbwiga.ac.id", icon: "KJ" },
+                { title: "Akreditasi", desc: "Dokumen akreditasi dan mutu institusi.", url: "mutu.itbwiga.ac.id", icon: "AK" }
+            ];
+
+            badge.textContent = `${portals.length} layanan tersedia`;
+
+            const RECENT_KEY = "itbwiga_recent_portals_v1";
+
+            function wg38_loadRecent() {
+                try {
+                    const raw = localStorage.getItem(RECENT_KEY);
+                    const arr = raw ? JSON.parse(raw) : [];
+                    return Array.isArray(arr) ? arr : [];
+                } catch {
+                    return [];
+                }
+            }
+
+            function wg38_saveRecent(arr) {
+                try {
+                    localStorage.setItem(RECENT_KEY, JSON.stringify(arr.slice(0, 6)));
+                } catch { }
+            }
+
+            function wg38_renderRecent() {
+                const rec = wg38_loadRecent();
+                if (!rec.length) {
+                    recentSection.style.display = "none";
+                    return;
+                }
+                recentSection.style.display = "";
+                recentWrap.innerHTML = rec.map(r => `
+          <button type="button" class="wg38_recent-chip" data-url="${wg38_escapeAttr(r.url)}" aria-label="Buka ${wg38_escapeAttr(r.title)}">
+            ${wg38_escapeHtml(r.title)}
+          </button>
+        `).join("");
+
+                wg38_$$('.wg38_recent-chip', recentWrap).forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const url = btn.dataset.url;
+                        alert(`Simulasi buka: ${url}`);
+                    });
+                });
+            }
+
+            function wg38_pushRecent(item) {
+                const rec = wg38_loadRecent();
+                const next = [item, ...rec.filter(x => x.url !== item.url)];
+                wg38_saveRecent(next);
+                wg38_renderRecent();
+            }
+
+            function wg38_render(list) {
+                resultCount.textContent = `Menampilkan ${list.length} dari ${portals.length} portal`;
+
+                if (!list.length) {
+                    grid.innerHTML = `
+            <div class="wg38_empty-state">
+              <div class="wg38_empty-icon">0</div>
+              <div class="wg38_empty-title">Portal tidak ditemukan</div>
+              <div class="wg38_empty-text">Coba kata kunci lain atau reset pencarian.</div>
+              <button class="wg38_reset-btn" type="button" id="wg38_resetSearch">Reset</button>
+            </div>
+          `;
+                    wg38_$('#wg38_resetSearch')?.addEventListener('click', () => {
+                        search.value = "";
+                        wg38_render(portals);
+                        search.focus();
+                    });
+                    return;
+                }
+
+                grid.innerHTML = list.map(p => `
+          <a href="#" class="wg38_portal-card" data-url="${wg38_escapeAttr(p.url)}" aria-label="Buka portal ${wg38_escapeAttr(p.title)}">
+            <div class="wg38_card-header">
+              <div class="wg38_card-icon">${wg38_escapeHtml(p.icon)}</div>
+            </div>
+            <div class="wg38_card-title">${wg38_escapeHtml(p.title)}</div>
+            <div class="wg38_card-description">${wg38_escapeHtml(p.desc)}</div>
+            <div class="wg38_card-footer">
+              <div class="wg38_card-url">${wg38_escapeHtml(p.url)}</div>
+              <span class="wg38_card-action">Buka</span>
+            </div>
+          </a>
+        `).join("");
+
+                wg38_$$('.wg38_portal-card', grid).forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const url = card.dataset.url;
+                        const title = wg38_$('.wg38_card-title', card)?.textContent?.trim() || "Portal";
+                        wg38_pushRecent({ title, url });
+                        alert(`Simulasi buka: ${url}`);
+                    });
+                });
+            }
+
+            function wg38_filter(q) {
+                const query = q.trim().toLowerCase();
+                if (!query) return portals;
+                return portals.filter(p =>
+                    p.title.toLowerCase().includes(query) ||
+                    p.desc.toLowerCase().includes(query) ||
+                    p.url.toLowerCase().includes(query)
+                );
+            }
+
+            // "/" focus search
+            document.addEventListener('keydown', (e) => {
+                if (e.key === '/' && document.activeElement !== search) {
+                    e.preventDefault();
+                    search.focus();
+                }
+            });
+
+            search.addEventListener('input', () => {
+                const list = wg38_filter(search.value);
+                wg38_render(list);
+            });
+
+            wg38_render(portals);
+            wg38_renderRecent();
+        }
+
+        /* =========================
+           EVENT SLIDER
+        ========================= */
+        function wg38_setupEventSlider() {
+            const slides = wg38_$$('.wg38_ev-slide');
+            const dots = wg38_$$('.wg38_ev-dot');
+            const prev = wg38_$('#wg38_evPrev');
+            const next = wg38_$('#wg38_evNext');
+            if (!slides.length || !dots.length) return;
+
+            let idx = 0;
+            let timer = null;
+
+            function show(i) {
+                idx = (i + slides.length) % slides.length;
+                slides.forEach((s, si) => s.classList.toggle('wg38_active', si === idx));
+                dots.forEach((d, di) => d.classList.toggle('wg38_active', di === idx));
+            }
+
+            function start() {
+                stop();
+                timer = setInterval(() => show(idx + 1), 5000);
+            }
+
+            function stop() {
+                if (timer) clearInterval(timer);
+                timer = null;
+            }
+
+            prev && prev.addEventListener('click', () => { show(idx - 1); start(); });
+            next && next.addEventListener('click', () => { show(idx + 1); start(); });
+
+            dots.forEach(d => {
+                const go = () => {
+                    const i = Number(d.dataset.slide || 0);
+                    show(i);
+                    start();
+                };
+                d.addEventListener('click', go);
+                d.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        go();
+                    }
+                });
+            });
+
+            const wrap = wg38_$('.wg38_ev-slider');
+            wrap && wrap.addEventListener('mouseenter', stop);
+            wrap && wrap.addEventListener('mouseleave', start);
+
+            show(0);
+            start();
+        }
+
+        /* =========================
+           NEWS FILTER
+        ========================= */
+        function wg38_setupNewsFilter() {
+            const section = wg38_$('#wg38_informasi');
+            if (!section) return;
+
+            const buttons = wg38_$$('.wg38_news-filter-btn', section);
+            const items = wg38_$$('.wg38_news-item', section);
+            const headline = wg38_$('.wg38_news-headline', section);
+
+            function matches(el, filter) {
+                if (filter === 'all') return true;
+                const cat = (el.getAttribute('data-category') || '').toLowerCase();
+                return cat.split(',').map(s => s.trim()).includes(filter);
+            }
+
+            function apply(filter) {
+                buttons.forEach(b => b.classList.toggle('wg38_is-active', b.dataset.filter === filter));
+
+                items.forEach(it => {
+                    it.classList.toggle('wg38_is-hidden', !matches(it, filter));
+                });
+
+                if (headline) headline.classList.toggle('wg38_is-hidden', !matches(headline, filter));
+            }
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => apply(btn.dataset.filter || 'all'));
+            });
+
+            apply('all');
+        }
+
+        /* =========================
+           MINI NAV ACTIVE ON SCROLL
+        ========================= */
+        function wg38_setupMiniNavActive() {
+            const links = wg38_$$('.wg38_mini-links a');
+            if (!links.length) return;
+
+            const targets = links
+                .map(a => {
+                    const id = a.getAttribute('href');
+                    if (!id || !id.startsWith('#')) return null;
+                    const el = document.querySelector(id);
+                    return el ? { a, el } : null;
+                })
+                .filter(Boolean);
+
+            function onScroll() {
+                const y = window.scrollY + 150;
+                let current = null;
+
+                for (const t of targets) {
+                    const top = t.el.getBoundingClientRect().top + window.scrollY;
+                    if (top <= y) current = t;
+                }
+
+                links.forEach(a => a.classList.remove('wg38_active'));
+                if (current) current.a.classList.add('wg38_active');
+            }
+
+            document.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        }
+
+        /* =========================
+           ESCAPE HTML
+        ========================= */
+        function wg38_escapeHtml(str) {
+            return String(str)
+                .replaceAll('&', '&amp;')
+                .replaceAll('<', '&lt;')
+                .replaceAll('>', '&gt;')
+                .replaceAll('"', '&quot;')
+                .replaceAll("'", '&#039;');
+        }
+
+        function wg38_escapeAttr(str) {
+            return wg38_escapeHtml(str).replaceAll('\n', ' ');
+        }
+
+        /* =========================
+           INIT
+        ========================= */
+        document.addEventListener('DOMContentLoaded', () => {
+            wg38_$('#wg38_yearNow').textContent = new Date().getFullYear();
+
+            wg38_setupAudienceDesktop();
+            wg38_setupMainNavDesktop();
+            wg38_setupMobilePanels();
+            wg38_setupHeroSlider();
+
+            wg38_setupBeritaTerbaru();
+            wg38_setupPortal();
+            wg38_setupEventSlider();
+            wg38_setupNewsFilter();
+            wg38_setupMiniNavActive();
+
+            // ESC closes desktop dropdown too
+            document.addEventListener('keydown', (e) => {
+                if (e.key !== 'Escape') return;
+                wg38_closeAll('#wg38_audienceNav .wg38_aud-item.wg38_has-dropdown');
+                wg38_closeAll('#wg38_desktopNav .wg38_has-dropdown');
+                // also close submenu wraps
+                wg38_$$('#wg38_desktopNav .wg38_submenu-wrap').forEach(sw => {
+                    sw.classList.remove('wg38_open');
+                    const sb = wg38_$('.wg38_sub-toggle', sw);
+                    if (sb) sb.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
