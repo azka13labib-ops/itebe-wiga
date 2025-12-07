@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visi & Misi | ITB Widyagama Lumajang</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* * CSS VARIABLES & RESET
+         * Prefix: --wg38_
+         */
+    :root {
+      --wg38_page-bg: #f8fafc;
+      --wg38_bg-page: #f8fafc;
+      --wg38_bg-card: #ffffff;
+      --wg38_bg: #f8fafc;
+      --wg38_text: #0b1b2e;
+      --wg38_text-main: #0b1b2e;
+      --wg38_text-muted: #4b5568;
+      --wg38_text_muted: var(--wg38_text-muted);
+      --wg38_muted: #475569;
+      --wg38_border: #e2e8f0;
+      --wg38_border-soft: rgba(226, 232, 240, .95);
+
+      --wg38_aud-bg: #073a63;
+      --wg38_aud-text: rgba(255, 255, 255, 0.92);
+
+      --wg38_nav-bg: #ffffff;
+      --wg38_nav-text: #0b1b2e;
+
+      /* Palet utama */
+      --wg38_primary: #073a63;
+      --wg38_primary-light: #0b63b5;
+      --wg38_primary-dark: #052b48;
+      --wg38_primary_soft: #eaf4ff;
+      --wg38_primary-soft: #eaf4ff;
+
+      /* Aksen kuning */
+      --wg38_accent: #ffbf0f;
+      --wg38_accent-light: #fff3d4;
+      --wg38_accent-dark: #d89a00;
+      --wg38_accent-yellow: #ffbf0f;
+      --wg38_accent-yellow-2: #f5b700;
+      --wg38_accent-yellow-3: #d89a00;
+
+      /* Tema biru/navy */
+      --wg38_accent-navy: #073a63;
+      --wg38_accent-blue: #0b63b5;
+      --wg38_accent-light-blue: #eaf4ff;
+
+      --wg38_card: #ffffff;
+      --wg38_shadow: 0 18px 50px rgba(15, 23, 42, 0.16);
+      --wg38_radius: 12px;
+      --wg38_radius-md: 12px;
+      --wg38_radius-lg: 18px;
+      --wg38_radius-sm: 8px;
+      --wg38_container: 1200px;
+
+      --wg38_bp-aud-mobile: 680px;
+      --wg38_bp-nav-mobile: 980px;
+
+      --wg38_shadow-sm: 0 4px 12px rgba(2, 6, 23, .05);
+      --wg38_shadow-md: 0 10px 30px rgba(2, 6, 23, .08);
+      --wg38_shadow-lg: 0 18px 44px rgba(2, 6, 23, .12);
+
+      --wg38_transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      /* Alias biar section tidak error */
+      --wg38_navy: var(--wg38_primary);
+      --wg38_navy-light: #1E293B;
+      --wg38_blue: var(--wg38_primary-light);
+      --wg38_primary_blue: var(--wg38_primary);
+      --wg38_primary_dark: var(--wg38_primary-dark);
+      --wg38_white: #ffffff;
+      --wg38_bg_light: var(--wg38_primary-soft);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 132px;
+    }
+
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--wg38_bg-page);
+      color: var(--wg38_text-main);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .wg38_container {
+      width: min(var(--wg38_container), calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .wg38_site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      animation: wg38_slideDown 0.3s ease;
+      background: transparent;
+    }
+
+    @keyframes wg38_slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+       AUDIENCE BAR & NAVIGASI
+    ========================= */
+    .wg38_audience-bar {
+      background: linear-gradient(120deg, var(--wg38_primary), var(--wg38_primary-light));
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative;
+      z-index: 1200;
+      padding: 4px 0;
+      box-shadow: 0 6px 18px rgba(7, 58, 99, 0.12);
+    }
+
+    .wg38_audience-inner {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .wg38_aud-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wg38_social {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-right: 10px;
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .wg38_social a {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.88);
+      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .wg38_social a:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      transform: translateY(-1px) scale(1.06);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+    }
+
+    /* Desktop Audience Navigation */
+    .wg38_aud-nav {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      overflow: visible;
+      gap: 2px;
+    }
+
+    .wg38_aud-item {
+      position: relative;
+    }
+
+    .wg38_aud-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--wg38_aud-text);
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      position: relative;
+      font-weight: 600;
+    }
+
+    .wg38_aud-toggle:hover,
+    .wg38_aud-item.wg38_open>.wg38_aud-toggle {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+    }
+
+    .wg38_caret {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .wg38_aud-item.wg38_open .wg38_caret {
+      transform: rotate(180deg);
+    }
+
+    .wg38_aud-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 320px;
+      max-width: 440px;
+      padding: 8px;
+      border-radius: 12px;
+      border: 1px solid var(--wg38_border);
+      background: var(--wg38_card);
+      box-shadow: var(--wg38_shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+      z-index: 5500;
+    }
+
+    .wg38_aud-dropdown::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 18px;
+      width: 14px;
+      height: 14px;
+      background: var(--wg38_card);
+      border-left: 1px solid var(--wg38_border);
+      border-top: 1px solid var(--wg38_border);
+      transform: rotate(45deg);
+    }
+
+    .wg38_aud-link {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #111827;
+      line-height: 1.4;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .wg38_aud-link:hover {
+      background: var(--wg38_primary-soft);
+      transform: translateX(4px);
+      border-left-color: var(--wg38_accent-yellow);
+    }
+
+    .wg38_aud-item.wg38_open>.wg38_aud-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: wg38_fadeInUp 0.2s ease;
+    }
+
+    @keyframes wg38_fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Main Navbar */
+    .wg38_navbar {
+      color: var(--wg38_nav-text);
+      z-index: 1100;
+      position: relative;
+      backdrop-filter: blur(10px);
+      background: var(--wg38_nav-bg);
+      border-bottom: 1px solid var(--wg38_border);
+      box-shadow: 0 10px 30px rgba(7, 58, 99, 0.08);
+    }
+
+    .wg38_nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .wg38_brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 280px;
+      transition: transform 0.2s ease;
+    }
+
+    .wg38_brand:hover {
+      transform: translateY(-1px);
+    }
+
+    .wg38_logo-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: #ffffff;
+      border: 1px solid rgba(11, 58, 102, 0.18);
+      box-shadow: 0 4px 12px rgba(11, 58, 102, 0.15);
+      padding: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .wg38_brand:hover .wg38_logo-img {
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    .wg38_brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1.1;
+    }
+
+    .wg38_brand-small {
+      font-size: 11.5px;
+      letter-spacing: 0.1px;
+      color: #0b1b2e;
+      text-transform: none;
+      font-weight: 800;
+    }
+
+    .wg38_brand-main {
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      color: var(--wg38_accent-yellow);
+      text-transform: uppercase;
+      font-weight: 900;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Desktop Main Navigation */
+    .wg38_nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .wg38_nav-link,
+    .wg38_dd-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      color: rgba(11, 27, 46, 0.92);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      position: relative;
+      font-weight: 700;
+      font-size: 13.5px;
+    }
+
+    .wg38_nav-link:hover,
+    .wg38_dd-toggle:hover,
+    .wg38_has-dropdown.wg38_open>.wg38_dd-toggle {
+      background: rgba(11, 58, 102, 0.08);
+      border-color: rgba(11, 58, 102, 0.12);
+      color: var(--wg38_accent-navy);
+    }
+
+    .wg38_nav-link::after,
+    .wg38_dd-toggle::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--wg38_accent-yellow);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .wg38_nav-link:hover::after,
+    .wg38_dd-toggle:hover::after,
+    .wg38_has-dropdown.wg38_open>.wg38_dd-toggle::after {
+      width: 70%;
+    }
+
+    .wg38_has-dropdown {
+      position: relative;
+    }
+
+    .wg38_dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 300px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--wg38_border);
+      background: var(--wg38_card);
+      box-shadow: var(--wg38_shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+      z-index: 5600;
+    }
+
+    .wg38_dropdown::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      width: 14px;
+      height: 14px;
+      background: var(--wg38_card);
+      border-left: 1px solid var(--wg38_border);
+      border-top: 1px solid var(--wg38_border);
+      transform: rotate(45deg);
+    }
+
+    .wg38_menu-item {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      color: #111827;
+      transition: all 0.2s ease;
+      margin-bottom: 4px;
+      border-left: 3px solid transparent;
+    }
+
+    .wg38_menu-item:hover {
+      background: var(--wg38_primary-soft);
+      transform: translateX(4px);
+      color: var(--wg38_accent-navy);
+      border-left-color: var(--wg38_accent-yellow);
+    }
+
+    .wg38_menu-title {
+      padding: 10px 12px 6px;
+      font-weight: 900;
+      font-size: 12.5px;
+      color: var(--wg38_accent-navy);
+      opacity: .95;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .wg38_has-dropdown.wg38_open>.wg38_dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: wg38_fadeInUp 0.2s ease;
+    }
+
+    /* Submenu (Desktop) */
+    .wg38_submenu-wrap {
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .wg38_sub-toggle {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      color: #111827;
+      transition: all 0.2s ease;
+    }
+
+    .wg38_sub-toggle:hover,
+    .wg38_submenu-wrap.wg38_open>.wg38_sub-toggle {
+      background: var(--wg38_primary-soft);
+    }
+
+    .wg38_sub-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--wg38_accent-navy);
+    }
+
+    .wg38_sub-hint {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .wg38_caret-right {
+      transform: rotate(0deg);
+      transition: transform 0.2s ease;
+    }
+
+    .wg38_submenu-wrap.wg38_open .wg38_caret-right {
+      transform: rotate(90deg);
+    }
+
+    .wg38_submenu {
+      position: absolute;
+      top: 0;
+      left: calc(100% + 10px);
+      min-width: 260px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--wg38_border);
+      background: var(--wg38_card);
+      box-shadow: var(--wg38_shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+      z-index: 5650;
+    }
+
+    .wg38_submenu::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: -8px;
+      width: 14px;
+      height: 14px;
+      background: var(--wg38_card);
+      border-left: 1px solid var(--wg38_border);
+      border-top: 1px solid var(--wg38_border);
+      transform: rotate(-45deg);
+    }
+
+    .wg38_submenu-wrap.wg38_open>.wg38_submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: wg38_fadeInUp 0.2s ease;
+    }
+
+    .wg38_menu-divider {
+      height: 1px;
+      background: rgba(0, 0, 0, 0.08);
+      margin: 8px 12px;
+    }
+
+    /* CTA Buttons (kosong sesuai permintaan user) */
+    .wg38_nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      justify-content: flex-end;
+    }
+
+    /* Mobile Buttons */
+    .wg38_aud-actions,
+    .wg38_nav-actions {
+      display: none;
+      align-items: center;
+    }
+
+    .wg38_icon-btn {
+      width: 38px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 10px;
+      border: 1px solid var(--wg38_border);
+      background: #ffffff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .wg38_icon-btn:hover {
+      background: #f8fafc;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .wg38_icon {
+      width: 18px;
+      height: 18px;
+      color: #334155;
+    }
+
+    /* =========================
+       MOBILE PANELS & OVERLAY
+    ========================= */
+    .wg38_overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.16s ease;
+      z-index: 6000;
+      backdrop-filter: blur(5px);
+    }
+
+    .wg38_overlay[data-open='true'] {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .wg38_aud-panel,
+    .wg38_nav-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(360px, 92vw);
+      height: 100vh;
+      background: #ffffff;
+      border-left: 1px solid var(--wg38_border);
+      box-shadow: var(--wg38_shadow);
+      transform: translateX(100%);
+      transition: all 0.3s ease;
+      z-index: 6500;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wg38_aud-panel {
+      width: min(380px, calc(100vw - 24px));
+      top: 56px;
+      right: 12px;
+      height: calc(100vh - 72px);
+      border-radius: 14px;
+    }
+
+    .wg38_aud-panel[data-open='true'],
+    .wg38_nav-panel[data-open='true'] {
+      transform: translateX(0);
+    }
+
+    .wg38_panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px;
+      border-bottom: 1px solid var(--wg38_border);
+      background: #ffffff;
+    }
+
+    .wg38_panel-title {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+
+    .wg38_panel-body {
+      padding: 16px;
+      overflow: auto;
+      flex: 1;
+    }
+
+    .wg38_m-list,
+    .wg38_nav-mobile-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .wg38_m-group,
+    .wg38_nav-mobile-item {
+      border: 1px solid var(--wg38_border);
+      border-radius: 12px;
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: var(--wg38_shadow-sm);
+    }
+
+    .wg38_m-group-btn,
+    .wg38_nav-mobile-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px;
+      border: 0;
+      background: #ffffff;
+      cursor: pointer;
+      text-align: left;
+      font-weight: 900;
+      color: #0f172a;
+      transition: background-color 0.2s ease;
+    }
+
+    .wg38_m-group-btn:hover,
+    .wg38_nav-mobile-btn:hover,
+    .wg38_m-group-btn[aria-expanded='true'],
+    .wg38_nav-mobile-btn[aria-expanded='true'] {
+      background: #f8fafc;
+    }
+
+    .wg38_m-sub,
+    .wg38_nav-mobile-sub {
+      border-top: 1px solid var(--wg38_border);
+      padding: 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .wg38_m-group-btn[aria-expanded='true']+.wg38_m-sub,
+    .wg38_nav-mobile-btn[aria-expanded='true']+.wg38_nav-mobile-sub {
+      max-height: 520px;
+      padding: 8px;
+    }
+
+    .wg38_m-sub a,
+    .wg38_nav-mobile-sub>a {
+      display: block;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #111827;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .wg38_m-sub a:hover,
+    .wg38_nav-mobile-sub>a:hover {
+      background: #f1f5f9;
+      transform: translateX(4px);
+      border-left-color: var(--wg38_accent-yellow);
+    }
+
+    .wg38_nav-mobile-sub-box {
+      border: 1px solid var(--wg38_border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 6px;
+    }
+
+    .wg38_nav-mobile-subbtn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px;
+      border: 0;
+      background: #ffffff;
+      cursor: pointer;
+      text-align: left;
+      font-weight: 800;
+      color: #111827;
+      transition: background-color 0.2s ease;
+    }
+
+    .wg38_nav-mobile-subbtn:hover,
+    .wg38_nav-mobile-subbtn[aria-expanded='true'] {
+      background: #f8fafc;
+    }
+
+    .wg38_nav-mobile-sub2 {
+      border-top: 1px dashed rgba(15, 23, 42, 0.12);
+      padding: 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .wg38_nav-mobile-subbtn[aria-expanded='true']+.wg38_nav-mobile-sub2 {
+      max-height: 340px;
+      padding: 8px;
+    }
+
+    .wg38_nav-mobile-sub2 a {
+      display: block;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      color: #111827;
+      transition: all 0.2s ease;
+    }
+
+    .wg38_nav-mobile-sub2 a:hover {
+      background: #f1f5f9;
+      transform: translateX(4px);
+    }
+
+    /* =========================
+       UTILITY
+    ========================= */
+    .wg38_is-hidden {
+      display: none !important;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width: 680px) {
+      .wg38_aud-nav {
+        display: none;
+      }
+
+      .wg38_aud-actions {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .wg38_nav-links {
+        display: none;
+      }
+
+      .wg38_nav-cta {
+        display: none;
+      }
+
+      .wg38_nav-actions {
+        display: flex;
+      }
+
+      .wg38_brand {
+        min-width: 0;
+      }
+    }
+
+    /* Reset Ringan Khusus Konten Halaman Ini */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--wg38_bg);
+      color: var(--wg38_text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Utilities */
+    .wg38_container {
+      max-width: var(--wg38_container);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .wg38_section {
+      padding: 60px 0;
+    }
+
+    .wg38_grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    /* Focus Visible Accessibility */
+    :focus-visible {
+      outline: 2px solid var(--wg38_primary);
+      outline-offset: 2px;
+    }
+
+    /* * 1. PAGE HEADER (HERO)
+         */
+    .wg38_page-header {
+      background-color: var(--wg38_navy);
+      color: var(--wg38_white);
+      padding: 60px 0 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wg38_breadcrumb {
+      font-size: 0.875rem;
+      color: #94A3B8;
+      margin-bottom: 24px;
+    }
+
+    .wg38_breadcrumb span {
+      color: var(--wg38_white);
+      font-weight: 500;
+    }
+
+    .wg38_header-content {
+      max-width: 800px;
+    }
+
+    .wg38_page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      line-height: 1.2;
+    }
+
+    .wg38_page-subtitle {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #CBD5E1;
+      margin-bottom: 20px;
+    }
+
+    .wg38_page-desc {
+      font-size: 1.125rem;
+      color: #94A3B8;
+      margin-bottom: 40px;
+    }
+
+    /* Quick Summary Cards (In Header) */
+    .wg38_summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .wg38_summary-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: var(--wg38_radius-md);
+    }
+
+    .wg38_summary-card h3 {
+      font-size: 1rem;
+      color: var(--wg38_accent);
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .wg38_summary-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #E2E8F0;
+    }
+
+    /* * 2. SECTION VISI
+         */
+    .wg38_visi-card {
+      background: var(--wg38_white);
+      border-radius: var(--wg38_radius-lg);
+      padding: 40px;
+      box-shadow: var(--wg38_shadow-lg);
+      margin-top: -40px;
+      /* Overlap header */
+      border-left: 6px solid var(--wg38_accent);
+      position: relative;
+      z-index: 10;
+    }
+
+    .wg38_section-label {
+      display: inline-block;
+      background: #EFF6FF;
+      color: var(--wg38_primary);
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-bottom: 16px;
+    }
+
+    .wg38_visi-text {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--wg38_navy);
+      margin: 0 0 32px 0;
+      line-height: 1.4;
+    }
+
+    .wg38_visi-breakdown {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      border-top: 1px solid var(--wg38_border);
+      padding-top: 24px;
+    }
+
+    .wg38_breakdown-item h4 {
+      font-size: 1.125rem;
+      margin: 0 0 8px 0;
+      color: var(--wg38_navy);
+    }
+
+    .wg38_breakdown-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--wg38_text-muted);
+    }
+
+    /* * 3. SECTION MISI
+         */
+    .wg38_misi-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .wg38_misi-card {
+      background: var(--wg38_white);
+      border: 1px solid var(--wg38_border);
+      border-radius: var(--wg38_radius-lg);
+      padding: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wg38_misi-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--wg38_shadow-md);
+      border-color: var(--wg38_primary);
+    }
+
+    .wg38_misi-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #F1F5F9;
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      line-height: 1;
+      z-index: 0;
+    }
+
+    .wg38_misi-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .wg38_misi-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--wg38_navy);
+      margin-bottom: 12px;
+    }
+
+    .wg38_chip {
+      display: inline-block;
+      background: #F0F9FF;
+      color: #0369A1;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    /* * 4. TUJUAN STRATEGIS (Filter & Grid)
+         */
+    .wg38_filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+      justify-content: center;
+    }
+
+    .wg38_filter-btn {
+      background: var(--wg38_white);
+      border: 1px solid var(--wg38_border);
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--wg38_text-muted);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .wg38_filter-btn:hover {
+      background: #F1F5F9;
+    }
+
+    .wg38_filter-btn.active {
+      background: var(--wg38_navy);
+      color: var(--wg38_white);
+      border-color: var(--wg38_navy);
+    }
+
+    .wg38_goal-card {
+      background: var(--wg38_white);
+      border-left: 4px solid var(--wg38_border);
+      padding: 24px;
+      border-radius: 0 var(--wg38_radius-md) var(--wg38_radius-md) 0;
+      display: block;
+      /* For filtering */
+    }
+
+    .wg38_goal-card.hidden {
+      display: none;
+    }
+
+    .wg38_goal-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--wg38_text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* Specific border colors for goals based on JS/Order (simplified here) */
+    .wg38_goal-card:nth-child(odd) {
+      border-left-color: var(--wg38_primary);
+    }
+
+    .wg38_goal-card:nth-child(even) {
+      border-left-color: var(--wg38_accent);
+    }
+
+    /* * 5. CORE VALUES & INDIKATOR
+         */
+    .wg38_values-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .wg38_value-card {
+      background: var(--wg38_navy-light);
+      color: var(--wg38_white);
+      padding: 24px;
+      border-radius: var(--wg38_radius-lg);
+      text-align: center;
+    }
+
+    .wg38_value-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: var(--wg38_accent);
+      /* Icon placeholder styling */
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wg38_value-title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .wg38_value-desc {
+      font-size: 0.9rem;
+      color: #94A3B8;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    /* Indikator / Progress */
+    .wg38_indicator-item {
+      margin-bottom: 24px;
+    }
+
+    .wg38_indicator-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--wg38_navy);
+    }
+
+    .wg38_progress-track {
+      background: #E2E8F0;
+      height: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .wg38_progress-bar {
+      background: var(--wg38_primary);
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    /* * 6. FAQ (Accordion)
+         */
+    .wg38_faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .wg38_accordion-item {
+      border-bottom: 1px solid var(--wg38_border);
+    }
+
+    .wg38_accordion-btn {
+      width: 100%;
+      text-align: left;
+      padding: 20px 0;
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--wg38_navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+    }
+
+    .wg38_accordion-btn:hover {
+      color: var(--wg38_primary);
+    }
+
+    .wg38_accordion-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .wg38_accordion-btn[aria-expanded="true"] .wg38_accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .wg38_accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding-right: 20px;
+    }
+
+    .wg38_accordion-content {
+      padding-bottom: 24px;
+      color: var(--wg38_text-muted);
+    }
+
+    /* * 7. CTA
+         */
+    .wg38_cta {
+      background: linear-gradient(135deg, var(--wg38_navy) 0%, #1e3a8a 100%);
+      color: var(--wg38_white);
+      text-align: center;
+      border-radius: var(--wg38_radius-lg);
+      padding: 60px 20px;
+      margin: 60px 20px 0 20px;
+    }
+
+    .wg38_cta h2 {
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    .wg38_btn-group {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .wg38_btn {
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s;
+      display: inline-block;
+    }
+
+    .wg38_btn-primary {
+      background: var(--wg38_accent);
+      color: var(--wg38_navy);
+    }
+
+    .wg38_btn-outline {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: var(--wg38_white);
+    }
+
+    .wg38_btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer Simple */
+    .wg38_footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--wg38_text-muted);
+      font-size: 0.9rem;
+      margin-top: 40px;
+      border-top: 1px solid var(--wg38_border);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .wg38_page-title {
+        font-size: 2rem;
+      }
+
+      .wg38_visi-text {
+        font-size: 1.4rem;
+      }
+
+      .wg38_visi-card {
+        padding: 24px;
+        margin-top: -20px;
+      }
+
+      .wg38_filter-container {
+        justify-content: start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+
+      .wg38_filter-btn {
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="wg38_site-header">
+    <div class="wg38_audience-bar">
+      <div class="wg38_container wg38_audience-inner">
+        <div class="wg38_aud-left">
+          <div class="wg38_social">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13 22v-8h3l1-4h-4V7c0-1.1.3-2 2-2h2V1h-3c-3.3 0-5 2-5 5v4H8v4h3v8h2z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.8 4.6 12 4.6 12 4.6s-5.8 0-7.5.5A3 3 0 0 0 2.4 7.2a31 31 0 0 0 0 9.6 3 3 0 0 0 2.1 2.1c1.7.5 7.5.5 7.5.5s5.8 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <ul class="wg38_aud-nav" id="wg38_audienceNav">
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Kuesioner Mahasiswa
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran ITB Widyagama
+                Lumajang</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Fakultas Ekonomi dan
+                Bisnis</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Akuntansi</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Informatika</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Manajemen</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Magister
+                Manajemen</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Kepuasan Layanan Akademik</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Kepuasan Terhadap Dosen</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Kepuasan Layanan Kegiatan Kemahasiswaan</a>
+            </div>
+          </li>
+
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Penerimaan Mahasiswa
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Pendaftaran Mahasiswa Baru</a>
+              <a href="#" class="wg38_aud-link">Pengumuman Hasil Seleksi</a>
+              <a href="#" class="wg38_aud-link">Rekognisi Pembelajaran Lampau</a>
+            </div>
+          </li>
+
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Mahasiswa
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Layanan Mahasiswa</a>
+              <a href="#" class="wg38_aud-link">Kuliah Kerja Nyata</a>
+              <a href="#" class="wg38_aud-link">Unit Kegiatan Mahasiswa</a>
+              <a href="#" class="wg38_aud-link">Prestasi Mahasiswa</a>
+              <a href="#" class="wg38_aud-link">Daftar Beasiswa</a>
+              <a href="#" class="wg38_aud-link">Program Kreatifitas Mahasiswa</a>
+            </div>
+          </li>
+
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Alumni
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Tracer Study</a>
+              <a href="#" class="wg38_aud-link">Tracer Pengguna</a>
+              <a href="#" class="wg38_aud-link">Laporan Tracer Study</a>
+            </div>
+          </li>
+
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Career Center
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Informasi Pusat Karir</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="wg38_aud-actions">
+          <button id="wg38_audHamburger" class="wg38_icon-btn" type="button" aria-label="Menu layanan pengguna"
+            aria-expanded="false">
+            <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 6.5h.01M12 12h.01M12 17.5h.01" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wg38_navbar">
+      <div class="wg38_container wg38_nav-inner">
+        <a href="index.html" class="wg38_brand" aria-label="ITB Widyagama Lumajang">
+          <img class="wg38_logo-img" src="Untitled.png" alt="Logo ITB Widyagama Lumajang" />
+          <span class="wg38_brand-text">
+            <span class="wg38_brand-small">Institut Teknologi dan Bisnis</span>
+            <strong class="wg38_brand-main">Widyagama Lumajang</strong>
+          </span>
+        </a>
+
+        <ul class="wg38_nav-links" id="wg38_desktopNav">
+
+          <li class="wg38_has-dropdown">
+            <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+              Tentang Wiga
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_dropdown">
+              <div class="wg38_submenu-wrap">
+                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                  <span>
+                    <span class="wg38_sub-title">Profil</span>
+                    <span class="wg38_sub-hint">Informasi dasar kampus</span>
+                  </span>
+                  <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div class="wg38_submenu">
+                  <a href="sejarah.html" class="wg38_menu-item">Sejarah</a>
+                  <a href="ident.html" class="wg38_menu-item">Identitas</a>
+                  <a href="visimisi..html" class="wg38_menu-item">Visi Misi</a>
+                  <a href="#" class="wg38_menu-item">Sarana Prasarana</a>
+                  <a href="#" class="wg38_menu-item">Perencanaan Strategi</a>
+                  <a href="#" class="wg38_menu-item">Akreditasi</a>
+                </div>
+              </div>
+
+              <div class="wg38_submenu-wrap">
+                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                  <span>
+                    <span class="wg38_sub-title">Struktur</span>
+                    <span class="wg38_sub-hint">Organisasi dan kepemimpinan</span>
+                  </span>
+                  <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div class="wg38_submenu">
+                  <a href="#" class="wg38_menu-item">Struktur Organisasi</a>
+                  <a href="#" class="wg38_menu-item">Senat Akademik</a>
+                  <a href="#" class="wg38_menu-item">Pimpinan</a>
+                  <a href="#" class="wg38_menu-item">Tenaga Kependidikan</a>
+                </div>
+              </div>
+
+              <div class="wg38_menu-divider"></div>
+              <a href="#" class="wg38_menu-item">Lembaga Mitra</a>
+              <a href="#" class="wg38_menu-item">Prestasi & Penghargaan</a>
+            </div>
+          </li>
+          <li class="wg38_has-dropdown">
+            <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+              Fakultas
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_dropdown">
+              <div class="wg38_submenu-wrap">
+                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                  <span>
+                    <span class="wg38_sub-title">Fakultas Teknik Dan Informatika</span>
+                    <span class="wg38_sub-hint">Program studi Teknik</span>
+                  </span>
+                  <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div class="wg38_submenu">
+                  <a href="campus.html" class="wg38_menu-item">S1 Informatika</a>
+                </div>
+              </div>
+
+              <div class="wg38_submenu-wrap">
+                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                  <span>
+                    <span class="wg38_sub-title">Fakultas Ekonomi Dan Bisnis</span>
+                    <span class="wg38_sub-hint">Program studi ekonomi & bisnis</span>
+                  </span>
+                  <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div class="wg38_submenu">
+                  <a href="#" class="wg38_menu-item">S1 Akuntansi</a>
+                  <a href="#" class="wg38_menu-item">S1 Manajemen</a>
+                  <a href="#" class="wg38_menu-item">Magister Manajemen</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="wg38_has-dropdown">
+            <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+              Lembaga & UPT
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_dropdown">
+              <div class="wg38_menu-title">Lembaga</div>
+              <a href="#" class="wg38_menu-item">Lembaga Penelitian & Pengabdian Kepada Masyarakat</a>
+              <a href="#" class="wg38_menu-item">Lembaga Penjaminan Mutu dan Pengawasan Internal</a>
+              <a href="#" class="wg38_menu-item">Lembaga Pusat Unggulan IPTEK PT</a>
+              <div class="wg38_menu-divider"></div>
+              <div class="wg38_menu-title">Unit Pelaksana Teknis</div>
+              <a href="#" class="wg38_menu-item">UPT Perpustakaan</a>
+              <a href="#" class="wg38_menu-item">UPT Laboratorium</a>
+              <a href="#" class="wg38_menu-item">UPT Teknologi Informasi</a>
+            </div>
+          </li>
+          <li class="wg38_has-dropdown">
+            <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+              Kerjasama
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_dropdown">
+              <div class="wg38_menu-title">Kerjasama Institusi</div>
+              <a href="#" class="wg38_menu-item">Dalam Negeri</a>
+              <a href="#" class="wg38_menu-item">Luar Negeri</a>
+              <div class="wg38_menu-divider"></div>
+              <a href="#" class="wg38_menu-item">MoU & Dokumen Kerjasama</a>
+              <a href="#" class="wg38_menu-item">Program/Proyek Kolaborasi</a>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="wg38_nav-link">Pedoman</a>
+          </li>
+        </ul>
+
+        <div class="wg38_nav-cta"></div>
+
+        <div class="wg38_nav-actions">
+          <button id="wg38_navHamburger" class="wg38_icon-btn" type="button" aria-label="Menu utama"
+            aria-expanded="false">
+            <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="wg38_overlay" class="wg38_overlay" data-open="false"></div>
+
+  <aside id="wg38_audPanel" class="wg38_aud-panel" data-open="false" aria-modal="true" aria-label="Layanan Pengguna"
+    role="dialog">
+    <div class="wg38_panel-head">
+      <div class="wg38_panel-title">Layanan Pengguna</div>
+      <button id="wg38_audClose" class="wg38_icon-btn" type="button" aria-label="Tutup menu audience">
+        <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="wg38_panel-body">
+      <ul class="wg38_m-list">
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Kuesioner Mahasiswa</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran ITB Widyagama Lumajang</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Fakultas Ekonomi dan Bisnis</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Akuntansi</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Informatika</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Manajemen</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Magister Manajemen</a>
+            <a href="#">Kuesioner Kepuasan Layanan Akademik</a>
+            <a href="#">Kuesioner Kepuasan Terhadap Dosen</a>
+            <a href="#">Kuesioner Kepuasan Layanan Kegiatan Kemahasiswaan</a>
+          </div>
+        </li>
+
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Penerimaan Mahasiswa</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Pendaftaran Mahasiswa Baru</a>
+            <a href="#">Pengumuman Hasil Seleksi</a>
+            <a href="#">Rekognisi Pembelajaran Lampau</a>
+          </div>
+        </li>
+
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Mahasiswa</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Layanan Mahasiswa</a>
+            <a href="#">Kuliah Kerja Nyata</a>
+            <a href="#">Unit Kegiatan Mahasiswa</a>
+            <a href="#">Prestasi Mahasiswa</a>
+            <a href="#">Daftar Beasiswa</a>
+            <a href="#">Program Kreatifitas Mahasiswa</a>
+          </div>
+        </li>
+
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Alumni</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Tracer Study</a>
+            <a href="#">Tracer Pengguna</a>
+            <a href="#">Laporan Tracer Study</a>
+          </div>
+        </li>
+
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Career Center</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Informasi Pusat Karir</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <aside id="wg38_navPanel" class="wg38_nav-panel" data-open="false" aria-modal="true" aria-label="Menu Utama"
+    role="dialog">
+    <div class="wg38_panel-head">
+      <div class="wg38_panel-title">Menu</div>
+      <button id="wg38_navClose" class="wg38_icon-btn" type="button" aria-label="Tutup menu utama">
+        <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="wg38_panel-body">
+      <ul class="wg38_nav-mobile-list">
+        <li class="wg38_nav-mobile-item">
+          <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+            <span>Tentang Wiga</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_nav-mobile-sub">
+            <div class="wg38_nav-mobile-sub-box">
+              <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                <span>Profil</span>
+                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="wg38_nav-mobile-sub2">
+                <a href="sejarah.html">Sejarah</a>
+                <a href="ident.html">Identitas</a>
+                <a href="visimisi..html">Visi Misi</a>
+                <a href="#">Sarana Prasarana</a>
+                <a href="#">Perencanaan Strategi</a>
+                <a href="#">Akreditasi</a>
+              </div>
+            </div>
+
+            <div class="wg38_nav-mobile-sub-box">
+              <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                <span>Struktur</span>
+                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="wg38_nav-mobile-sub2">
+                <a href="#">Struktur Organisasi</a>
+                <a href="#">Senat Akademik</a>
+                <a href="#">Pimpinan</a>
+                <a href="#">Tenaga Kependidikan</a>
+              </div>
+            </div>
+
+            <a href="#">Lembaga Mitra</a>
+            <a href="#">Prestasi & Penghargaan</a>
+          </div>
+        </li>
+
+        <li class="wg38_nav-mobile-item">
+          <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+            <span>Fakultas</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_nav-mobile-sub">
+            <div class="wg38_nav-mobile-sub-box">
+              <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                <span>Fakultas Teknologi Dan Informatika</span>
+                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="wg38_nav-mobile-sub2">
+                <a href="campus.html">S1 Informatika</a>
+              </div>
+            </div>
+
+            <div class="wg38_nav-mobile-sub-box">
+              <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                <span>Fakultas Ekonomi Dan Bisnis</span>
+                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="wg38_nav-mobile-sub2">
+                <a href="#">S1 Akuntansi</a>
+                <a href="#">S1 Manajemen</a>
+                <a href="#">Magister Manajemen</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="wg38_nav-mobile-item">
+          <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+            <span>Lembaga & UPT</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_nav-mobile-sub">
+            <div style="font-weight:900;color:var(--wg38_accent-navy);padding:12px 12px 8px;">Lembaga</div>
+            <a href="#">Lembaga Penelitian & Pengabdian Kepada Masyarakat</a>
+            <a href="#">Lembaga Penjaminan Mutu dan Pengawasan Internal</a>
+            <a href="#">Lembaga Pusat Unggulan IPTEK PT</a>
+
+            <div style="font-weight:900;color:var(--wg38_accent-navy);padding:12px 12px 8px;">UPT</div>
+            <a href="#">UPT Perpustakaan</a>
+            <a href="#">UPT Laboratorium</a>
+            <a href="#">UPT Teknologi Informasi</a>
+          </div>
+        </li>
+
+        <li class="wg38_nav-mobile-item">
+          <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+            <span>Kerjasama</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_nav-mobile-sub">
+            <div style="font-weight:900;color:var(--wg38_accent-navy);padding:12px 12px 8px;">Kerjasama Institusi</div>
+            <a href="#">Dalam Negeri</a>
+            <a href="#">Luar Negeri</a>
+            <a href="#">MoU & Dokumen Kerjasama</a>
+            <a href="#">Program/Proyek Kolaborasi</a>
+          </div>
+        </li>
+
+        <li class="wg38_nav-mobile-item">
+          <a href="#" class="wg38_nav-mobile-btn"
+            style="display:flex; justify-content:space-between; align-items:center; width:100%; padding:16px; border:0; background:transparent; cursor:pointer; text-align:left; font-weight:900; color:#0f172a;">
+            <span>Pedoman</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <header class="wg38_page-header">
+    <div class="wg38_container">
+      <div class="wg38_breadcrumb">
+        <a href="index.html">Beranda</a> / <a href="ident.html">Profil</a> / <span>Visi & Misi</span>
+      </div>
+
+      <div class="wg38_header-content">
+        <h1 class="wg38_page-title">Visi & Misi</h1>
+        <div class="wg38_page-subtitle">ITB Widyagama Lumajang</div>
+        <p class="wg38_page-desc">
+          Komitmen kami dalam membangun pendidikan tinggi yang relevan, inovatif,
+          dan berdampak bagi kemajuan bangsa melalui teknologi dan kewirausahaan.
+        </p>
+      </div>
+
+      <div class="wg38_summary-grid">
+        <div class="wg38_summary-card">
+          <h3>Fokus Pendidikan</h3>
+          <p>Kurikulum berbasis teknologi adaptif & kewirausahaan.</p>
+        </div>
+        <div class="wg38_summary-card">
+          <h3>Riset & Inovasi</h3>
+          <p>Pengembangan solusi nyata untuk masalah daerah & nasional.</p>
+        </div>
+        <div class="wg38_summary-card">
+          <h3>Dampak Sosial</h3>
+          <p>Mencetak lulusan yang siap membangun masyarakat.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="wg38_section">
+    <div class="wg38_container">
+      <div class="wg38_visi-card">
+        <span class="wg38_section-label">Visi Institusi</span>
+        <div class="wg38_visi-text">
+          "Menjadi Perguruan Tinggi yang Unggul, Berkarakter, dan Berdaya Saing di Bidang Teknologi dan Bisnis pada
+          Tahun 2030."
+        </div>
+
+        <div class="wg38_visi-breakdown">
+          <div class="wg38_breakdown-item">
+            <h4>Unggul & Berdaya Saing</h4>
+            <p>Kualitas akademik dan lulusan yang mampu bersaing di tingkat nasional maupun global.</p>
+          </div>
+          <div class="wg38_breakdown-item">
+            <h4>Berkarakter</h4>
+            <p>Menjunjung tinggi etika, integritas, dan nilai-nilai kebangsaan dalam setiap tindakan.</p>
+          </div>
+          <div class="wg38_breakdown-item">
+            <h4>Teknologi & Bisnis</h4>
+            <p>Spesialisasi utama dalam integrasi solusi digital dan manajemen usaha modern.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wg38_section" style="background: var(--wg38_white);">
+    <div class="wg38_container">
+      <h2 style="margin-bottom: 40px; color: var(--wg38_navy);">Misi Kami</h2>
+
+      <div class="wg38_grid wg38_misi-grid">
+        <div class="wg38_misi-card">
+          <div class="wg38_misi-number">01</div>
+          <div class="wg38_misi-content">
+            <h3 class="wg38_misi-title">Pendidikan Berkualitas</h3>
+            <p style="color:var(--wg38_text-muted)">Menyelenggarakan pendidikan tinggi yang profesional dan relevan
+              dengan kebutuhan industri masa depan.</p>
+            <span class="wg38_chip">Implementasi: Kurikulum OBE</span>
+          </div>
+        </div>
+
+        <div class="wg38_misi-card">
+          <div class="wg38_misi-number">02</div>
+          <div class="wg38_misi-content">
+            <h3 class="wg38_misi-title">Riset & Pengembangan</h3>
+            <p style="color:var(--wg38_text-muted)">Mengembangkan penelitian inovatif yang berkontribusi pada kemajuan
+              ilmu pengetahuan dan teknologi.</p>
+            <span class="wg38_chip">Fokus: Ekonomi Kreatif Digital</span>
+          </div>
+        </div>
+
+        <div class="wg38_misi-card">
+          <div class="wg38_misi-number">03</div>
+          <div class="wg38_misi-content">
+            <h3 class="wg38_misi-title">Pengabdian Masyarakat</h3>
+            <p style="color:var(--wg38_text-muted)">Menerapkan ilmu pengetahuan untuk pemberdayaan masyarakat dan
+              peningkatan kesejahteraan.</p>
+            <span class="wg38_chip">Target: UMKM Lumajang</span>
+          </div>
+        </div>
+
+        <div class="wg38_misi-card">
+          <div class="wg38_misi-number">04</div>
+          <div class="wg38_misi-content">
+            <h3 class="wg38_misi-title">Tata Kelola Good Governance</h3>
+            <p style="color:var(--wg38_text-muted)">Mewujudkan tata kelola perguruan tinggi yang transparan, akuntabel,
+              dan efisien.</p>
+            <span class="wg38_chip">Sistem: Layanan Terintegrasi</span>
+          </div>
+        </div>
+
+        <div class="wg38_misi-card">
+          <div class="wg38_misi-number">05</div>
+          <div class="wg38_misi-content">
+            <h3 class="wg38_misi-title">Kemitraan Strategis</h3>
+            <p style="color:var(--wg38_text-muted)">Membangun jejaring kerjasama dengan instansi pemerintah, swasta, dan
+              industri.</p>
+            <span class="wg38_chip">Program: Magang & Hiring</span>
+          </div>
+        </div>
+
+        <div class="wg38_misi-card">
+          <div class="wg38_misi-number">06</div>
+          <div class="wg38_misi-content">
+            <h3 class="wg38_misi-title">Pengembangan Karakter</h3>
+            <p style="color:var(--wg38_text-muted)">Membentuk lulusan yang berjiwa wirausaha, mandiri, dan berbudi
+              pekerti luhur.</p>
+            <span class="wg38_chip">Kegiatan: Workshop Softskill</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wg38_section">
+    <div class="wg38_container">
+      <h2 style="margin-bottom: 24px; color: var(--wg38_navy);">Tujuan Strategis</h2>
+
+      <div class="wg38_filter-container" id="wg38_goalFilters">
+        <button class="wg38_filter-btn active" data-filter="all">Semua</button>
+        <button class="wg38_filter-btn" data-filter="akademik">Akademik</button>
+        <button class="wg38_filter-btn" data-filter="sdm">SDM</button>
+        <button class="wg38_filter-btn" data-filter="kemitraan">Kemitraan</button>
+        <button class="wg38_filter-btn" data-filter="infrastruktur">Infrastruktur</button>
+      </div>
+
+      <div class="wg38_grid" style="grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));" id="wg38_goalGrid">
+
+        <div class="wg38_goal-card" data-category="akademik">
+          <span class="wg38_goal-category">Akademik</span>
+          <strong>Akreditasi Unggul Program Studi</strong>
+          <p style="margin-top:8px; font-size:0.95rem; color:var(--wg38_text-muted);">Meningkatkan status akreditasi
+            seluruh program studi menjadi Unggul/Baik Sekali.</p>
+        </div>
+
+        <div class="wg38_goal-card" data-category="sdm">
+          <span class="wg38_goal-category">SDM</span>
+          <strong>Peningkatan Kualifikasi Dosen</strong>
+          <p style="margin-top:8px; font-size:0.95rem; color:var(--wg38_text-muted);">Mendorong percepatan studi
+            doktoral dan sertifikasi profesi bagi tenaga pengajar.</p>
+        </div>
+
+        <div class="wg38_goal-card" data-category="kemitraan">
+          <span class="wg38_goal-category">Kemitraan</span>
+          <strong>Link and Match Industri</strong>
+          <p style="margin-top:8px; font-size:0.95rem; color:var(--wg38_text-muted);">Memastikan 100% lulusan memiliki
+            kompetensi yang sesuai kebutuhan dunia kerja.</p>
+        </div>
+
+        <div class="wg38_goal-card" data-category="infrastruktur">
+          <span class="wg38_goal-category">Infrastruktur</span>
+          <strong>Transformasi Kampus Digital</strong>
+          <p style="margin-top:8px; font-size:0.95rem; color:var(--wg38_text-muted);">Modernisasi laboratorium komputer
+            dan sistem informasi akademik terpadu.</p>
+        </div>
+
+        <div class="wg38_goal-card" data-category="akademik">
+          <span class="wg38_goal-category">Akademik</span>
+          <strong>Kurikulum Merdeka Belajar</strong>
+          <p style="margin-top:8px; font-size:0.95rem; color:var(--wg38_text-muted);">Implementasi penuh MBKM dengan
+            variasi pertukaran pelajar dan magang.</p>
+        </div>
+
+        <div class="wg38_goal-card" data-category="kemitraan">
+          <span class="wg38_goal-category">Kemitraan</span>
+          <strong>Kolaborasi Internasional</strong>
+          <p style="margin-top:8px; font-size:0.95rem; color:var(--wg38_text-muted);">Membuka peluang joint-research dan
+            seminar dengan universitas luar negeri.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wg38_section" style="background: #F1F5F9;">
+    <div class="wg38_container">
+      <div class="wg38_grid" style="grid-template-columns: 2fr 1fr; gap: 40px;">
+
+        <div>
+          <h2 style="margin-bottom: 24px; color: var(--wg38_navy);">Nilai Inti (Core Values)</h2>
+          <div class="wg38_grid wg38_values-grid">
+            <div class="wg38_value-card">
+              <div class="wg38_value-icon">I</div>
+              <div class="wg38_value-title">Integritas</div>
+              <div class="wg38_value-desc">Jujur & Tanggung Jawab</div>
+            </div>
+            <div class="wg38_value-card">
+              <div class="wg38_value-icon">P</div>
+              <div class="wg38_value-title">Profesional</div>
+              <div class="wg38_value-desc">Kompeten & Ahli</div>
+            </div>
+            <div class="wg38_value-card">
+              <div class="wg38_value-icon">E</div>
+              <div class="wg38_value-title">Entrepreneur</div>
+              <div class="wg38_value-desc">Kreatif & Mandiri</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 style="margin-bottom: 24px; color: var(--wg38_navy);">Capaian Implementasi</h2>
+          <p style="margin-bottom:24px; font-size:0.9rem; color:var(--wg38_text-muted);">
+            Indikator progres realisasi visi dan misi dalam program tahun berjalan (Data simulasi).
+          </p>
+
+          <div class="wg38_indicator-item">
+            <div class="wg38_indicator-header">
+              <span>Adopsi Kurikulum Digital</span>
+              <span>85%</span>
+            </div>
+            <div class="wg38_progress-track">
+              <div class="wg38_progress-bar" style="width: 85%;" aria-label="Progress 85%"></div>
+            </div>
+          </div>
+
+          <div class="wg38_indicator-item">
+            <div class="wg38_indicator-header">
+              <span>Serapan Lulusan < 6 Bulan</span>
+                  <span>78%</span>
+            </div>
+            <div class="wg38_progress-track">
+              <div class="wg38_progress-bar" style="width: 78%;" aria-label="Progress 78%"></div>
+            </div>
+          </div>
+
+          <div class="wg38_indicator-item">
+            <div class="wg38_indicator-header">
+              <span>Kemitraan UMKM Aktif</span>
+              <span>92%</span>
+            </div>
+            <div class="wg38_progress-track">
+              <div class="wg38_progress-bar" style="width: 92%;" aria-label="Progress 92%"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="wg38_section wg38_container">
+    <h2 style="text-align: center; color: var(--wg38_navy); margin-bottom: 40px;">Tanya Jawab Visi & Misi</h2>
+
+    <div class="wg38_faq-container">
+      <div class="wg38_accordion-item">
+        <button type="button" class="wg38_accordion-btn" aria-expanded="false" aria-controls="faq1">
+          Apa perbedaan utama Visi dan Misi?
+          <span class="wg38_accordion-icon">▼</span>
+        </button>
+        <div id="faq1" class="wg38_accordion-panel">
+          <div class="wg38_accordion-content">
+            Visi adalah cita-cita jangka panjang atau gambaran masa depan yang ingin dicapai (Tahun 2030), sedangkan
+            Misi adalah langkah-langkah nyata atau tindakan yang dilakukan saat ini untuk mencapai visi tersebut.
+          </div>
+        </div>
+      </div>
+
+      <div class="wg38_accordion-item">
+        <button type="button" class="wg38_accordion-btn" aria-expanded="false" aria-controls="faq2">
+          Bagaimana mahasiswa terlibat dalam pencapaian Visi?
+          <span class="wg38_accordion-icon">▼</span>
+        </button>
+        <div id="faq2" class="wg38_accordion-panel">
+          <div class="wg38_accordion-content">
+            Mahasiswa berkontribusi melalui prestasi akademik, keterlibatan dalam organisasi kemahasiswaan, partisipasi
+            dalam kompetisi, serta pelaksanaan kegiatan pengabdian masyarakat yang sejalan dengan nilai institusi.
+          </div>
+        </div>
+      </div>
+
+      <div class="wg38_accordion-item">
+        <button type="button" class="wg38_accordion-btn" aria-expanded="false" aria-controls="faq3">
+          Apakah kurikulum sudah mendukung kewirausahaan?
+          <span class="wg38_accordion-icon">▼</span>
+        </button>
+        <div id="faq3" class="wg38_accordion-panel">
+          <div class="wg38_accordion-content">
+            Ya, kewirausahaan menjadi salah satu mata kuliah wajib dan nilai inti (Core Values). Kami menyediakan
+            inkubator bisnis dan program pendampingan bagi mahasiswa yang ingin merintis usaha sejak kuliah.
+          </div>
+        </div>
+      </div>
+
+      <div class="wg38_accordion-item">
+        <button type="button" class="wg38_accordion-btn" aria-expanded="false" aria-controls="faq4">
+          Bagaimana hubungan kerjasama dengan Industri?
+          <span class="wg38_accordion-icon">▼</span>
+        </button>
+        <div id="faq4" class="wg38_accordion-panel">
+          <div class="wg38_accordion-content">
+            Kami menjalin MoU dengan berbagai perusahaan untuk program magang, dosen tamu praktisi, dan rekrutmen
+            lulusan. Ini memastikan materi ajar tetap relevan dengan kebutuhan pasar kerja.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wg38_container">
+    <div class="wg38_cta">
+      <h2>Siap Menjadi Bagian dari ITB WIGA?</h2>
+      <p style="opacity: 0.9; font-size: 1.1rem; max-width: 600px; margin: 16px auto;">
+        Bergabunglah bersama kami untuk mewujudkan masa depan yang unggul dan berdaya saing.
+      </p>
+      <div class="wg38_btn-group">
+        <a href="#" class="wg38_btn wg38_btn-primary">Lihat Program Studi</a>
+        <a href="#" class="wg38_btn wg38_btn-outline">Kontak & Informasi</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="wg38_footer">
+    <div class="wg38_container">
+      &copy; 2025 ITB Widyagama Lumajang. All Rights Reserved.<br>
+      <small>Jl. Gatot Subroto No. 4 Lumajang – 67352, Jawa Timur</small>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- 1. FILTER TUJUAN STRATEGIS ---
+      const filterBtns = document.querySelectorAll('.wg38_filter-btn');
+      const goalCards = document.querySelectorAll('.wg38_goal-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active from all btns
+          filterBtns.forEach(b => b.classList.remove('active'));
+          // Add active to clicked btn
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          goalCards.forEach(card => {
+            if (filterValue === 'all') {
+              card.classList.remove('hidden');
+            } else {
+              if (card.getAttribute('data-category') === filterValue) {
+                card.classList.remove('hidden');
+              } else {
+                card.classList.add('hidden');
+              }
+            }
+          });
+        });
+      });
+
+      // --- 2. ACCORDION FAQ ---
+      const accordions = document.querySelectorAll('.wg38_accordion-btn');
+
+      accordions.forEach(acc => {
+        acc.addEventListener('click', function () {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+          // Close all other accordions (Optional behavior - accordion style)
+          accordions.forEach(otherAcc => {
+            if (otherAcc !== this) {
+              otherAcc.setAttribute('aria-expanded', 'false');
+              const otherPanel = document.getElementById(otherAcc.getAttribute('aria-controls'));
+              if (otherPanel) otherPanel.style.maxHeight = null;
+            }
+          });
+
+          // Toggle current
+          this.setAttribute('aria-expanded', !isExpanded);
+          const panel = document.getElementById(this.getAttribute('aria-controls'));
+
+          if (!isExpanded) {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          } else {
+            panel.style.maxHeight = null;
+          }
+        });
+      });
+
+    });
+    /* =========================
+   HELPERS
+========================= */
+    const wg38_$ = (sel, root = document) => root.querySelector(sel);
+    const wg38_$$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+    function wg38_lockScroll(on) {
+      document.body.style.overflow = on ? 'hidden' : '';
+    }
+
+    function wg38_closeAll(rootSel, openClass = 'wg38_open', exceptEl = null) {
+      wg38_$$(rootSel).forEach(el => {
+        if (exceptEl && el === exceptEl) return;
+        el.classList.remove(openClass);
+        const btn = el.querySelector('button[aria-expanded]');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    /* =========================
+       DESKTOP: AUDIENCE DROPDOWN
+    ========================= */
+    function wg38_setupAudienceDesktop() {
+      const items = wg38_$$('#wg38_audienceNav .wg38_aud-item.wg38_has-dropdown');
+      items.forEach(item => {
+        const btn = wg38_$('.wg38_aud-toggle', item);
+        if (!btn) return;
+
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = item.classList.contains('wg38_open');
+
+          items.forEach(i => {
+            i.classList.remove('wg38_open');
+            const b = wg38_$('.wg38_aud-toggle', i);
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+
+          if (!isOpen) {
+            item.classList.add('wg38_open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      document.addEventListener('click', () => {
+        items.forEach(i => {
+          i.classList.remove('wg38_open');
+          const b = wg38_$('.wg38_aud-toggle', i);
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    /* =========================
+       DESKTOP: MAIN NAV DROPDOWN + SUBMENU
+    ========================= */
+    function wg38_setupMainNavDesktop() {
+      const dd = wg38_$$('#wg38_desktopNav .wg38_has-dropdown');
+      dd.forEach(li => {
+        const toggle = wg38_$('.wg38_dd-toggle', li);
+        if (!toggle) return;
+
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const isOpen = li.classList.contains('wg38_open');
+          dd.forEach(x => {
+            x.classList.remove('wg38_open');
+            const t = wg38_$('.wg38_dd-toggle', x);
+            if (t) t.setAttribute('aria-expanded', 'false');
+            // tutup submenu level 2
+            wg38_$$('.wg38_submenu-wrap', x).forEach(sw => {
+              sw.classList.remove('wg38_open');
+              const sb = wg38_$('.wg38_sub-toggle', sw);
+              if (sb) sb.setAttribute('aria-expanded', 'false');
+            });
+          });
+
+          if (!isOpen) {
+            li.classList.add('wg38_open');
+            toggle.setAttribute('aria-expanded', 'true');
+          }
+        });
+
+        // submenu inside dropdown
+        wg38_$$('.wg38_submenu-wrap', li).forEach(sw => {
+          const sb = wg38_$('.wg38_sub-toggle', sw);
+          if (!sb) return;
+
+          sb.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const open = sw.classList.contains('wg38_open');
+
+            // close siblings
+            wg38_$$('.wg38_submenu-wrap', li).forEach(sib => {
+              sib.classList.remove('wg38_open');
+              const b = wg38_$('.wg38_sub-toggle', sib);
+              if (b) b.setAttribute('aria-expanded', 'false');
+            });
+
+            if (!open) {
+              sw.classList.add('wg38_open');
+              sb.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      });
+
+      document.addEventListener('click', () => {
+        dd.forEach(li => {
+          li.classList.remove('wg38_open');
+          const t = wg38_$('.wg38_dd-toggle', li);
+          if (t) t.setAttribute('aria-expanded', 'false');
+          wg38_$$('.wg38_submenu-wrap', li).forEach(sw => {
+            sw.classList.remove('wg38_open');
+            const sb = wg38_$('.wg38_sub-toggle', sw);
+            if (sb) sb.setAttribute('aria-expanded', 'false');
+          });
+        });
+      });
+    }
+
+    /* =========================
+       MOBILE PANELS
+    ========================= */
+    function wg38_setupMobilePanels() {
+      const overlay = wg38_$('#wg38_overlay');
+
+      const audBtn = wg38_$('#wg38_audHamburger');
+      const audPanel = wg38_$('#wg38_audPanel');
+      const audClose = wg38_$('#wg38_audClose');
+
+      const navBtn = wg38_$('#wg38_navHamburger');
+      const navPanel = wg38_$('#wg38_navPanel');
+      const navClose = wg38_$('#wg38_navClose');
+
+      function wg38_openPanel(panel, btn) {
+        overlay.setAttribute('data-open', 'true');
+        panel.setAttribute('data-open', 'true');
+        btn && btn.setAttribute('aria-expanded', 'true');
+        wg38_lockScroll(true);
+      }
+
+      function wg38_closePanels() {
+        overlay.setAttribute('data-open', 'false');
+        audPanel.setAttribute('data-open', 'false');
+        navPanel.setAttribute('data-open', 'false');
+        audBtn && audBtn.setAttribute('aria-expanded', 'false');
+        navBtn && navBtn.setAttribute('aria-expanded', 'false');
+        wg38_lockScroll(false);
+      }
+
+      audBtn && audBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        wg38_openPanel(audPanel, audBtn);
+      });
+
+      navBtn && navBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        wg38_openPanel(navPanel, navBtn);
+      });
+
+      audClose && audClose.addEventListener('click', wg38_closePanels);
+      navClose && navClose.addEventListener('click', wg38_closePanels);
+      overlay && overlay.addEventListener('click', wg38_closePanels);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') wg38_closePanels();
+      });
+
+      // accordions in panels
+      wg38_$$('.wg38_m-group-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+        });
+      });
+
+      wg38_$$('.wg38_nav-mobile-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+        });
+      });
+
+      wg38_$$('.wg38_nav-mobile-subbtn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+        });
+      });
+    }
+
+    /* =========================
+       INIT
+    ========================= */
+    document.addEventListener('DOMContentLoaded', () => {
+      wg38_setupAudienceDesktop();
+      wg38_setupMainNavDesktop();
+      wg38_setupMobilePanels();
+
+      // ESC closes desktop dropdown too
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        wg38_closeAll('#wg38_audienceNav .wg38_aud-item.wg38_has-dropdown');
+        wg38_closeAll('#wg38_desktopNav .wg38_has-dropdown');
+        // also close submenu wraps
+        wg38_$$('#wg38_desktopNav .wg38_submenu-wrap').forEach(sw => {
+          sw.classList.remove('wg38_open');
+          const sb = wg38_$('.wg38_sub-toggle', sw);
+          if (sb) sb.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

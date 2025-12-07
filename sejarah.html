@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sejarah | ITB Widyagama Lumajang</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================
+           1. RESET & VARIABLES (Tema ITB WIGA)
+           ========================================= */
+    :root {
+      --wg38_page-bg: #f8fafc;
+      --wg38_bg-page: #f8fafc;
+      --wg38_bg-card: #ffffff;
+      --wg38_bg: #f8fafc;
+      --wg38_bg_light: #eaf4ff;
+      --wg38_text: #0b1b2e;
+      --wg38_text-main: #0b1b2e;
+      --wg38_text-muted: #4b5568;
+      --wg38_text_muted: var(--wg38_text-muted);
+      --wg38_muted: #475569;
+      --wg38_border: #e2e8f0;
+      --wg38_border-soft: rgba(226, 232, 240, .95);
+
+      --wg38_aud-bg: #073a63;
+      --wg38_aud-text: rgba(255, 255, 255, 0.92);
+
+      --wg38_nav-bg: #ffffff;
+      --wg38_nav-text: #0b1b2e;
+
+      /* Palet utama */
+      --wg38_primary: #073a63;
+      --wg38_primary-light: #0b63b5;
+      --wg38_primary-dark: #052b48;
+      --wg38_primary_soft: #eaf4ff;
+      --wg38_primary-soft: #eaf4ff;
+
+      /* Aksen kuning */
+      --wg38_accent: #ffbf0f;
+      --wg38_accent-light: #fff3d4;
+      --wg38_accent-dark: #d89a00;
+      --wg38_accent-yellow: #ffbf0f;
+      --wg38_accent-yellow-2: #f5b700;
+      --wg38_accent-yellow-3: #d89a00;
+
+      /* Tema biru/navy */
+      --wg38_accent-navy: #073a63;
+      --wg38_accent-blue: #0b63b5;
+      --wg38_accent-light-blue: #eaf4ff;
+
+      --wg38_card: #ffffff;
+      --wg38_shadow: 0 18px 50px rgba(15, 23, 42, 0.16);
+      --wg38_radius: 12px;
+      --wg38_container: 1200px;
+
+      --wg38_bp-aud-mobile: 680px;
+      --wg38_bp-nav-mobile: 980px;
+
+      --wg38_radius-lg: 18px;
+      --wg38_radius-md: 12px;
+      --wg38_radius-sm: 8px;
+
+      --wg38_shadow-sm: 0 4px 12px rgba(2, 6, 23, .05);
+      --wg38_shadow-md: 0 10px 30px rgba(2, 6, 23, .08);
+      --wg38_shadow-lg: 0 18px 44px rgba(2, 6, 23, .12);
+
+      --wg38_transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      /* Alias biar section tidak error */
+      --wg38_navy: var(--wg38_primary);
+      --wg38_blue: var(--wg38_primary-light);
+      --wg38_primary_blue: var(--wg38_primary);
+      --wg38_primary_dark: var(--wg38_primary-dark);
+      --wg38_white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 132px;
+    }
+
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--wg38_bg-page);
+      color: var(--wg38_text-main);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .wg38_container {
+      width: min(var(--wg38_container), calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .wg38_site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      animation: wg38_slideDown 0.3s ease;
+      background: transparent;
+    }
+
+    @keyframes wg38_slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+       AUDIENCE BAR & NAVIGASI
+    ========================= */
+    .wg38_audience-bar {
+      background: linear-gradient(120deg, var(--wg38_primary), var(--wg38_primary-light));
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative;
+      z-index: 1200;
+      padding: 4px 0;
+      box-shadow: 0 6px 18px rgba(7, 58, 99, 0.12);
+    }
+
+    .wg38_audience-inner {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .wg38_aud-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wg38_social {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-right: 10px;
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .wg38_social a {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.88);
+      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .wg38_social a:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      transform: translateY(-1px) scale(1.06);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+    }
+
+    /* Desktop Audience Navigation */
+    .wg38_aud-nav {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      overflow: visible;
+      gap: 2px;
+    }
+
+    .wg38_aud-item {
+      position: relative;
+    }
+
+    .wg38_aud-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--wg38_aud-text);
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      position: relative;
+      font-weight: 600;
+    }
+
+    .wg38_aud-toggle:hover,
+    .wg38_aud-item.wg38_open>.wg38_aud-toggle {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+    }
+
+    .wg38_caret {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .wg38_aud-item.wg38_open .wg38_caret {
+      transform: rotate(180deg);
+    }
+
+    .wg38_aud-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 320px;
+      max-width: 440px;
+      padding: 8px;
+      border-radius: 12px;
+      border: 1px solid var(--wg38_border);
+      background: var(--wg38_card);
+      box-shadow: var(--wg38_shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+      z-index: 5500;
+    }
+
+    .wg38_aud-dropdown::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 18px;
+      width: 14px;
+      height: 14px;
+      background: var(--wg38_card);
+      border-left: 1px solid var(--wg38_border);
+      border-top: 1px solid var(--wg38_border);
+      transform: rotate(45deg);
+    }
+
+    .wg38_aud-link {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #111827;
+      line-height: 1.4;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .wg38_aud-link:hover {
+      background: var(--wg38_primary-soft);
+      transform: translateX(4px);
+      border-left-color: var(--wg38_accent-yellow);
+    }
+
+    .wg38_aud-item.wg38_open>.wg38_aud-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: wg38_fadeInUp 0.2s ease;
+    }
+
+    @keyframes wg38_fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Main Navbar */
+    .wg38_navbar {
+      color: var(--wg38_nav-text);
+      z-index: 1100;
+      position: relative;
+      backdrop-filter: blur(10px);
+      background: var(--wg38_nav-bg);
+      border-bottom: 1px solid var(--wg38_border);
+      box-shadow: 0 10px 30px rgba(7, 58, 99, 0.08);
+    }
+
+    .wg38_nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .wg38_brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 280px;
+      transition: transform 0.2s ease;
+    }
+
+    .wg38_brand:hover {
+      transform: translateY(-1px);
+    }
+
+    .wg38_logo-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: #ffffff;
+      border: 1px solid rgba(11, 58, 102, 0.18);
+      box-shadow: 0 4px 12px rgba(11, 58, 102, 0.15);
+      padding: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .wg38_brand:hover .wg38_logo-img {
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    .wg38_brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1.1;
+    }
+
+    .wg38_brand-small {
+      font-size: 11.5px;
+      letter-spacing: 0.1px;
+      color: #0b1b2e;
+      text-transform: none;
+      font-weight: 800;
+    }
+
+    .wg38_brand-main {
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      color: var(--wg38_accent-yellow);
+      text-transform: uppercase;
+      font-weight: 900;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Desktop Main Navigation */
+    .wg38_nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .wg38_nav-link,
+    .wg38_dd-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      color: rgba(11, 27, 46, 0.92);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      position: relative;
+      font-weight: 700;
+      font-size: 13.5px;
+    }
+
+    .wg38_nav-link:hover,
+    .wg38_dd-toggle:hover,
+    .wg38_has-dropdown.wg38_open>.wg38_dd-toggle {
+      background: rgba(11, 58, 102, 0.08);
+      border-color: rgba(11, 58, 102, 0.12);
+      color: var(--wg38_accent-navy);
+    }
+
+    .wg38_nav-link::after,
+    .wg38_dd-toggle::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--wg38_accent-yellow);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .wg38_nav-link:hover::after,
+    .wg38_dd-toggle:hover::after,
+    .wg38_has-dropdown.wg38_open>.wg38_dd-toggle::after {
+      width: 70%;
+    }
+
+    .wg38_has-dropdown {
+      position: relative;
+    }
+
+    .wg38_dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 300px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--wg38_border);
+      background: var(--wg38_card);
+      box-shadow: var(--wg38_shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+      z-index: 5600;
+    }
+
+    .wg38_dropdown::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      width: 14px;
+      height: 14px;
+      background: var(--wg38_card);
+      border-left: 1px solid var(--wg38_border);
+      border-top: 1px solid var(--wg38_border);
+      transform: rotate(45deg);
+    }
+
+    .wg38_menu-item {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      color: #111827;
+      transition: all 0.2s ease;
+      margin-bottom: 4px;
+      border-left: 3px solid transparent;
+    }
+
+    .wg38_menu-item:hover {
+      background: var(--wg38_primary-soft);
+      transform: translateX(4px);
+      color: var(--wg38_accent-navy);
+      border-left-color: var(--wg38_accent-yellow);
+    }
+
+    .wg38_menu-title {
+      padding: 10px 12px 6px;
+      font-weight: 900;
+      font-size: 12.5px;
+      color: var(--wg38_accent-navy);
+      opacity: .95;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .wg38_has-dropdown.wg38_open>.wg38_dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: wg38_fadeInUp 0.2s ease;
+    }
+
+    /* Submenu (Desktop) */
+    .wg38_submenu-wrap {
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .wg38_sub-toggle {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      color: #111827;
+      transition: all 0.2s ease;
+    }
+
+    .wg38_sub-toggle:hover,
+    .wg38_submenu-wrap.wg38_open>.wg38_sub-toggle {
+      background: var(--wg38_primary-soft);
+    }
+
+    .wg38_sub-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--wg38_accent-navy);
+    }
+
+    .wg38_sub-hint {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .wg38_caret-right {
+      transform: rotate(0deg);
+      transition: transform 0.2s ease;
+    }
+
+    .wg38_submenu-wrap.wg38_open .wg38_caret-right {
+      transform: rotate(90deg);
+    }
+
+    .wg38_submenu {
+      position: absolute;
+      top: 0;
+      left: calc(100% + 10px);
+      min-width: 260px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--wg38_border);
+      background: var(--wg38_card);
+      box-shadow: var(--wg38_shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+      z-index: 5650;
+    }
+
+    .wg38_submenu::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: -8px;
+      width: 14px;
+      height: 14px;
+      background: var(--wg38_card);
+      border-left: 1px solid var(--wg38_border);
+      border-top: 1px solid var(--wg38_border);
+      transform: rotate(-45deg);
+    }
+
+    .wg38_submenu-wrap.wg38_open>.wg38_submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: wg38_fadeInUp 0.2s ease;
+    }
+
+    .wg38_menu-divider {
+      height: 1px;
+      background: rgba(0, 0, 0, 0.08);
+      margin: 8px 12px;
+    }
+
+    /* CTA Buttons (kosong sesuai permintaan user) */
+    .wg38_nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      justify-content: flex-end;
+    }
+
+    /* Mobile Buttons */
+    .wg38_aud-actions,
+    .wg38_nav-actions {
+      display: none;
+      align-items: center;
+    }
+
+    .wg38_icon-btn {
+      width: 38px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 10px;
+      border: 1px solid var(--wg38_border);
+      background: #ffffff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .wg38_icon-btn:hover {
+      background: #f8fafc;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .wg38_icon {
+      width: 18px;
+      height: 18px;
+      color: #334155;
+    }
+
+    /* =========================
+       MOBILE PANELS & OVERLAY
+    ========================= */
+    .wg38_overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.16s ease;
+      z-index: 6000;
+      backdrop-filter: blur(5px);
+    }
+
+    .wg38_overlay[data-open='true'] {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .wg38_aud-panel,
+    .wg38_nav-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(360px, 92vw);
+      height: 100vh;
+      background: #ffffff;
+      border-left: 1px solid var(--wg38_border);
+      box-shadow: var(--wg38_shadow);
+      transform: translateX(100%);
+      transition: all 0.3s ease;
+      z-index: 6500;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wg38_aud-panel {
+      width: min(380px, calc(100vw - 24px));
+      top: 56px;
+      right: 12px;
+      height: calc(100vh - 72px);
+      border-radius: 14px;
+    }
+
+    .wg38_aud-panel[data-open='true'],
+    .wg38_nav-panel[data-open='true'] {
+      transform: translateX(0);
+    }
+
+    .wg38_panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px;
+      border-bottom: 1px solid var(--wg38_border);
+      background: #ffffff;
+    }
+
+    .wg38_panel-title {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+
+    .wg38_panel-body {
+      padding: 16px;
+      overflow: auto;
+      flex: 1;
+    }
+
+    .wg38_m-list,
+    .wg38_nav-mobile-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .wg38_m-group,
+    .wg38_nav-mobile-item {
+      border: 1px solid var(--wg38_border);
+      border-radius: 12px;
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: var(--wg38_shadow-sm);
+    }
+
+    .wg38_m-group-btn,
+    .wg38_nav-mobile-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px;
+      border: 0;
+      background: #ffffff;
+      cursor: pointer;
+      text-align: left;
+      font-weight: 900;
+      color: #0f172a;
+      transition: background-color 0.2s ease;
+    }
+
+    .wg38_m-group-btn:hover,
+    .wg38_nav-mobile-btn:hover,
+    .wg38_m-group-btn[aria-expanded='true'],
+    .wg38_nav-mobile-btn[aria-expanded='true'] {
+      background: #f8fafc;
+    }
+
+    .wg38_m-sub,
+    .wg38_nav-mobile-sub {
+      border-top: 1px solid var(--wg38_border);
+      padding: 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .wg38_m-group-btn[aria-expanded='true']+.wg38_m-sub,
+    .wg38_nav-mobile-btn[aria-expanded='true']+.wg38_nav-mobile-sub {
+      max-height: 520px;
+      padding: 8px;
+    }
+
+    .wg38_m-sub a,
+    .wg38_nav-mobile-sub>a {
+      display: block;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #111827;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .wg38_m-sub a:hover,
+    .wg38_nav-mobile-sub>a:hover {
+      background: #f1f5f9;
+      transform: translateX(4px);
+      border-left-color: var(--wg38_accent-yellow);
+    }
+
+    .wg38_nav-mobile-sub-box {
+      border: 1px solid var(--wg38_border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 6px;
+    }
+
+    .wg38_nav-mobile-subbtn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px;
+      border: 0;
+      background: #ffffff;
+      cursor: pointer;
+      text-align: left;
+      font-weight: 800;
+      color: #111827;
+      transition: background-color 0.2s ease;
+    }
+
+    .wg38_nav-mobile-subbtn:hover,
+    .wg38_nav-mobile-subbtn[aria-expanded='true'] {
+      background: #f8fafc;
+    }
+
+    .wg38_nav-mobile-sub2 {
+      border-top: 1px dashed rgba(15, 23, 42, 0.12);
+      padding: 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .wg38_nav-mobile-subbtn[aria-expanded='true']+.wg38_nav-mobile-sub2 {
+      max-height: 340px;
+      padding: 8px;
+    }
+
+    .wg38_nav-mobile-sub2 a {
+      display: block;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      color: #111827;
+      transition: all 0.2s ease;
+    }
+
+    .wg38_nav-mobile-sub2 a:hover {
+      background: #f1f5f9;
+      transform: translateX(4px);
+    }
+
+    /* =========================
+       UTILITY
+    ========================= */
+    .wg38_is-hidden {
+      display: none !important;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width: 680px) {
+      .wg38_aud-nav {
+        display: none;
+      }
+
+      .wg38_aud-actions {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .wg38_nav-links {
+        display: none;
+      }
+
+      .wg38_nav-cta {
+        display: none;
+      }
+
+      .wg38_nav-actions {
+        display: flex;
+      }
+
+      .wg38_brand {
+        min-width: 0;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FFFFFF;
+      color: var(--wg38_text_main);
+      line-height: 1.6;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--wg38_primary_blue);
+      outline-offset: 2px;
+    }
+
+    .wg38_container {
+      width: 90%;
+      max-width: var(--wg38_container);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* =========================================
+           2. HEADER & STATS
+           ========================================= */
+    .wg38_page_header {
+      background-color: #FFFFFF;
+      padding: 4rem 0 2rem 0;
+      text-align: center;
+    }
+
+    .wg38_pill_label {
+      display: inline-block;
+      background-color: #E6EEF5;
+      color: var(--wg38_primary_blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.5rem 1rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+    }
+
+    .wg38_header_title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--wg38_primary_blue);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .wg38_header_desc {
+      font-size: 1.125rem;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      color: var(--wg38_text_muted);
+    }
+
+    .wg38_stats_wrapper {
+      margin-bottom: 4rem;
+    }
+
+    .wg38_stats_grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .wg38_stats_grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .wg38_stat_card {
+      background-color: var(--wg38_primary_blue);
+      color: #fff;
+      padding: 2rem 1.5rem;
+      border-radius: var(--wg38_radius);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: var(--wg38_transition);
+      box-shadow: 0 10px 15px -3px rgba(0, 59, 115, 0.2);
+    }
+
+    .wg38_stat_card:hover {
+      transform: translateY(-5px);
+      background-color: var(--wg38_primary_dark);
+    }
+
+    .wg38_stat_icon {
+      width: 48px;
+      height: 48px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .wg38_stat_icon svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    .wg38_stat_text h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .wg38_stat_text p {
+      font-size: 0.875rem;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    .wg38_breadcrumb {
+      font-size: 0.875rem;
+      color: var(--wg38_text_muted);
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .wg38_breadcrumb a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================================
+           3. TIMELINE DENGAN FOTO & GARIS
+           ========================================= */
+    .wg38_section_gray {
+      background-color: var(--wg38_bg_light);
+      padding: 5rem 0;
+    }
+
+    .wg38_section_title_center {
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--wg38_primary_blue);
+      margin-bottom: 4rem;
+    }
+
+    /* Wrapper Garis Vertikal */
+    .wg38_timeline_wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 40px;
+      /* Ruang untuk garis dan dot */
+    }
+
+    /* Garis Vertikal (The Line) */
+    .wg38_timeline_wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 15px;
+      /* Posisi tengah dot */
+      width: 3px;
+      background-color: #DCE4F0;
+      /* Warna garis abu kebiruan */
+      z-index: 0;
+    }
+
+    .wg38_timeline_item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    /* Tombol Trigger (Card) */
+    .wg38_timeline_trigger {
+      width: 100%;
+      background: #fff;
+      border: 1px solid var(--wg38_border);
+      border-radius: var(--wg38_radius);
+      padding: 1.25rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      /* Rata atas */
+      gap: 1.25rem;
+      transition: var(--wg38_transition);
+      position: relative;
+      z-index: 2;
+    }
+
+    .wg38_timeline_trigger:hover {
+      box-shadow: var(--wg38_shadow);
+      border-color: var(--wg38_primary_blue);
+    }
+
+    .wg38_timeline_trigger[aria-expanded="true"] {
+      border-color: var(--wg38_primary_blue);
+      box-shadow: var(--wg38_shadow);
+      background-color: #FDFEFF;
+    }
+
+    /* Dot Tahun (Pengganti Badge) */
+    .wg38_year_dot {
+      position: absolute;
+      left: -41px;
+      /* Menempel pas di garis */
+      top: 1.25rem;
+      /* Sejajar dengan konten atas */
+      width: 34px;
+      height: 34px;
+      background-color: #fff;
+      border: 3px solid var(--wg38_primary_blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--wg38_primary_blue);
+      z-index: 3;
+      transition: var(--wg38_transition);
+      box-shadow: 0 0 0 4px var(--wg38_bg_light);
+      /* Jarak putih dari garis */
+    }
+
+    .wg38_timeline_trigger[aria-expanded="true"]~.wg38_year_dot,
+    /* Fallback */
+    .wg38_timeline_item:hover .wg38_year_dot {
+      background-color: var(--wg38_primary_blue);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Thumbnail Foto di Trigger */
+    .wg38_timeline_thumb {
+      width: 90px;
+      height: 70px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--wg38_border);
+    }
+
+    .wg38_timeline_header_content {
+      flex: 1;
+    }
+
+    .wg38_timeline_header_content h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--wg38_text_main);
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+
+    .wg38_timeline_meta {
+      font-size: 0.875rem;
+      color: var(--wg38_text_muted);
+    }
+
+    .wg38_chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      fill: var(--wg38_text_muted);
+      margin-top: 0.25rem;
+    }
+
+    .wg38_timeline_trigger[aria-expanded="true"] .wg38_chevron {
+      transform: rotate(180deg);
+      fill: var(--wg38_primary_blue);
+    }
+
+    /* Panel Konten */
+    .wg38_timeline_panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: #fff;
+      margin-left: 1.25rem;
+      /* Indentasi dari trigger */
+      border-radius: 0 0 var(--wg38_radius) var(--wg38_radius);
+      position: relative;
+      top: -10px;
+      z-index: 1;
+      border: 1px solid var(--wg38_border);
+      border-top: none;
+    }
+
+    .wg38_timeline_panel_inner {
+      padding: 1.5rem;
+      background: #fcfcfd;
+    }
+
+    .wg38_timeline_panel_inner p {
+      color: var(--wg38_text_muted);
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 640px) {
+      .wg38_timeline_wrapper {
+        padding-left: 30px;
+      }
+
+      .wg38_timeline_wrapper::before {
+        left: 12px;
+      }
+
+      .wg38_year_dot {
+        left: -33px;
+        width: 28px;
+        height: 28px;
+        font-size: 0.65rem;
+        top: 1rem;
+      }
+
+      .wg38_timeline_trigger {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .wg38_timeline_thumb {
+        width: 60px;
+        height: 60px;
+      }
+
+      .wg38_chevron {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .wg38_timeline_panel {
+        margin-left: 0;
+        top: 0;
+      }
+    }
+
+    /* =========================================
+           4. VALUES, CTA, FOOTER
+           ========================================= */
+    .wg38_grid_cards {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .wg38_grid_cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .wg38_grid_cards {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .wg38_card_feature {
+      background: #fff;
+      padding: 2rem 1.5rem;
+      border-radius: var(--wg38_radius);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f3f4f6;
+      transition: var(--wg38_transition);
+    }
+
+    .wg38_card_feature:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--wg38_shadow);
+      border-color: #E6EEF5;
+    }
+
+    .wg38_icon_box {
+      width: 50px;
+      height: 50px;
+      background-color: #F0F5FA;
+      color: var(--wg38_primary_blue);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .wg38_icon_box svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2;
+    }
+
+    .wg38_feature_title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--wg38_text_main);
+      margin-bottom: 0.5rem;
+    }
+
+    .wg38_feature_desc {
+      font-size: 0.9rem;
+      color: var(--wg38_text_muted);
+    }
+
+    .wg38_cta_wrapper {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, var(--wg38_primary_blue) 0%, var(--wg38_primary_dark) 100%);
+      color: #fff;
+      border-radius: 20px;
+      margin: 2rem auto 4rem auto;
+      width: 90%;
+      max-width: var(--wg38_container);
+    }
+
+    .wg38_btn {
+      display: inline-block;
+      background-color: #fff;
+      color: var(--wg38_primary_blue);
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      transition: opacity 0.3s;
+    }
+
+    .wg38_btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="wg38_site-header">
+    <div class="wg38_audience-bar">
+      <div class="wg38_container wg38_audience-inner">
+        <div class="wg38_aud-left">
+          <div class="wg38_social">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13 22v-8h3l1-4h-4V7c0-1.1.3-2 2-2h2V1h-3c-3.3 0-5 2-5 5v4H8v4h3v8h2z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.8 4.6 12 4.6 12 4.6s-5.8 0-7.5.5A3 3 0 0 0 2.4 7.2a31 31 0 0 0 0 9.6 3 3 0 0 0 2.1 2.1c1.7.5 7.5.5 7.5.5s5.8 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <ul class="wg38_aud-nav" id="wg38_audienceNav">
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Kuesioner Mahasiswa
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran ITB Widyagama
+                Lumajang</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Fakultas Ekonomi dan
+                Bisnis</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Akuntansi</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Informatika</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Manajemen</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Magister
+                Manajemen</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Kepuasan Layanan Akademik</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Kepuasan Terhadap Dosen</a>
+              <a href="#" class="wg38_aud-link">Kuesioner Kepuasan Layanan Kegiatan Kemahasiswaan</a>
+            </div>
+          </li>
+
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Penerimaan Mahasiswa
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Pendaftaran Mahasiswa Baru</a>
+              <a href="#" class="wg38_aud-link">Pengumuman Hasil Seleksi</a>
+              <a href="#" class="wg38_aud-link">Rekognisi Pembelajaran Lampau</a>
+            </div>
+          </li>
+
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Mahasiswa
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Layanan Mahasiswa</a>
+              <a href="#" class="wg38_aud-link">Kuliah Kerja Nyata</a>
+              <a href="#" class="wg38_aud-link">Unit Kegiatan Mahasiswa</a>
+              <a href="#" class="wg38_aud-link">Prestasi Mahasiswa</a>
+              <a href="#" class="wg38_aud-link">Daftar Beasiswa</a>
+              <a href="#" class="wg38_aud-link">Program Kreatifitas Mahasiswa</a>
+            </div>
+          </li>
+
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Alumni
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Tracer Study</a>
+              <a href="#" class="wg38_aud-link">Tracer Pengguna</a>
+              <a href="#" class="wg38_aud-link">Laporan Tracer Study</a>
+            </div>
+          </li>
+
+          <li class="wg38_aud-item wg38_has-dropdown">
+            <button class="wg38_aud-toggle" type="button" aria-expanded="false">
+              Career Center
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_aud-dropdown">
+              <a href="#" class="wg38_aud-link">Informasi Pusat Karir</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="wg38_aud-actions">
+          <button id="wg38_audHamburger" class="wg38_icon-btn" type="button" aria-label="Menu layanan pengguna"
+            aria-expanded="false">
+            <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 6.5h.01M12 12h.01M12 17.5h.01" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wg38_navbar">
+      <div class="wg38_container wg38_nav-inner">
+        <a href="index.html" class="wg38_brand" aria-label="ITB Widyagama Lumajang">
+          <img class="wg38_logo-img" src="Untitled.png" alt="Logo ITB Widyagama Lumajang" />
+          <span class="wg38_brand-text">
+            <span class="wg38_brand-small">Institut Teknologi dan Bisnis</span>
+            <strong class="wg38_brand-main">Widyagama Lumajang</strong>
+          </span>
+        </a>
+
+        <ul class="wg38_nav-links" id="wg38_desktopNav">
+
+          <li class="wg38_has-dropdown">
+            <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+              Tentang Wiga
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_dropdown">
+              <div class="wg38_submenu-wrap">
+                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                  <span>
+                    <span class="wg38_sub-title">Profil</span>
+                    <span class="wg38_sub-hint">Informasi dasar kampus</span>
+                  </span>
+                  <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div class="wg38_submenu">
+                  <a href="sejarah.html" class="wg38_menu-item">Sejarah</a>
+                  <a href="ident.html" class="wg38_menu-item">Identitas</a>
+                  <a href="visimisi..html" class="wg38_menu-item">Visi Misi</a>
+                  <a href="#" class="wg38_menu-item">Sarana Prasarana</a>
+                  <a href="#" class="wg38_menu-item">Perencanaan Strategi</a>
+                  <a href="#" class="wg38_menu-item">Akreditasi</a>
+                </div>
+              </div>
+
+              <div class="wg38_submenu-wrap">
+                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                  <span>
+                    <span class="wg38_sub-title">Struktur</span>
+                    <span class="wg38_sub-hint">Organisasi dan kepemimpinan</span>
+                  </span>
+                  <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div class="wg38_submenu">
+                  <a href="#" class="wg38_menu-item">Struktur Organisasi</a>
+                  <a href="#" class="wg38_menu-item">Senat Akademik</a>
+                  <a href="#" class="wg38_menu-item">Pimpinan</a>
+                  <a href="#" class="wg38_menu-item">Tenaga Kependidikan</a>
+                </div>
+              </div>
+
+              <div class="wg38_menu-divider"></div>
+              <a href="#" class="wg38_menu-item">Lembaga Mitra</a>
+              <a href="#" class="wg38_menu-item">Prestasi & Penghargaan</a>
+            </div>
+          </li>
+          <li class="wg38_has-dropdown">
+            <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+              Fakultas
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_dropdown">
+              <div class="wg38_submenu-wrap">
+                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                  <span>
+                    <span class="wg38_sub-title">Fakultas Teknik Dan Informatika</span>
+                    <span class="wg38_sub-hint">Program studi Teknik</span>
+                  </span>
+                  <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div class="wg38_submenu">
+                  <a href="campus.html" class="wg38_menu-item">S1 Informatika</a>
+                </div>
+              </div>
+
+              <div class="wg38_submenu-wrap">
+                <button class="wg38_sub-toggle" type="button" aria-expanded="false">
+                  <span>
+                    <span class="wg38_sub-title">Fakultas Ekonomi Dan Bisnis</span>
+                    <span class="wg38_sub-hint">Program studi ekonomi & bisnis</span>
+                  </span>
+                  <svg class="wg38_caret wg38_caret-right" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div class="wg38_submenu">
+                  <a href="#" class="wg38_menu-item">S1 Akuntansi</a>
+                  <a href="#" class="wg38_menu-item">S1 Manajemen</a>
+                  <a href="#" class="wg38_menu-item">Magister Manajemen</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="wg38_has-dropdown">
+            <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+              Lembaga & UPT
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_dropdown">
+              <div class="wg38_menu-title">Lembaga</div>
+              <a href="#" class="wg38_menu-item">Lembaga Penelitian & Pengabdian Kepada Masyarakat</a>
+              <a href="#" class="wg38_menu-item">Lembaga Penjaminan Mutu dan Pengawasan Internal</a>
+              <a href="#" class="wg38_menu-item">Lembaga Pusat Unggulan IPTEK PT</a>
+              <div class="wg38_menu-divider"></div>
+              <div class="wg38_menu-title">Unit Pelaksana Teknis</div>
+              <a href="#" class="wg38_menu-item">UPT Perpustakaan</a>
+              <a href="#" class="wg38_menu-item">UPT Laboratorium</a>
+              <a href="#" class="wg38_menu-item">UPT Teknologi Informasi</a>
+            </div>
+          </li>
+          <li class="wg38_has-dropdown">
+            <button class="wg38_dd-toggle" type="button" aria-expanded="false">
+              Kerjasama
+              <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="wg38_dropdown">
+              <div class="wg38_menu-title">Kerjasama Institusi</div>
+              <a href="#" class="wg38_menu-item">Dalam Negeri</a>
+              <a href="#" class="wg38_menu-item">Luar Negeri</a>
+              <div class="wg38_menu-divider"></div>
+              <a href="#" class="wg38_menu-item">MoU & Dokumen Kerjasama</a>
+              <a href="#" class="wg38_menu-item">Program/Proyek Kolaborasi</a>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="wg38_nav-link">Pedoman</a>
+          </li>
+        </ul>
+
+        <div class="wg38_nav-cta"></div>
+
+        <div class="wg38_nav-actions">
+          <button id="wg38_navHamburger" class="wg38_icon-btn" type="button" aria-label="Menu utama"
+            aria-expanded="false">
+            <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="wg38_overlay" class="wg38_overlay" data-open="false"></div>
+
+  <aside id="wg38_audPanel" class="wg38_aud-panel" data-open="false" aria-modal="true" aria-label="Layanan Pengguna"
+    role="dialog">
+    <div class="wg38_panel-head">
+      <div class="wg38_panel-title">Layanan Pengguna</div>
+      <button id="wg38_audClose" class="wg38_icon-btn" type="button" aria-label="Tutup menu audience">
+        <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="wg38_panel-body">
+      <ul class="wg38_m-list">
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Kuesioner Mahasiswa</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran ITB Widyagama Lumajang</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Fakultas Ekonomi dan Bisnis</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Akuntansi</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Informatika</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Manajemen</a>
+            <a href="#">Kuesioner Pemahaman Visi Misi Tujuan dan Sasaran Prodi. Magister Manajemen</a>
+            <a href="#">Kuesioner Kepuasan Layanan Akademik</a>
+            <a href="#">Kuesioner Kepuasan Terhadap Dosen</a>
+            <a href="#">Kuesioner Kepuasan Layanan Kegiatan Kemahasiswaan</a>
+          </div>
+        </li>
+
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Penerimaan Mahasiswa</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Pendaftaran Mahasiswa Baru</a>
+            <a href="#">Pengumuman Hasil Seleksi</a>
+            <a href="#">Rekognisi Pembelajaran Lampau</a>
+          </div>
+        </li>
+
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Mahasiswa</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Layanan Mahasiswa</a>
+            <a href="#">Kuliah Kerja Nyata</a>
+            <a href="#">Unit Kegiatan Mahasiswa</a>
+            <a href="#">Prestasi Mahasiswa</a>
+            <a href="#">Daftar Beasiswa</a>
+            <a href="#">Program Kreatifitas Mahasiswa</a>
+          </div>
+        </li>
+
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Alumni</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Tracer Study</a>
+            <a href="#">Tracer Pengguna</a>
+            <a href="#">Laporan Tracer Study</a>
+          </div>
+        </li>
+
+        <li class="wg38_m-group">
+          <button class="wg38_m-group-btn" type="button" aria-expanded="false">
+            <span>Career Center</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_m-sub">
+            <a href="#">Informasi Pusat Karir</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <aside id="wg38_navPanel" class="wg38_nav-panel" data-open="false" aria-modal="true" aria-label="Menu Utama"
+    role="dialog">
+    <div class="wg38_panel-head">
+      <div class="wg38_panel-title">Menu</div>
+      <button id="wg38_navClose" class="wg38_icon-btn" type="button" aria-label="Tutup menu utama">
+        <svg class="wg38_icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="wg38_panel-body">
+      <ul class="wg38_nav-mobile-list">
+        <li class="wg38_nav-mobile-item">
+          <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+            <span>Tentang Wiga</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_nav-mobile-sub">
+            <div class="wg38_nav-mobile-sub-box">
+              <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                <span>Profil</span>
+                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="wg38_nav-mobile-sub2">
+                <a href="sejarah.html">Sejarah</a>
+                <a href="ident.html">Identitas</a>
+                <a href="visimisi..html">Visi Misi</a>
+                <a href="#">Sarana Prasarana</a>
+                <a href="#">Perencanaan Strategi</a>
+                <a href="#">Akreditasi</a>
+              </div>
+            </div>
+
+            <div class="wg38_nav-mobile-sub-box">
+              <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                <span>Struktur</span>
+                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="wg38_nav-mobile-sub2">
+                <a href="#">Struktur Organisasi</a>
+                <a href="#">Senat Akademik</a>
+                <a href="#">Pimpinan</a>
+                <a href="#">Tenaga Kependidikan</a>
+              </div>
+            </div>
+
+            <a href="#">Lembaga Mitra</a>
+            <a href="#">Prestasi & Penghargaan</a>
+          </div>
+        </li>
+
+        <li class="wg38_nav-mobile-item">
+          <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+            <span>Fakultas</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_nav-mobile-sub">
+            <div class="wg38_nav-mobile-sub-box">
+              <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                <span>Fakultas Teknologi Dan Informatika</span>
+                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="wg38_nav-mobile-sub2">
+                <a href="campus.html">S1 Informatika</a>
+              </div>
+            </div>
+
+            <div class="wg38_nav-mobile-sub-box">
+              <button class="wg38_nav-mobile-subbtn" type="button" aria-expanded="false">
+                <span>Fakultas Ekonomi Dan Bisnis</span>
+                <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="wg38_nav-mobile-sub2">
+                <a href="#">S1 Akuntansi</a>
+                <a href="#">S1 Manajemen</a>
+                <a href="#">Magister Manajemen</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="wg38_nav-mobile-item">
+          <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+            <span>Lembaga & UPT</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_nav-mobile-sub">
+            <div style="font-weight:900;color:var(--wg38_accent-navy);padding:12px 12px 8px;">Lembaga</div>
+            <a href="#">Lembaga Penelitian & Pengabdian Kepada Masyarakat</a>
+            <a href="#">Lembaga Penjaminan Mutu dan Pengawasan Internal</a>
+            <a href="#">Lembaga Pusat Unggulan IPTEK PT</a>
+
+            <div style="font-weight:900;color:var(--wg38_accent-navy);padding:12px 12px 8px;">UPT</div>
+            <a href="#">UPT Perpustakaan</a>
+            <a href="#">UPT Laboratorium</a>
+            <a href="#">UPT Teknologi Informasi</a>
+          </div>
+        </li>
+
+        <li class="wg38_nav-mobile-item">
+          <button class="wg38_nav-mobile-btn" type="button" aria-expanded="false">
+            <span>Kerjasama</span>
+            <svg class="wg38_caret" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="wg38_nav-mobile-sub">
+            <div style="font-weight:900;color:var(--wg38_accent-navy);padding:12px 12px 8px;">Kerjasama Institusi</div>
+            <a href="#">Dalam Negeri</a>
+            <a href="#">Luar Negeri</a>
+            <a href="#">MoU & Dokumen Kerjasama</a>
+            <a href="#">Program/Proyek Kolaborasi</a>
+          </div>
+        </li>
+
+        <li class="wg38_nav-mobile-item">
+          <a href="#" class="wg38_nav-mobile-btn"
+            style="display:flex; justify-content:space-between; align-items:center; width:100%; padding:16px; border:0; background:transparent; cursor:pointer; text-align:left; font-weight:900; color:#0f172a;">
+            <span>Pedoman</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <header class="wg38_page_header">
+    <div class="wg38_container">
+      <span class="wg38_pill_label">Profil Kampus</span>
+      <h1 class="wg38_header_title">Sejarah ITB Widyagama Lumajang</h1>
+      <p class="wg38_header_desc">Mencetak talenta unggul yang adaptif terhadap perubahan zaman. Perjalanan panjang
+        dedikasi kami dalam memadukan nilai akademik dengan inovasi teknologi.</p>
+
+      <div class="wg38_stats_wrapper">
+        <div class="wg38_stats_grid">
+          <div class="wg38_stat_card">
+            <div class="wg38_stat_icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z" />
+              </svg></div>
+            <div class="wg38_stat_text">
+              <h3>1987</h3>
+              <p>Tahun Berdiri</p>
+            </div>
+          </div>
+          <div class="wg38_stat_card">
+            <div class="wg38_stat_icon"><svg viewBox="0 0 24 24">
+                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+              </svg></div>
+            <div class="wg38_stat_text">
+              <h3>STIE &rarr; ITB</h3>
+              <p>Transformasi</p>
+            </div>
+          </div>
+          <div class="wg38_stat_card">
+            <div class="wg38_stat_icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.5s6 3.5 6 10c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-6.5 6-10 6-10zm0 2.5a.5.5 0 0 0 0 1h.5c.28 0 .5.22.5.5v2a.5.5 0 0 0 1 0v-2c0-.83-.67-1.5-1.5-1.5h-.5zM12 15a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+              </svg></div>
+            <div class="wg38_stat_text">
+              <h3>Teknologi</h3>
+              <p>Fokus Utama</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="wg38_breadcrumb">
+        <a href="index.html">Beranda</a> <span>/</span> <a href="ident.html">Profil</a> <span>/</span> <span>Sejarah</span>
+      </nav>
+    </div>
+  </header>
+
+  <section class="wg38_section_gray">
+    <div class="wg38_container">
+      <h2 class="wg38_section_title_center">Jejak Langkah Waktu</h2>
+
+      <div class="wg38_timeline_wrapper">
+
+        <div class="wg38_timeline_item">
+          <div class="wg38_year_dot">87</div>
+
+          <button class="wg38_timeline_trigger" aria-expanded="false" aria-controls="hist1">
+            <img src="https://placehold.co/120x90/e2e8f0/1f2937?text=Foto+1987" alt="Gedung Lama"
+              class="wg38_timeline_thumb">
+
+            <div class="wg38_timeline_header_content">
+              <h4>Pendirian Yayasan & Kampus Awal</h4>
+              <p class="wg38_timeline_meta">Awal mula pengabdian pendidikan.</p>
+            </div>
+            <svg class="wg38_chevron" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div id="hist1" class="wg38_timeline_panel">
+            <div class="wg38_timeline_panel_inner">
+              <p>Langkah awal pengabdian dimulai dengan berdirinya Yayasan Pembina Pendidikan Semeru. Perkuliahan
+                angkatan pertama dimulai dengan semangat tinggi meski fasilitas masih sederhana.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wg38_timeline_item">
+          <div class="wg38_year_dot">90s</div>
+          <button class="wg38_timeline_trigger" aria-expanded="false" aria-controls="hist2">
+            <img src="https://placehold.co/120x90/e2e8f0/1f2937?text=Kegiatan+90an" alt="Kegiatan Mahasiswa"
+              class="wg38_timeline_thumb">
+            <div class="wg38_timeline_header_content">
+              <h4>Ekspansi Program Studi Ekonomi</h4>
+              <p class="wg38_timeline_meta">Menjawab kebutuhan pasar daerah.</p>
+            </div>
+            <svg class="wg38_chevron" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div id="hist2" class="wg38_timeline_panel">
+            <div class="wg38_timeline_panel_inner">
+              <p>Kampus membuka Program Studi Manajemen dan Akuntansi. Ini menjadi tonggak awal dikenalnya kampus
+                sebagai pusat pendidikan bisnis yang berkualitas di Lumajang.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wg38_timeline_item">
+          <div class="wg38_year_dot">10</div>
+          <button class="wg38_timeline_trigger" aria-expanded="false" aria-controls="hist3">
+            <img src="https://placehold.co/120x90/e2e8f0/1f2937?text=Gedung+Baru" alt="Pembangunan Gedung"
+              class="wg38_timeline_thumb">
+            <div class="wg38_timeline_header_content">
+              <h4>Modernisasi Kampus Terpadu</h4>
+              <p class="wg38_timeline_meta">Peningkatan fasilitas infrastruktur.</p>
+            </div>
+            <svg class="wg38_chevron" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div id="hist3" class="wg38_timeline_panel">
+            <div class="wg38_timeline_panel_inner">
+              <p>Pembangunan gedung perkuliahan modern dilengkapi laboratorium komputer dan perpustakaan digital untuk
+                menunjang kenyamanan mahasiswa dalam proses belajar mengajar.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wg38_timeline_item">
+          <div class="wg38_year_dot"
+            style="background: var(--wg38_primary_blue); color: #fff; border: 3px solid #E6EEF5;">21</div>
+          <button class="wg38_timeline_trigger" aria-expanded="true" aria-controls="hist4"
+            style="background-color: #FDFEFF; border-color: var(--wg38_primary_blue);">
+            <img src="https://placehold.co/120x90/e2e8f0/1f2937?text=ITB+WIGA" alt="Peresmian ITB WIGA"
+              class="wg38_timeline_thumb">
+            <div class="wg38_timeline_header_content">
+              <h4>Lahirnya ITB Widyagama Lumajang</h4>
+              <p class="wg38_timeline_meta">Transformasi menuju era digital.</p>
+            </div>
+            <svg class="wg38_chevron" viewBox="0 0 24 24"
+              style="transform: rotate(180deg); fill: var(--wg38_primary_blue);">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div id="hist4" class="wg38_timeline_panel" style="max-height: 500px;">
+            <div class="wg38_timeline_panel_inner">
+              <p>Momen bersejarah perubahan bentuk dari Sekolah Tinggi menjadi Institut Teknologi dan Bisnis. Penambahan
+                prodi Informatika menandai kesiapan kampus di era digital 4.0.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="wg38_section_white" style="padding: 5rem 0;">
+    <div class="wg38_container">
+      <h2 class="wg38_section_title_center">Kenapa Memilih ITB WIGA?</h2>
+      <div class="wg38_grid_cards">
+        <div class="wg38_card_feature">
+          <div class="wg38_icon_box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              <path
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422c.164.883.393 1.745.665 2.579.52 1.58 1.258 3.09 2.175 4.502.917 1.412 2.032 2.668 3.328 3.743L12 22l-12.328-.598c1.296-1.075 2.411-2.331 3.328-3.743.917-1.412 1.655-2.922 2.175-4.502.272-.834.501-1.696.665-2.579L12 14z" />
+            </svg></div>
+          <h3 class="wg38_feature_title">Kurikulum Industri</h3>
+          <p class="wg38_feature_desc">Materi update sesuai kebutuhan tech startup dan korporasi terkini.</p>
+        </div>
+        <div class="wg38_card_feature">
+          <div class="wg38_icon_box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+            </svg></div>
+          <h3 class="wg38_feature_title">Project Based</h3>
+          <p class="wg38_feature_desc">Belajar dengan studi kasus nyata untuk portofolio yang kuat.</p>
+        </div>
+        <div class="wg38_card_feature">
+          <div class="wg38_icon_box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg></div>
+          <h3 class="wg38_feature_title">Mentoring Karier</h3>
+          <p class="wg38_feature_desc">Bimbingan persiapan kerja sejak semester awal oleh praktisi.</p>
+        </div>
+        <div class="wg38_card_feature">
+          <div class="wg38_icon_box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg></div>
+          <h3 class="wg38_feature_title">Sertifikasi</h3>
+          <p class="wg38_feature_desc">Lulusan dibekali sertifikasi kompetensi bertaraf nasional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wg38_cta_wrapper">
+    <h2 style="font-size: 1.75rem; margin-bottom: 1rem;">Bergabung Bersama Keluarga Besar ITB WIGA</h2>
+    <p>Jadilah bagian dari generasi inovator masa depan.</p>
+    <a href="#" class="wg38_btn">Daftar Sekarang</a>
+  </div>
+
+  <footer
+    style="text-align: center; padding: 2rem; color: var(--wg38_text_muted); font-size: 0.9rem; border-top: 1px solid #eee;">
+    <p>&copy; 2025 ITB Widyagama Lumajang. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.wg38_timeline_item');
+
+      items.forEach(item => {
+        const trigger = item.querySelector('.wg38_timeline_trigger');
+        const dot = item.querySelector('.wg38_year_dot');
+        const panelId = trigger.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+        const chevron = trigger.querySelector('.wg38_chevron');
+
+        trigger.addEventListener('click', () => {
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+          trigger.setAttribute('aria-expanded', !isExpanded);
+
+          if (!isExpanded) {
+            // Buka
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            dot.style.backgroundColor = 'var(--wg38_primary_blue)';
+            dot.style.color = '#fff';
+            chevron.style.transform = 'rotate(180deg)';
+            chevron.style.fill = 'var(--wg38_primary_blue)';
+          } else {
+            // Tutup
+            panel.style.maxHeight = null;
+            // Reset style dot jika bukan item highlight (tahun 2021)
+            if (!dot.getAttribute('style')?.includes('border: 3px solid #E6EEF5')) {
+              dot.style.backgroundColor = '#fff';
+              dot.style.color = 'var(--wg38_primary_blue)';
+            }
+            chevron.style.transform = 'rotate(0deg)';
+            chevron.style.fill = 'var(--wg38_text_muted)';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
